@@ -25,7 +25,15 @@ from common import QUALITY_LABELS, iter_streams, load_stations, REPO_ROOT
 
 USER_AGENT = "radio-streamurls/1.0 (+https://github.com/)"
 TIMEOUT = 12
-AUDIO_HINTS = ("audio/", "application/vnd.apple.mpegurl", "application/x-mpegurl", "video/mp2t")
+AUDIO_HINTS = (
+    "audio/",
+    # Noen Icecast-verter merker Ogg- og MP3-strømmer med application/*.
+    "application/ogg",
+    "application/mpeg",
+    "application/vnd.apple.mpegurl",
+    "application/x-mpegurl",
+    "video/mp2t",
+)
 
 
 def check_url(url: str) -> tuple[bool, str]:

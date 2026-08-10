@@ -69,3 +69,145 @@ https://live-bauerno.sharp-stream.com/radio1_no_mp3
 https://live-bauerno.sharp-stream.com/norskpop_no_mp3
 #EXTINF:-1 tvg-chno="55" tvg-name="Radio Vinyl" group-title="Bauer Media",55. Radio Vinyl
 https://live-bauerno.sharp-stream.com/vinyl_no_mp3
+#EXTINF:-1 tvg-chno="56" tvg-name="Topp 40" group-title="Bauer Media",56. Topp 40
+https://live-bauerno.sharp-stream.com/top40_no_mp3
+#EXTINF:-1 tvg-chno="57" tvg-name="P24-7 Mix" group-title="Bauer Media",57. P24-7 Mix
+https://live-bauerno.sharp-stream.com/p247mix_no_mp3
+#EXTINF:-1 tvg-chno="58" tvg-name="P24-7 Kos" group-title="Bauer Media",58. P24-7 Kos
+https://live-bauerno.sharp-stream.com/p247kos_no_mp3
+#EXTINF:-1 tvg-chno="59" tvg-name="P24-7 Juleradioen" group-title="Bauer Media",59. P24-7 Juleradioen
+https://live-bauerno.sharp-stream.com/station17_no_mp3
+#EXTINF:-1 tvg-chno="60" tvg-name="P4" group-title="P4-gruppen",60. P4
+https://p4.p4groupaudio.com/P04_MH
+#EXTINF:-1 tvg-chno="61" tvg-name="P5 Hits" group-title="P4-gruppen",61. P5 Hits
+https://p5.p4groupaudio.com/P05_MH
+#EXTINF:-1 tvg-chno="62" tvg-name="P5 Nonstop Hits" group-title="P4-gruppen",62. P5 Nonstop Hits
+https://p5n.p4groupaudio.com/P05AAH
+#EXTINF:-1 tvg-chno="63" tvg-name="P6 Rock" group-title="P4-gruppen",63. P6 Rock
+https://p6.p4groupaudio.com/P06_MH
+#EXTINF:-1 tvg-chno="64" tvg-name="P7 Klem" group-title="P4-gruppen",64. P7 Klem
+https://p7.p4groupaudio.com/P07_MH
+#EXTINF:-1 tvg-chno="65" tvg-name="P8 Pop" group-title="P4-gruppen",65. P8 Pop
+https://p8.p4groupaudio.com/P08_MH
+#EXTINF:-1 tvg-chno="66" tvg-name="P9 Retro" group-title="P4-gruppen",66. P9 Retro
+https://p9.p4groupaudio.com/P09_MH
+#EXTINF:-1 tvg-chno="67" tvg-name="P10 Country" group-title="P4-gruppen",67. P10 Country
+https://p10.p4groupaudio.com/P10_MH
+#EXTINF:-1 tvg-chno="68" tvg-name="P11 Dance" group-title="P4-gruppen",68. P11 Dance
+https://p11.p4groupaudio.com/P11_MH
+#EXTINF:-1 tvg-chno="69" tvg-name="P12 Hitmix" group-title="P4-gruppen",69. P12 Hitmix
+https://nrj.p4groupaudio.com/NRJ_MH
+#EXTINF:-1 tvg-chno="80" tvg-name="P7 Kristen Riksradio" group-title="P7",80. P7 Kristen Riksradio
+https://radio.p7.no/listen/p7_kristen_riksradio/kristen_riksradio
+#EXTINF:-1 tvg-chno="81" tvg-name="P7 Pop" group-title="P7",81. P7 Pop
+https://radio.p7.no/listen/p7_kristen_pop/kristen_pop
+#EXTINF:-1 tvg-chno="82" tvg-name="Radio 3.16" group-title="Radio 3.16",82. Radio 3.16
+https://streaming.radio.co/se326fb378/listen
+#EXTINF:-1 tvg-chno="83" tvg-name="Norsk Country Radio" group-title="Norsk Country Radio",83. Norsk Country Radio
+http://s6.voscast.com:10258/stream
+#EXTINF:-1 tvg-chno="84" tvg-name="Metal Express Radio" group-title="Metal Express Radio",84. Metal Express Radio
+http://s39.myradiostream.com:11590/listen.mp3
+#EXTINF:-1 tvg-chno="85" tvg-name="Radio Latin-Amerika" group-title="Radio Latin-Amerika",85. Radio Latin-Amerika
+https://stream.radiolatinamerika.no/latam_hq
+#EXTINF:-1 tvg-chno="86" tvg-name="historyradio.org" group-title="historyradio.org",86. historyradio.org
+http://stream.radiojar.com/6bmecgg3wd5tv
+#EXTINF:-1 tvg-chno="87" tvg-name="Radio Northern Star" group-title="Radio Northern Star",87. Radio Northern Star
+http://5866.cloudrad.io:8018/northernstar.mp3
+#EXTINF:-1 tvg-chno="90" tvg-name="Radio Rox" group-title="DinLyd",90. Radio Rox
+https://live-nors.sharp-stream.com/nors13.mp3
+#EXTINF:-1 tvg-chno="91" tvg-name="The Beat" group-title="DinLyd",91. The Beat
+https://live-nors.sharp-stream.com/nors17.mp3
+#EXTINF:-1 tvg-chno="92" tvg-name="Heart Radio" group-title="DinLyd",92. Heart Radio
+https://live-nors.sharp-stream.com/nors15.mp3
+#EXTINF:-1 tvg-chno="100" tvg-name="Hjalarhornet" group-title="Lokalradio",100. Hjalarhornet
+https://lyd1.lokalradio.no/hjalar_hq
+#EXTINF:-1 tvg-chno="101" tvg-name="Nordfjord Nærradio" group-title="Lokalradio",101. Nordfjord Nærradio
+https://lyd1.lokalradio.no/nnr_hq
+#EXTINF:-1 tvg-chno="102" tvg-name="Ordentlig Radio" group-title="Lokalradio",102. Ordentlig Radio
+https://lyd1.lokalradio.no/oradio_hq
+#EXTINF:-1 tvg-chno="103" tvg-name="P5 Fosen" group-title="Lokalradio",103. P5 Fosen
+https://lyd1.lokalradio.no/p5fosen_hq
+#EXTINF:-1 tvg-chno="104" tvg-name="Radio 102" group-title="Lokalradio",104. Radio 102
+https://lyd1.lokalradio.no/radio102_hq
+#EXTINF:-1 tvg-chno="105" tvg-name="Radio Kos" group-title="Lokalradio",105. Radio Kos
+https://lyd1.lokalradio.no/kos_hq
+#EXTINF:-1 tvg-chno="106" tvg-name="Radio Stryn" group-title="Lokalradio",106. Radio Stryn
+https://lyd1.lokalradio.no/stryn_hq
+#EXTINF:-1 tvg-chno="107" tvg-name="Valdres Radio" group-title="Lokalradio",107. Valdres Radio
+https://lyd1.lokalradio.no/valdres_hq
+#EXTINF:-1 tvg-chno="108" tvg-name="RadiOs" group-title="Lokalradio",108. RadiOs
+https://lyd2.lokalradio.no/radios_hq
+#EXTINF:-1 tvg-chno="109" tvg-name="Radio Luster" group-title="Lokalradio",109. Radio Luster
+https://lyd2.lokalradio.no/luster_hq
+#EXTINF:-1 tvg-chno="110" tvg-name="Radio Sunnmøre" group-title="Lokalradio",110. Radio Sunnmøre
+https://lyd2.lokalradio.no/sunnmore_hq
+#EXTINF:-1 tvg-chno="111" tvg-name="Radio Folgefonn" group-title="Lokalradio",111. Radio Folgefonn
+https://lyd2.lokalradio.no/folgefonn_hq
+#EXTINF:-1 tvg-chno="112" tvg-name="Sørlandsradioen" group-title="Lokalradio",112. Sørlandsradioen
+https://lyd2.lokalradio.no/sorlandsradioen_hq
+#EXTINF:-1 tvg-chno="120" tvg-name="ElverumsRadioen" group-title="Radioene",120. ElverumsRadioen
+https://lyd.radioene.no/elverum.mp3
+#EXTINF:-1 tvg-chno="121" tvg-name="GudbrandsdalsRadioen" group-title="Radioene",121. GudbrandsdalsRadioen
+https://lyd.radioene.no/gdal.mp3
+#EXTINF:-1 tvg-chno="122" tvg-name="HamarRadioen" group-title="Radioene",122. HamarRadioen
+https://lyd.radioene.no/hamar.mp3
+#EXTINF:-1 tvg-chno="123" tvg-name="RadioKongsvinger" group-title="Radioene",123. RadioKongsvinger
+https://lyd.radioene.no/kongsvinger.mp3
+#EXTINF:-1 tvg-chno="124" tvg-name="ØsterdalsRadioen" group-title="Radioene",124. ØsterdalsRadioen
+https://lyd.radioene.no/osterdal.mp3
+#EXTINF:-1 tvg-chno="125" tvg-name="SolørRadioen" group-title="Radioene",125. SolørRadioen
+https://lyd.radioene.no/solor.mp3
+#EXTINF:-1 tvg-chno="126" tvg-name="SolørRadioen+" group-title="Radioene",126. SolørRadioen+
+https://lyd.radioene.no/solorpluss.mp3
+#EXTINF:-1 tvg-chno="127" tvg-name="TrysilRadioen" group-title="Radioene",127. TrysilRadioen
+https://lyd.radioene.no/trysil.mp3
+#EXTINF:-1 tvg-chno="128" tvg-name="Totenradioen" group-title="Radioene",128. Totenradioen
+https://lyd.radioene.no/radiototen-mp3
+#EXTINF:-1 tvg-chno="129" tvg-name="Radio Sentrum" group-title="Radioene",129. Radio Sentrum
+https://lyd.radioene.no/radiosentrum.mp3
+#EXTINF:-1 tvg-chno="140" tvg-name="Radio 3 Bodø" group-title="Lokalradio",140. Radio 3 Bodø
+https://stream.bardufoss.no/Radio3Bodo
+#EXTINF:-1 tvg-chno="141" tvg-name="Radio Bardufoss" group-title="Lokalradio",141. Radio Bardufoss
+https://stream.bardufoss.no/radiobardufoss192
+#EXTINF:-1 tvg-chno="142" tvg-name="Radio Tromsø" group-title="Lokalradio",142. Radio Tromsø
+https://stream.bardufoss.no/radiotromso
+#EXTINF:-1 tvg-chno="143" tvg-name="Radio Tromsø Hits" group-title="Lokalradio",143. Radio Tromsø Hits
+https://stream.bardufoss.no/rthits192
+#EXTINF:-1 tvg-chno="144" tvg-name="Radio Nordkapp" group-title="Lokalradio",144. Radio Nordkapp
+http://audio.visto.no/radionordkapp.ogg
+#EXTINF:-1 tvg-chno="145" tvg-name="Radio Meløy" group-title="Lokalradio",145. Radio Meløy
+https://stream.radiomeloy.no:8003/radiomeloy
+#EXTINF:-1 tvg-chno="146" tvg-name="FM 8000 Bodø" group-title="Lokalradio",146. FM 8000 Bodø
+https://stream.radiomeloy.no:8003/8000bodo
+#EXTINF:-1 tvg-chno="147" tvg-name="Radio Værøy" group-title="Lokalradio",147. Radio Værøy
+https://stream.radiolatinamerika.no/varoy_hq
+#EXTINF:-1 tvg-chno="148" tvg-name="Guovdageainnu Lagasradio" group-title="Lokalradio",148. Guovdageainnu Lagasradio
+https://streaming.radio.co/s5b773f8d3/listen
+#EXTINF:-1 tvg-chno="160" tvg-name="Radio Randsfjord" group-title="Lokalradio",160. Radio Randsfjord
+https://stream.radiorandsfjord.no/randsfjord_hq
+#EXTINF:-1 tvg-chno="161" tvg-name="Radio Øst" group-title="Lokalradio",161. Radio Øst
+https://stream.radiorandsfjord.no/radioost_hq
+#EXTINF:-1 tvg-chno="162" tvg-name="Radio Skjeberg" group-title="Lokalradio",162. Radio Skjeberg
+https://stream.radiorandsfjord.no/radioskjeberg
+#EXTINF:-1 tvg-chno="163" tvg-name="radiOrakel" group-title="Lokalradio",163. radiOrakel
+https://stream.radiorakel.no/radiorakel_hq
+#EXTINF:-1 tvg-chno="164" tvg-name="Radio Nova" group-title="Lokalradio",164. Radio Nova
+http://stream.radionova.no/mp3
+#EXTINF:-1 tvg-chno="165" tvg-name="Radio Tønsberg" group-title="Jærradiogruppen",165. Radio Tønsberg
+https://audio.jaerradiogruppen.no/tonsberg_hq
+#EXTINF:-1 tvg-chno="166" tvg-name="Radio Lyngdal" group-title="Lokalradio",166. Radio Lyngdal
+https://live.radiolyngdal.com/rly_hq
+#EXTINF:-1 tvg-chno="180" tvg-name="Radio Sotra" group-title="Lokalradio",180. Radio Sotra
+https://streaming.radiosotra.no:8443/radiosotra
+#EXTINF:-1 tvg-chno="181" tvg-name="Radio Ålesund" group-title="Lokalradio",181. Radio Ålesund
+https://audio.radioaalesund.no/aalesund_hq
+#EXTINF:-1 tvg-chno="182" tvg-name="1FM Jazz" group-title="1FM",182. 1FM Jazz
+https://lyd.1fm.no/1fmjazz_hq
+#EXTINF:-1 tvg-chno="183" tvg-name="Radio Haugaland" group-title="Lokalradio",183. Radio Haugaland
+https://stream.theradiohub.com/?server=radioip.no&port=443&type=mp3&mount=rh.mp3
+#EXTINF:-1 tvg-chno="184" tvg-name="Radio Trøndelag" group-title="Lokalradio",184. Radio Trøndelag
+https://nettradio.radiotrondelag.no:8443/radio_trondelag
+#EXTINF:-1 tvg-chno="185" tvg-name="Nea Radio" group-title="Lokalradio",185. Nea Radio
+http://nettradio.nearadio.no:8000/stream
+#EXTINF:-1 tvg-chno="186" tvg-name="Radio Bø" group-title="Lokalradio",186. Radio Bø
+https://nettradio.radiobo.com/radiobo-high

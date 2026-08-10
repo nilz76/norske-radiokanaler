@@ -401,7 +401,7 @@
       "name": "Radio Norge",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://radionorge.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
         "mp3_high": "https://live-bauerno.sharp-stream.com/radionorge_no_mp3",
@@ -413,7 +413,7 @@
       "name": "Radio Rock",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://radiorock.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
         "mp3_high": "https://live-bauerno.sharp-stream.com/radiorock_no_mp3",
@@ -425,7 +425,7 @@
       "name": "Kiss",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://kiss.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
         "mp3_high": "https://live-bauerno.sharp-stream.com/kiss_no_mp3",
@@ -437,7 +437,7 @@
       "name": "Radio 1",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://radio1.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
         "mp3_high": "https://live-bauerno.sharp-stream.com/radio1_no_mp3",
@@ -449,10 +449,11 @@
       "name": "Norsk Pop",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://radionorge.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
-        "mp3_high": "https://live-bauerno.sharp-stream.com/norskpop_no_mp3"
+        "mp3_high": "https://live-bauerno.sharp-stream.com/norskpop_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/norskpop_no_aac"
       }
     },
     {
@@ -460,10 +461,879 @@
       "name": "Radio Vinyl",
       "broadcaster": "Bauer Media",
       "region": "Riksdekkende",
-      "homepage": "https://radionorge.no/",
+      "homepage": "https://radio.no/",
       "source": "https://live-bauerno.sharp-stream.com/",
       "streams": {
-        "mp3_high": "https://live-bauerno.sharp-stream.com/vinyl_no_mp3"
+        "mp3_high": "https://live-bauerno.sharp-stream.com/vinyl_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/vinyl_no_aac"
+      }
+    },
+    {
+      "id": 56,
+      "name": "Topp 40",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/top40_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/top40_no_aac"
+      }
+    },
+    {
+      "id": 57,
+      "name": "P24-7 Mix",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/p247mix_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/p247mix_no_aac"
+      }
+    },
+    {
+      "id": 58,
+      "name": "P24-7 Kos",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/p247kos_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/p247kos_no_aac"
+      }
+    },
+    {
+      "id": 59,
+      "name": "P24-7 Juleradioen",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "note": "Sesongkanal — sender julemusikk i desember",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/station17_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/station17_no_aac"
+      }
+    },
+    {
+      "id": 60,
+      "name": "P4",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p4.p4groupaudio.com/P04_MH",
+        "mp3_low": "https://p4.p4groupaudio.com/P04_MM",
+        "aac_high": "https://p4.p4groupaudio.com/P04_AH",
+        "aac_low": "https://p4.p4groupaudio.com/P04_AM"
+      }
+    },
+    {
+      "id": 61,
+      "name": "P5 Hits",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p5.p4groupaudio.com/P05_MH",
+        "mp3_low": "https://p5.p4groupaudio.com/P05_MM",
+        "aac_high": "https://p5.p4groupaudio.com/P05_AH",
+        "aac_low": "https://p5.p4groupaudio.com/P05_AM"
+      }
+    },
+    {
+      "id": 62,
+      "name": "P5 Nonstop Hits",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "note": "Musikkanal uten prat",
+      "streams": {
+        "mp3_low": "https://p5n.p4groupaudio.com/P05AMM",
+        "aac_high": "https://p5n.p4groupaudio.com/P05AAH"
+      }
+    },
+    {
+      "id": 63,
+      "name": "P6 Rock",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p6.p4groupaudio.com/P06_MH",
+        "mp3_low": "https://p6.p4groupaudio.com/P06_MM",
+        "aac_high": "https://p6.p4groupaudio.com/P06_AH",
+        "aac_low": "https://p6.p4groupaudio.com/P06_AM"
+      }
+    },
+    {
+      "id": 64,
+      "name": "P7 Klem",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p7.p4groupaudio.com/P07_MH",
+        "mp3_low": "https://p7.p4groupaudio.com/P07_MM",
+        "aac_high": "https://p7.p4groupaudio.com/P07_AH",
+        "aac_low": "https://p7.p4groupaudio.com/P07_AM"
+      }
+    },
+    {
+      "id": 65,
+      "name": "P8 Pop",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p8.p4groupaudio.com/P08_MH",
+        "mp3_low": "https://p8.p4groupaudio.com/P08_MM",
+        "aac_high": "https://p8.p4groupaudio.com/P08_AH",
+        "aac_low": "https://p8.p4groupaudio.com/P08_AM"
+      }
+    },
+    {
+      "id": 66,
+      "name": "P9 Retro",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p9.p4groupaudio.com/P09_MH",
+        "mp3_low": "https://p9.p4groupaudio.com/P09_MM",
+        "aac_high": "https://p9.p4groupaudio.com/P09_AH",
+        "aac_low": "https://p9.p4groupaudio.com/P09_AM"
+      }
+    },
+    {
+      "id": 67,
+      "name": "P10 Country",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p10.p4groupaudio.com/P10_MH",
+        "mp3_low": "https://p10.p4groupaudio.com/P10_MM",
+        "aac_high": "https://p10.p4groupaudio.com/P10_AH",
+        "aac_low": "https://p10.p4groupaudio.com/P10_AM"
+      }
+    },
+    {
+      "id": 68,
+      "name": "P11 Dance",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "streams": {
+        "mp3_high": "https://p11.p4groupaudio.com/P11_MH",
+        "mp3_low": "https://p11.p4groupaudio.com/P11_MM",
+        "aac_high": "https://p11.p4groupaudio.com/P11_AH",
+        "aac_low": "https://p11.p4groupaudio.com/P11_AM"
+      }
+    },
+    {
+      "id": 69,
+      "name": "P12 Hitmix",
+      "broadcaster": "P4-gruppen",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.no/",
+      "source": "https://radio.no/",
+      "note": "Het tidligere NRJ Norge — derav mount-navnet",
+      "streams": {
+        "mp3_high": "https://nrj.p4groupaudio.com/NRJ_MH",
+        "mp3_low": "https://nrj.p4groupaudio.com/NRJ_MM",
+        "aac_high": "https://nrj.p4groupaudio.com/NRJ_AH"
+      }
+    },
+    {
+      "id": 80,
+      "name": "P7 Kristen Riksradio",
+      "broadcaster": "P7",
+      "region": "Riksdekkende",
+      "homepage": "https://p7.no/",
+      "source": "https://p7.no/",
+      "streams": {
+        "mp3_high": "https://radio.p7.no/listen/p7_kristen_riksradio/kristen_riksradio"
+      }
+    },
+    {
+      "id": 81,
+      "name": "P7 Pop",
+      "broadcaster": "P7",
+      "region": "Riksdekkende",
+      "homepage": "https://p7.no/",
+      "source": "https://p7.no/",
+      "streams": {
+        "mp3_high": "https://radio.p7.no/listen/p7_kristen_pop/kristen_pop"
+      }
+    },
+    {
+      "id": 82,
+      "name": "Radio 3.16",
+      "broadcaster": "Radio 3.16",
+      "region": "Riksdekkende",
+      "homepage": "https://radio316.no/",
+      "source": "https://radio316.no/",
+      "streams": {
+        "aac_high": "https://streaming.radio.co/se326fb378/listen"
+      }
+    },
+    {
+      "id": 83,
+      "name": "Norsk Country Radio",
+      "broadcaster": "Norsk Country Radio",
+      "region": "Riksdekkende",
+      "homepage": "https://norskcountryradio.no/",
+      "source": "https://norskcountryradio.no/",
+      "streams": {
+        "mp3_high": "http://s6.voscast.com:10258/stream"
+      }
+    },
+    {
+      "id": 84,
+      "name": "Metal Express Radio",
+      "broadcaster": "Metal Express Radio",
+      "region": "Riksdekkende",
+      "homepage": "https://metalexpressradio.com/",
+      "source": "https://metalexpressradio.com/",
+      "streams": {
+        "mp3_high": "http://s39.myradiostream.com:11590/listen.mp3"
+      }
+    },
+    {
+      "id": 85,
+      "name": "Radio Latin-Amerika",
+      "broadcaster": "Radio Latin-Amerika",
+      "region": "Oslo",
+      "homepage": "https://radiolatinamerika.no/",
+      "source": "https://radiolatinamerika.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiolatinamerika.no/latam_hq",
+        "aac_high": "https://stream.radiolatinamerika.no/latam_mq",
+        "aac_low": "https://stream.radiolatinamerika.no/latam_lq"
+      }
+    },
+    {
+      "id": 86,
+      "name": "historyradio.org",
+      "broadcaster": "historyradio.org",
+      "region": "Riksdekkende",
+      "homepage": "https://historyradio.org/",
+      "source": "https://historyradio.org/",
+      "note": "Podkast- og dokumentarkanal",
+      "streams": {
+        "mp3_high": "http://stream.radiojar.com/6bmecgg3wd5tv"
+      }
+    },
+    {
+      "id": 87,
+      "name": "Radio Northern Star",
+      "broadcaster": "Radio Northern Star",
+      "region": "Riksdekkende",
+      "homepage": "https://radionorthernstar.no/",
+      "source": "https://radionorthernstar.no/",
+      "streams": {
+        "mp3_high": "http://5866.cloudrad.io:8018/northernstar.mp3"
+      }
+    },
+    {
+      "id": 90,
+      "name": "Radio Rox",
+      "broadcaster": "DinLyd",
+      "region": "Oslo",
+      "homepage": "https://dinlyd.no/radiorox/",
+      "source": "https://dinlyd.no/",
+      "note": "Mount-navnet er unummerert hos DinLyd; identifisert via radio-browser.info",
+      "streams": {
+        "mp3_high": "https://live-nors.sharp-stream.com/nors13.mp3"
+      }
+    },
+    {
+      "id": 91,
+      "name": "The Beat",
+      "broadcaster": "DinLyd",
+      "region": "Oslo",
+      "homepage": "https://dinlyd.no/thebeat/",
+      "source": "https://dinlyd.no/",
+      "note": "Mount-navnet er unummerert hos DinLyd; identifisert via radio-browser.info",
+      "streams": {
+        "mp3_high": "https://live-nors.sharp-stream.com/nors17.mp3"
+      }
+    },
+    {
+      "id": 92,
+      "name": "Heart Radio",
+      "broadcaster": "DinLyd",
+      "region": "Oslo",
+      "homepage": "https://dinlyd.no/heart-radio/",
+      "source": "https://dinlyd.no/",
+      "note": "Identifisert via kanal-ID i ICY-metadataen på strømmen",
+      "streams": {
+        "mp3_high": "https://live-nors.sharp-stream.com/nors15.mp3"
+      }
+    },
+    {
+      "id": 100,
+      "name": "Hjalarhornet",
+      "broadcaster": "Lokalradio",
+      "region": "Volda og Ørsta",
+      "homepage": "https://hjalarhornet.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/hjalar_hq"
+      }
+    },
+    {
+      "id": 101,
+      "name": "Nordfjord Nærradio",
+      "broadcaster": "Lokalradio",
+      "region": "Nordfjord",
+      "homepage": "https://nnr.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/nnr_hq",
+        "aac_high": "https://lyd1.lokalradio.no/nnr_mq",
+        "aac_low": "https://lyd1.lokalradio.no/nnr_lq"
+      }
+    },
+    {
+      "id": 102,
+      "name": "Ordentlig Radio",
+      "broadcaster": "Lokalradio",
+      "region": "Ålesund",
+      "homepage": "https://ordentligradio.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/oradio_hq",
+        "aac_high": "https://lyd1.lokalradio.no/oradio_mq",
+        "aac_low": "https://lyd1.lokalradio.no/oradio_lq"
+      }
+    },
+    {
+      "id": 103,
+      "name": "P5 Fosen",
+      "broadcaster": "Lokalradio",
+      "region": "Fosen",
+      "homepage": "https://p5fosen.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/p5fosen_hq",
+        "aac_high": "https://lyd1.lokalradio.no/p5fosen_mq",
+        "aac_low": "https://lyd1.lokalradio.no/p5fosen_lq"
+      }
+    },
+    {
+      "id": 104,
+      "name": "Radio 102",
+      "broadcaster": "Lokalradio",
+      "region": "Haugesund",
+      "homepage": "https://radio102.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/radio102_hq",
+        "aac_high": "https://lyd1.lokalradio.no/radio102_mq",
+        "aac_low": "https://lyd1.lokalradio.no/radio102_lq"
+      }
+    },
+    {
+      "id": 105,
+      "name": "Radio Kos",
+      "broadcaster": "Lokalradio",
+      "region": "Sunnmøre",
+      "homepage": "https://radiokos.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/kos_hq",
+        "aac_high": "https://lyd1.lokalradio.no/kos_mq",
+        "aac_low": "https://lyd1.lokalradio.no/kos_lq"
+      }
+    },
+    {
+      "id": 106,
+      "name": "Radio Stryn",
+      "broadcaster": "Lokalradio",
+      "region": "Stryn",
+      "homepage": "https://radiostryn.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/stryn_hq",
+        "aac_high": "https://lyd1.lokalradio.no/stryn_mq",
+        "aac_low": "https://lyd1.lokalradio.no/stryn_lq"
+      }
+    },
+    {
+      "id": 107,
+      "name": "Valdres Radio",
+      "broadcaster": "Lokalradio",
+      "region": "Valdres",
+      "homepage": "https://valdresradio.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd1.lokalradio.no/valdres_hq",
+        "aac_high": "https://lyd1.lokalradio.no/valdres_mq",
+        "aac_low": "https://lyd1.lokalradio.no/valdres_lq"
+      }
+    },
+    {
+      "id": 108,
+      "name": "RadiOs",
+      "broadcaster": "Lokalradio",
+      "region": "Os og Bjørnafjorden",
+      "homepage": "https://radios.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd2.lokalradio.no/radios_hq",
+        "aac_high": "https://lyd2.lokalradio.no/radios_mq",
+        "aac_low": "https://lyd2.lokalradio.no/radios_lq"
+      }
+    },
+    {
+      "id": 109,
+      "name": "Radio Luster",
+      "broadcaster": "Lokalradio",
+      "region": "Luster",
+      "homepage": "https://radioluster.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd2.lokalradio.no/luster_hq",
+        "aac_high": "https://lyd2.lokalradio.no/luster_mq",
+        "aac_low": "https://lyd2.lokalradio.no/luster_lq"
+      }
+    },
+    {
+      "id": 110,
+      "name": "Radio Sunnmøre",
+      "broadcaster": "Lokalradio",
+      "region": "Sunnmøre",
+      "homepage": "https://radiosunnmore.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd2.lokalradio.no/sunnmore_hq",
+        "aac_high": "https://lyd2.lokalradio.no/sunnmore_mq",
+        "aac_low": "https://lyd2.lokalradio.no/sunnmore_lq"
+      }
+    },
+    {
+      "id": 111,
+      "name": "Radio Folgefonn",
+      "broadcaster": "Lokalradio",
+      "region": "Hardanger",
+      "homepage": "https://radiofolgefonn.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd2.lokalradio.no/folgefonn_hq"
+      }
+    },
+    {
+      "id": 112,
+      "name": "Sørlandsradioen",
+      "broadcaster": "Lokalradio",
+      "region": "Sørlandet",
+      "homepage": "https://sorlandsradioen.no/",
+      "source": "https://lokalradio.no/",
+      "streams": {
+        "mp3_high": "https://lyd2.lokalradio.no/sorlandsradioen_hq",
+        "aac_low": "https://lyd2.lokalradio.no/sorlandsradioen_lq"
+      }
+    },
+    {
+      "id": 120,
+      "name": "ElverumsRadioen",
+      "broadcaster": "Radioene",
+      "region": "Elverum",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/elverum.mp3"
+      }
+    },
+    {
+      "id": 121,
+      "name": "GudbrandsdalsRadioen",
+      "broadcaster": "Radioene",
+      "region": "Gudbrandsdalen",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/gdal.mp3"
+      }
+    },
+    {
+      "id": 122,
+      "name": "HamarRadioen",
+      "broadcaster": "Radioene",
+      "region": "Hamar",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/hamar.mp3"
+      }
+    },
+    {
+      "id": 123,
+      "name": "RadioKongsvinger",
+      "broadcaster": "Radioene",
+      "region": "Kongsvinger",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/kongsvinger.mp3"
+      }
+    },
+    {
+      "id": 124,
+      "name": "ØsterdalsRadioen",
+      "broadcaster": "Radioene",
+      "region": "Østerdalen",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/osterdal.mp3"
+      }
+    },
+    {
+      "id": 125,
+      "name": "SolørRadioen",
+      "broadcaster": "Radioene",
+      "region": "Solør",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/solor.mp3"
+      }
+    },
+    {
+      "id": 126,
+      "name": "SolørRadioen+",
+      "broadcaster": "Radioene",
+      "region": "Solør",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/solorpluss.mp3"
+      }
+    },
+    {
+      "id": 127,
+      "name": "TrysilRadioen",
+      "broadcaster": "Radioene",
+      "region": "Trysil",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/trysil.mp3"
+      }
+    },
+    {
+      "id": 128,
+      "name": "Totenradioen",
+      "broadcaster": "Radioene",
+      "region": "Toten",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/radiototen-mp3"
+      }
+    },
+    {
+      "id": 129,
+      "name": "Radio Sentrum",
+      "broadcaster": "Radioene",
+      "region": "Innlandet",
+      "homepage": "https://radioene.no/",
+      "source": "https://radioene.no/",
+      "streams": {
+        "mp3_low": "https://lyd.radioene.no/radiosentrum.mp3"
+      }
+    },
+    {
+      "id": 140,
+      "name": "Radio 3 Bodø",
+      "broadcaster": "Lokalradio",
+      "region": "Bodø",
+      "homepage": "https://radio3.no/",
+      "source": "https://radio3.no/",
+      "streams": {
+        "mp3_high": "https://stream.bardufoss.no/Radio3Bodo",
+        "aac_high": "https://stream.bardufoss.no/Radio3Bodo128",
+        "aac_low": "https://stream.bardufoss.no/Radio3Bodo48"
+      }
+    },
+    {
+      "id": 141,
+      "name": "Radio Bardufoss",
+      "broadcaster": "Lokalradio",
+      "region": "Bardufoss",
+      "homepage": "https://radiobardufoss.no/",
+      "source": "https://radio3.no/",
+      "streams": {
+        "mp3_high": "https://stream.bardufoss.no/radiobardufoss192",
+        "aac_high": "https://stream.bardufoss.no/radiobardufoss128",
+        "aac_low": "https://stream.bardufoss.no/radiobardufoss48"
+      }
+    },
+    {
+      "id": 142,
+      "name": "Radio Tromsø",
+      "broadcaster": "Lokalradio",
+      "region": "Tromsø",
+      "homepage": "https://radiotromso.no/",
+      "source": "https://radio3.no/",
+      "streams": {
+        "mp3_high": "https://stream.bardufoss.no/radiotromso",
+        "aac_high": "https://stream.bardufoss.no/radiotromso128",
+        "aac_low": "https://stream.bardufoss.no/radiotromso48"
+      }
+    },
+    {
+      "id": 143,
+      "name": "Radio Tromsø Hits",
+      "broadcaster": "Lokalradio",
+      "region": "Tromsø",
+      "homepage": "https://radiotromso.no/",
+      "source": "https://radio3.no/",
+      "streams": {
+        "mp3_high": "https://stream.bardufoss.no/rthits192",
+        "aac_high": "https://stream.bardufoss.no/rthits128",
+        "aac_low": "https://stream.bardufoss.no/rthits48"
+      }
+    },
+    {
+      "id": 144,
+      "name": "Radio Nordkapp",
+      "broadcaster": "Lokalradio",
+      "region": "Nordkapp",
+      "homepage": "https://radionordkapp.no/",
+      "source": "https://radionordkapp.no/",
+      "note": "Ogg Vorbis — spilles av VLC og mpv, men ikke av alle spillere",
+      "streams": {
+        "mp3_high": "http://audio.visto.no/radionordkapp.ogg"
+      }
+    },
+    {
+      "id": 145,
+      "name": "Radio Meløy",
+      "broadcaster": "Lokalradio",
+      "region": "Meløy",
+      "homepage": "https://radiomeloy.no/",
+      "source": "https://radiomeloy.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiomeloy.no:8003/radiomeloy"
+      }
+    },
+    {
+      "id": 146,
+      "name": "FM 8000 Bodø",
+      "broadcaster": "Lokalradio",
+      "region": "Bodø",
+      "homepage": "https://radiomeloy.no/",
+      "source": "https://radiomeloy.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiomeloy.no:8003/8000bodo"
+      }
+    },
+    {
+      "id": 147,
+      "name": "Radio Værøy",
+      "broadcaster": "Lokalradio",
+      "region": "Værøy",
+      "homepage": "https://radiolatinamerika.no/",
+      "source": "https://radiolatinamerika.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiolatinamerika.no/varoy_hq",
+        "aac_high": "https://stream.radiolatinamerika.no/varoy_mq",
+        "aac_low": "https://stream.radiolatinamerika.no/varoy_lq"
+      }
+    },
+    {
+      "id": 148,
+      "name": "Guovdageainnu Lagasradio",
+      "broadcaster": "Lokalradio",
+      "region": "Kautokeino",
+      "homepage": "https://glr.no/",
+      "source": "https://glr.no/",
+      "note": "Samiskspråklig lokalradio",
+      "streams": {
+        "aac_high": "https://streaming.radio.co/s5b773f8d3/listen"
+      }
+    },
+    {
+      "id": 160,
+      "name": "Radio Randsfjord",
+      "broadcaster": "Lokalradio",
+      "region": "Randsfjord",
+      "homepage": "https://radiorandsfjord.no/",
+      "source": "https://radiorandsfjord.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiorandsfjord.no/randsfjord_hq",
+        "aac_high": "https://stream.radiorandsfjord.no/randsfjord_mq",
+        "aac_low": "https://stream.radiorandsfjord.no/randsfjord_lq"
+      }
+    },
+    {
+      "id": 161,
+      "name": "Radio Øst",
+      "broadcaster": "Lokalradio",
+      "region": "Østfold",
+      "homepage": "https://radioost.no/",
+      "source": "https://radiorandsfjord.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiorandsfjord.no/radioost_hq",
+        "aac_high": "https://stream.radiorandsfjord.no/radioost_mq",
+        "aac_low": "https://stream.radiorandsfjord.no/radioost_lq"
+      }
+    },
+    {
+      "id": 162,
+      "name": "Radio Skjeberg",
+      "broadcaster": "Lokalradio",
+      "region": "Sarpsborg",
+      "homepage": "https://radioskjeberg.no/",
+      "source": "https://radiorandsfjord.no/",
+      "streams": {
+        "mp3_high": "https://stream.radiorandsfjord.no/radioskjeberg",
+        "aac_high": "https://stream.radiorandsfjord.no/radioskjeberg256"
+      }
+    },
+    {
+      "id": 163,
+      "name": "radiOrakel",
+      "broadcaster": "Lokalradio",
+      "region": "Oslo",
+      "homepage": "https://radiorakel.no/",
+      "source": "https://radiorakel.no/",
+      "note": "Verdens første kvinneradio, startet 1982",
+      "streams": {
+        "mp3_high": "https://stream.radiorakel.no/radiorakel_hq",
+        "mp3_low": "https://stream.radiorakel.no/fm993.mp3",
+        "aac_high": "https://stream.radiorakel.no/radiorakel_mq"
+      }
+    },
+    {
+      "id": 164,
+      "name": "Radio Nova",
+      "broadcaster": "Lokalradio",
+      "region": "Oslo",
+      "homepage": "https://radionova.no/",
+      "source": "https://radionova.no/",
+      "note": "Studentradio. HTTPS-sertifikatet på strømmeverten er ugyldig, så URL-en er http",
+      "streams": {
+        "mp3_high": "http://stream.radionova.no/mp3"
+      }
+    },
+    {
+      "id": 165,
+      "name": "Radio Tønsberg",
+      "broadcaster": "Jærradiogruppen",
+      "region": "Tønsberg",
+      "homepage": "https://radiotonsberg.no/",
+      "source": "https://jaerradiogruppen.no/",
+      "streams": {
+        "mp3_high": "https://audio.jaerradiogruppen.no/tonsberg_hq"
+      }
+    },
+    {
+      "id": 166,
+      "name": "Radio Lyngdal",
+      "broadcaster": "Lokalradio",
+      "region": "Lyngdal",
+      "homepage": "https://radiolyngdal.com/",
+      "source": "https://radiolyngdal.com/",
+      "streams": {
+        "mp3_high": "https://live.radiolyngdal.com/rly_hq",
+        "aac_high": "https://live.radiolyngdal.com/rly_mq",
+        "aac_low": "https://live.radiolyngdal.com/rly_lq"
+      }
+    },
+    {
+      "id": 180,
+      "name": "Radio Sotra",
+      "broadcaster": "Lokalradio",
+      "region": "Sotra",
+      "homepage": "https://radiosotra.no/",
+      "source": "https://radiosotra.no/",
+      "streams": {
+        "mp3_low": "https://streaming.radiosotra.no:8443/radiosotra"
+      }
+    },
+    {
+      "id": 181,
+      "name": "Radio Ålesund",
+      "broadcaster": "Lokalradio",
+      "region": "Ålesund",
+      "homepage": "https://radioaalesund.no/",
+      "source": "https://radioaalesund.no/",
+      "streams": {
+        "mp3_high": "https://audio.radioaalesund.no/aalesund_hq",
+        "aac_high": "https://audio.radioaalesund.no/aalesund_mq"
+      }
+    },
+    {
+      "id": 182,
+      "name": "1FM Jazz",
+      "broadcaster": "1FM",
+      "region": "Molde",
+      "homepage": "https://1fm.no/",
+      "source": "https://1fm.no/",
+      "streams": {
+        "mp3_high": "https://lyd.1fm.no/1fmjazz_hq",
+        "mp3_low": "https://lyd.1fm.no/1fmjazz_mq"
+      }
+    },
+    {
+      "id": 183,
+      "name": "Radio Haugaland",
+      "broadcaster": "Lokalradio",
+      "region": "Haugesund",
+      "homepage": "https://radiohaugaland.no/",
+      "source": "https://radiohaugaland.no/",
+      "streams": {
+        "mp3_low": "https://stream.theradiohub.com/?server=radioip.no&port=443&type=mp3&mount=rh.mp3"
+      }
+    },
+    {
+      "id": 184,
+      "name": "Radio Trøndelag",
+      "broadcaster": "Lokalradio",
+      "region": "Trøndelag",
+      "homepage": "https://radiotrondelag.no/",
+      "source": "https://radiotrondelag.no/",
+      "streams": {
+        "mp3_high": "https://nettradio.radiotrondelag.no:8443/radio_trondelag"
+      }
+    },
+    {
+      "id": 185,
+      "name": "Nea Radio",
+      "broadcaster": "Lokalradio",
+      "region": "Selbu og Tydal",
+      "homepage": "https://nearadio.no/",
+      "source": "https://nearadio.no/",
+      "streams": {
+        "mp3_high": "http://nettradio.nearadio.no:8000/stream"
+      }
+    },
+    {
+      "id": 186,
+      "name": "Radio Bø",
+      "broadcaster": "Lokalradio",
+      "region": "Bø i Midt-Telemark",
+      "homepage": "https://radiobo.com/",
+      "source": "https://radiobo.com/",
+      "streams": {
+        "mp3_high": "https://nettradio.radiobo.com/radiobo-high",
+        "aac_low": "https://nettradio.radiobo.com/radiobo-med"
       }
     }
   ]

@@ -53,11 +53,15 @@ def main() -> int:
 
     stations = load_stations()["stations"]
     nrk = [s for s in stations if s["broadcaster"] == "NRK"]
+    # Riksdekkende kommersielle kanaler har id under 100; lokalradio ligger over.
+    kommersielle = [s for s in stations if s["broadcaster"] != "NRK" and s["id"] < 100]
+    lokal = [s for s in stations if s["id"] >= 100]
 
     write_playlist("alle-kanaler.m3u", "Alle norske radiokanaler", stations, args.quality)
     write_playlist("nrk.m3u", "NRK — riksdekkende kanaler", [s for s in nrk if s["region"] == "Riksdekkende"], args.quality)
     write_playlist("nrk-distrikt.m3u", "NRK P1 — distriktskanaler", [s for s in nrk if s["region"] != "Riksdekkende"], args.quality)
-    write_playlist("kommersielle.m3u", "Kommersielle kanaler", [s for s in stations if s["broadcaster"] != "NRK"], args.quality)
+    write_playlist("kommersielle.m3u", "Riksdekkende kommersielle kanaler", kommersielle, args.quality)
+    write_playlist("lokalradio.m3u", "Lokalradio", sorted(lokal, key=lambda s: s["region"]), args.quality)
     return 0
 
 

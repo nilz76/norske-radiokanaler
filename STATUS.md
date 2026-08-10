@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-08-10 08:27 UTC
+Sist sjekket: 2026-08-10 11:35 UTC
 
-122 av 122 strømmer svarte.
+271 av 271 strømmer svarte.
 
 | Nr. | Kanal | Kvalitet | Status | Detaljer |
 | --: | ----- | -------- | ------ | -------- |
@@ -127,6 +127,155 @@ Sist sjekket: 2026-08-10 08:27 UTC
 | 53 | Radio 1 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 53 | Radio 1 | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 54 | Norsk Pop | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 54 | Norsk Pop | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 55 | Radio Vinyl | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 55 | Radio Vinyl | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 56 | Topp 40 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 56 | Topp 40 | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 57 | P24-7 Mix | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 57 | P24-7 Mix | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 58 | P24-7 Kos | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 58 | P24-7 Kos | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 59 | P24-7 Juleradioen | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 59 | P24-7 Juleradioen | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 60 | P4 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 60 | P4 | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 60 | P4 | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 60 | P4 | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 61 | P5 Hits | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 61 | P5 Hits | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 61 | P5 Hits | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 61 | P5 Hits | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 62 | P5 Nonstop Hits | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 62 | P5 Nonstop Hits | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 63 | P6 Rock | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 63 | P6 Rock | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 63 | P6 Rock | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 63 | P6 Rock | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 64 | P7 Klem | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 64 | P7 Klem | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 64 | P7 Klem | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 64 | P7 Klem | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 65 | P8 Pop | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 65 | P8 Pop | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 65 | P8 Pop | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 65 | P8 Pop | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 66 | P9 Retro | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 66 | P9 Retro | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 66 | P9 Retro | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 66 | P9 Retro | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 67 | P10 Country | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 67 | P10 Country | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 67 | P10 Country | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 67 | P10 Country | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 68 | P11 Dance | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 68 | P11 Dance | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 68 | P11 Dance | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 68 | P11 Dance | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 69 | P12 Hitmix | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 69 | P12 Hitmix | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 69 | P12 Hitmix | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 80 | P7 Kristen Riksradio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 81 | P7 Pop | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 82 | Radio 3.16 | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 83 | Norsk Country Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 84 | Metal Express Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 85 | Radio Latin-Amerika | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 85 | Radio Latin-Amerika | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 85 | Radio Latin-Amerika | AAC lav | ✅ OK | HTTP 200 audio/aac |
+| 86 | historyradio.org | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 87 | Radio Northern Star | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 90 | Radio Rox | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 91 | The Beat | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 92 | Heart Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 100 | Hjalarhornet | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 101 | Nordfjord Nærradio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 101 | Nordfjord Nærradio | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 101 | Nordfjord Nærradio | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 102 | Ordentlig Radio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 102 | Ordentlig Radio | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 102 | Ordentlig Radio | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 103 | P5 Fosen | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 103 | P5 Fosen | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 103 | P5 Fosen | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 104 | Radio 102 | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 104 | Radio 102 | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 104 | Radio 102 | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 105 | Radio Kos | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 105 | Radio Kos | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 105 | Radio Kos | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 106 | Radio Stryn | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 106 | Radio Stryn | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 106 | Radio Stryn | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 107 | Valdres Radio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 107 | Valdres Radio | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 107 | Valdres Radio | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 108 | RadiOs | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 108 | RadiOs | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 108 | RadiOs | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 109 | Radio Luster | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 109 | Radio Luster | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 109 | Radio Luster | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 110 | Radio Sunnmøre | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 110 | Radio Sunnmøre | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 110 | Radio Sunnmøre | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 111 | Radio Folgefonn | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 112 | Sørlandsradioen | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 112 | Sørlandsradioen | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 120 | ElverumsRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 121 | GudbrandsdalsRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 122 | HamarRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 123 | RadioKongsvinger | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 124 | ØsterdalsRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 125 | SolørRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 126 | SolørRadioen+ | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 127 | TrysilRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 128 | Totenradioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 129 | Radio Sentrum | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 140 | Radio 3 Bodø | MP3 høy | ✅ OK | HTTP 206 application/mpeg |
+| 140 | Radio 3 Bodø | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 140 | Radio 3 Bodø | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 141 | Radio Bardufoss | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 141 | Radio Bardufoss | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 141 | Radio Bardufoss | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 142 | Radio Tromsø | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 142 | Radio Tromsø | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 142 | Radio Tromsø | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 143 | Radio Tromsø Hits | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 143 | Radio Tromsø Hits | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 143 | Radio Tromsø Hits | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 144 | Radio Nordkapp | MP3 høy | ✅ OK | HTTP 200 application/ogg |
+| 145 | Radio Meløy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 146 | FM 8000 Bodø | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 147 | Radio Værøy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 147 | Radio Værøy | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 147 | Radio Værøy | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 148 | Guovdageainnu Lagasradio | AAC høy | ✅ OK | HTTP 200 audio/aac |
+| 160 | Radio Randsfjord | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 160 | Radio Randsfjord | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 160 | Radio Randsfjord | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 161 | Radio Øst | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 161 | Radio Øst | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 161 | Radio Øst | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 162 | Radio Skjeberg | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 162 | Radio Skjeberg | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 163 | radiOrakel | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 163 | radiOrakel | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 163 | radiOrakel | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 164 | Radio Nova | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 165 | Radio Tønsberg | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 166 | Radio Lyngdal | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 166 | Radio Lyngdal | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 166 | Radio Lyngdal | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 180 | Radio Sotra | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 181 | Radio Ålesund | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 181 | Radio Ålesund | AAC høy | ✅ OK | HTTP 206 audio/aac |
+| 182 | 1FM Jazz | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 182 | 1FM Jazz | MP3 lav | ✅ OK | HTTP 206 audio/mpeg |
+| 183 | Radio Haugaland | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 184 | Radio Trøndelag | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 185 | Nea Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 186 | Radio Bø | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 186 | Radio Bø | AAC lav | ✅ OK | HTTP 200 audio/aacp |
 
 Generert av `scripts/check_streams.py --report`.

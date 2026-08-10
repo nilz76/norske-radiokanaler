@@ -1,5 +1,5 @@
 #EXTM3U
-# Kommersielle kanaler
+# Riksdekkende kommersielle kanaler
 # Generert av scripts/build_playlists.py — rediger stations.json i stedet.
 #EXTINF:-1 tvg-chno="50" tvg-name="Radio Norge" group-title="Bauer Media",50. Radio Norge
 https://live-bauerno.sharp-stream.com/radionorge_no_mp3
@@ -13,3 +13,53 @@ https://live-bauerno.sharp-stream.com/radio1_no_mp3
 https://live-bauerno.sharp-stream.com/norskpop_no_mp3
 #EXTINF:-1 tvg-chno="55" tvg-name="Radio Vinyl" group-title="Bauer Media",55. Radio Vinyl
 https://live-bauerno.sharp-stream.com/vinyl_no_mp3
+#EXTINF:-1 tvg-chno="56" tvg-name="Topp 40" group-title="Bauer Media",56. Topp 40
+https://live-bauerno.sharp-stream.com/top40_no_mp3
+#EXTINF:-1 tvg-chno="57" tvg-name="P24-7 Mix" group-title="Bauer Media",57. P24-7 Mix
+https://live-bauerno.sharp-stream.com/p247mix_no_mp3
+#EXTINF:-1 tvg-chno="58" tvg-name="P24-7 Kos" group-title="Bauer Media",58. P24-7 Kos
+https://live-bauerno.sharp-stream.com/p247kos_no_mp3
+#EXTINF:-1 tvg-chno="59" tvg-name="P24-7 Juleradioen" group-title="Bauer Media",59. P24-7 Juleradioen
+https://live-bauerno.sharp-stream.com/station17_no_mp3
+#EXTINF:-1 tvg-chno="60" tvg-name="P4" group-title="P4-gruppen",60. P4
+https://p4.p4groupaudio.com/P04_MH
+#EXTINF:-1 tvg-chno="61" tvg-name="P5 Hits" group-title="P4-gruppen",61. P5 Hits
+https://p5.p4groupaudio.com/P05_MH
+#EXTINF:-1 tvg-chno="62" tvg-name="P5 Nonstop Hits" group-title="P4-gruppen",62. P5 Nonstop Hits
+https://p5n.p4groupaudio.com/P05AAH
+#EXTINF:-1 tvg-chno="63" tvg-name="P6 Rock" group-title="P4-gruppen",63. P6 Rock
+https://p6.p4groupaudio.com/P06_MH
+#EXTINF:-1 tvg-chno="64" tvg-name="P7 Klem" group-title="P4-gruppen",64. P7 Klem
+https://p7.p4groupaudio.com/P07_MH
+#EXTINF:-1 tvg-chno="65" tvg-name="P8 Pop" group-title="P4-gruppen",65. P8 Pop
+https://p8.p4groupaudio.com/P08_MH
+#EXTINF:-1 tvg-chno="66" tvg-name="P9 Retro" group-title="P4-gruppen",66. P9 Retro
+https://p9.p4groupaudio.com/P09_MH
+#EXTINF:-1 tvg-chno="67" tvg-name="P10 Country" group-title="P4-gruppen",67. P10 Country
+https://p10.p4groupaudio.com/P10_MH
+#EXTINF:-1 tvg-chno="68" tvg-name="P11 Dance" group-title="P4-gruppen",68. P11 Dance
+https://p11.p4groupaudio.com/P11_MH
+#EXTINF:-1 tvg-chno="69" tvg-name="P12 Hitmix" group-title="P4-gruppen",69. P12 Hitmix
+https://nrj.p4groupaudio.com/NRJ_MH
+#EXTINF:-1 tvg-chno="80" tvg-name="P7 Kristen Riksradio" group-title="P7",80. P7 Kristen Riksradio
+https://radio.p7.no/listen/p7_kristen_riksradio/kristen_riksradio
+#EXTINF:-1 tvg-chno="81" tvg-name="P7 Pop" group-title="P7",81. P7 Pop
+https://radio.p7.no/listen/p7_kristen_pop/kristen_pop
+#EXTINF:-1 tvg-chno="82" tvg-name="Radio 3.16" group-title="Radio 3.16",82. Radio 3.16
+https://streaming.radio.co/se326fb378/listen
+#EXTINF:-1 tvg-chno="83" tvg-name="Norsk Country Radio" group-title="Norsk Country Radio",83. Norsk Country Radio
+http://s6.voscast.com:10258/stream
+#EXTINF:-1 tvg-chno="84" tvg-name="Metal Express Radio" group-title="Metal Express Radio",84. Metal Express Radio
+http://s39.myradiostream.com:11590/listen.mp3
+#EXTINF:-1 tvg-chno="85" tvg-name="Radio Latin-Amerika" group-title="Radio Latin-Amerika",85. Radio Latin-Amerika
+https://stream.radiolatinamerika.no/latam_hq
+#EXTINF:-1 tvg-chno="86" tvg-name="historyradio.org" group-title="historyradio.org",86. historyradio.org
+http://stream.radiojar.com/6bmecgg3wd5tv
+#EXTINF:-1 tvg-chno="87" tvg-name="Radio Northern Star" group-title="Radio Northern Star",87. Radio Northern Star
+http://5866.cloudrad.io:8018/northernstar.mp3
+#EXTINF:-1 tvg-chno="90" tvg-name="Radio Rox" group-title="DinLyd",90. Radio Rox
+https://live-nors.sharp-stream.com/nors13.mp3
+#EXTINF:-1 tvg-chno="91" tvg-name="The Beat" group-title="DinLyd",91. The Beat
+https://live-nors.sharp-stream.com/nors17.mp3
+#EXTINF:-1 tvg-chno="92" tvg-name="Heart Radio" group-title="DinLyd",92. Heart Radio
+https://live-nors.sharp-stream.com/nors15.mp3

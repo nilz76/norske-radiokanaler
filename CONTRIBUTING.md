@@ -3,7 +3,8 @@
 ## Legge til en kanal
 
 1. Legg inn en ny oppføring i `stations.json`. Bruk et ledig `id`-nummer i riktig
-   blokk — 1–19 NRK riksdekkende, 20–49 NRK distrikt, 50+ kommersielle.
+   blokk — 1–19 NRK riksdekkende, 20–49 NRK distrikt, 50–99 riksdekkende
+   kommersielle, 100+ lokalradio.
 2. Fyll ut `name`, `broadcaster`, `region`, `homepage` og `source`. `source` skal
    peke på siden URL-en er hentet fra, slik at den kan hentes på nytt senere.
 3. Legg inn URL-ene under `streams`. Gyldige nøkler er `mp3_high`, `mp3_low`,
@@ -19,6 +20,21 @@
 
 Ikke rediger `.m3u`-filene eller `STATUS.md` for hånd — de er generert.
 
+## Finne nye kanaler
+
+De fleste norske lokalradioene kjører Icecast, og Icecast lister alle
+mount-punktene sine med navn på `/status-json.xsl`. Det gjør det raskt å gå fra én
+kjent strøm til alle kanalene på samme vert:
+
+```sh
+python3 scripts/discover_icecast.py lyd3.lokalradio.no
+python3 scripts/discover_icecast.py --new        # spør vertene lista alt bruker
+```
+
+Kvalitetsnavnene går igjen på fellesvertene: `_hq` er mp3, `_mq` er AAC rundt
+128 kbit/s og `_lq` er AAC rundt 48 kbit/s. Men ikke alle kanaler har alle tre —
+verifiser før du legger dem inn.
+
 ## Krav til URL-er
 
 - Bare offentlig publiserte strøm-URL-er. Ikke URL-er som krever innlogging,
@@ -32,11 +48,21 @@ Ikke rediger `.m3u`-filene eller `STATUS.md` for hånd — de er generert.
 
 ## Kanaler som mangler
 
-P4-gruppen: P4, P5 Hits, P6 Rock, P7 Klem, P8 Pop, P9 Retro, P10 Country,
-P11 Bandit. Spilleren på [radio.no](https://radio.no/) laster strømmene via
-Radioplayer-API i nettleseren, så URL-ene står ikke i HTML-en. Finner du dem —
-for eksempel i nettverksfanen i utviklerverktøyene mens en kanal spiller — er de
-velkomne her.
+**DinLyd (tidligere Radio Metro)** har rundt femten kanaler på
+`live-nors.sharp-stream.com`, men mount-punktene heter `nors10` til `nors24` og
+serveren oppgir verken `icy-name` eller beskrivelse. Tre er identifisert
+(Radio Rox, The Beat, Heart Radio — id 90–92); resten er med i lista bare hvis
+noen kan knytte mount-nummer til kanalnavn. Nettsidene på
+[dinlyd.no](https://dinlyd.no/) laster spilleren via JavaScript, så URL-ene står
+ikke i HTML-en. Enkleste vei: åpne en kanal på dinlyd.no, se i nettverksfanen i
+utviklerverktøyene hvilket `nors`-mount som spilles, og meld inn paret.
 
-Ellers ønskes lokalradio (Radio Metro, Jærradioen, nærradioer) og eventuelle
-NRK-kanaler som ikke er med.
+Kanalene DinLyd omtaler på sine sider er Radio Metro, Radio Rox, The Beat,
+Hitradio, Heart Radio, Metro Classic, Power Rock Radio og Dansbandradioen.
+
+**Jærradiogruppen** har flere kanaler på `audio.jaerradiogruppen.no`, men verten
+svarer ikke på `/status-json.xsl`, så bare Radio Tønsberg (165) er funnet så
+langt.
+
+Ellers ønskes lokalradioer som ikke er med, og eventuelle NRK-kanaler som mangler
+— `refresh_nrk.py` varsler om nye kanal-sluger som dukker opp på lyd.nrk.no.
