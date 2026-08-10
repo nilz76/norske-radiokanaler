@@ -30,9 +30,35 @@
         "name": { "type": "string", "minLength": 1 },
         "broadcaster": { "type": "string", "minLength": 1 },
         "region": {
+          "description": "\"Riksdekkende\", eller ett av de 15 fylkene",
+          "enum": [
+            "Riksdekkende",
+            "Agder",
+            "Akershus",
+            "Buskerud",
+            "Finnmark",
+            "Innlandet",
+            "Møre og Romsdal",
+            "Nordland",
+            "Oslo",
+            "Rogaland",
+            "Telemark",
+            "Troms",
+            "Trøndelag",
+            "Vestfold",
+            "Vestland",
+            "Østfold"
+          ]
+        },
+        "area": {
           "type": "string",
           "minLength": 1,
-          "description": "\"Riksdekkende\" eller distriktsnavn"
+          "description": "Lokalt dekningsområde når det er smalere enn fylket, f.eks. \"Volda og Ørsta\""
+        },
+        "district": {
+          "type": "string",
+          "minLength": 1,
+          "description": "NRK sitt eget distriktsnavn. Brukes av refresh_nrk.py til å slå opp kanal-slugen på lyd.nrk.no, og er ikke alltid et fylke — Hordaland og Sogn og Fjordane ligger begge i Vestland."
         },
         "homepage": { "type": "string", "format": "uri" },
         "source": {

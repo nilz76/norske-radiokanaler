@@ -126,7 +126,10 @@ def main() -> int:
     for station in nrk:
         # For distriktskanaler er slugen på NRK sin side sannheten — den kan
         # flytte seg mellom p1_dkN-numre når NRK slår sammen distriktskontorer.
-        slug = districts.get(station["region"]) if station["region"] in districts else slug_of(station)
+        # Oppslaget går på "district" (NRK sitt eget distriktsnavn), ikke "region",
+        # siden regionen er fylket og flere distrikter deler fylke.
+        district = station.get("district")
+        slug = districts.get(district) if district in districts else slug_of(station)
         if not slug:
             changes.append(f"! {station['id']} {station['name']}: klarte ikke å bestemme kanal-slug")
             continue
@@ -139,7 +142,7 @@ def main() -> int:
                 changes.append(f"~ {station['id']} {station['name']} [{quality}]\n    før:  {current}\n    nå:   {url}")
                 station["streams"][quality] = url
 
-    known_slugs = {districts.get(s["region"], slug_of(s)) for s in nrk}
+    known_slugs = {districts.get(s.get("district"), slug_of(s)) for s in nrk}
     for slug in sorted(set(live) - known_slugs):
         changes.append(f"+ ny kanal på lyd.nrk.no: '{slug}' — legg den til i stations.json manuelt")
 

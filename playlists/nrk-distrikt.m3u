@@ -5,7 +5,7 @@
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk13
 #EXTINF:-1 tvg-chno="21" tvg-name="NRK P1 Finnmark" group-title="NRK",21. NRK P1 Finnmark
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk2
-#EXTINF:-1 tvg-chno="22" tvg-name="NRK P1 Hordaland" group-title="NRK",22. NRK P1 Hordaland
+#EXTINF:-1 tvg-chno="22" tvg-name="NRK P1 Hordaland (Vestland)" group-title="NRK",22. NRK P1 Hordaland (Vestland)
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk8
 #EXTINF:-1 tvg-chno="23" tvg-name="NRK P1 Innlandet" group-title="NRK",23. NRK P1 Innlandet
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk14
@@ -17,9 +17,9 @@ https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk4
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1
 #EXTINF:-1 tvg-chno="27" tvg-name="NRK P1 Rogaland" group-title="NRK",27. NRK P1 Rogaland
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk9
-#EXTINF:-1 tvg-chno="28" tvg-name="NRK P1 Sogn og Fjordane" group-title="NRK",28. NRK P1 Sogn og Fjordane
+#EXTINF:-1 tvg-chno="28" tvg-name="NRK P1 Sogn og Fjordane (Vestland)" group-title="NRK",28. NRK P1 Sogn og Fjordane (Vestland)
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk7
-#EXTINF:-1 tvg-chno="29" tvg-name="NRK P1 Sørlandet" group-title="NRK",29. NRK P1 Sørlandet
+#EXTINF:-1 tvg-chno="29" tvg-name="NRK P1 Sørlandet (Agder)" group-title="NRK",29. NRK P1 Sørlandet (Agder)
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk10
 #EXTINF:-1 tvg-chno="30" tvg-name="NRK P1 Telemark" group-title="NRK",30. NRK P1 Telemark
 https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk11

@@ -51,15 +51,15 @@ https://streaming.radio.co/se326fb378/listen
 http://s6.voscast.com:10258/stream
 #EXTINF:-1 tvg-chno="84" tvg-name="Metal Express Radio" group-title="Metal Express Radio",84. Metal Express Radio
 http://s39.myradiostream.com:11590/listen.mp3
-#EXTINF:-1 tvg-chno="85" tvg-name="Radio Latin-Amerika" group-title="Radio Latin-Amerika",85. Radio Latin-Amerika
+#EXTINF:-1 tvg-chno="85" tvg-name="Radio Latin-Amerika (Oslo)" group-title="Radio Latin-Amerika",85. Radio Latin-Amerika (Oslo)
 https://stream.radiolatinamerika.no/latam_hq
 #EXTINF:-1 tvg-chno="86" tvg-name="historyradio.org" group-title="historyradio.org",86. historyradio.org
 http://stream.radiojar.com/6bmecgg3wd5tv
 #EXTINF:-1 tvg-chno="87" tvg-name="Radio Northern Star" group-title="Radio Northern Star",87. Radio Northern Star
 http://5866.cloudrad.io:8018/northernstar.mp3
-#EXTINF:-1 tvg-chno="90" tvg-name="Radio Rox" group-title="DinLyd",90. Radio Rox
+#EXTINF:-1 tvg-chno="90" tvg-name="Radio Rox (Oslo)" group-title="DinLyd",90. Radio Rox (Oslo)
 https://live-nors.sharp-stream.com/nors13.mp3
-#EXTINF:-1 tvg-chno="91" tvg-name="The Beat" group-title="DinLyd",91. The Beat
+#EXTINF:-1 tvg-chno="91" tvg-name="The Beat (Oslo)" group-title="DinLyd",91. The Beat (Oslo)
 https://live-nors.sharp-stream.com/nors17.mp3
-#EXTINF:-1 tvg-chno="92" tvg-name="Heart Radio" group-title="DinLyd",92. Heart Radio
+#EXTINF:-1 tvg-chno="92" tvg-name="Heart Radio (Oslo)" group-title="DinLyd",92. Heart Radio (Oslo)
 https://live-nors.sharp-stream.com/nors15.mp3

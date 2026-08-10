@@ -48,19 +48,23 @@ kommersielle, 100+ lokalradio.
 
 ### NRK P1 — distrikt (15)
 
-| Nr. | Distrikt | Nr. | Distrikt |
-| --: | -------- | --: | -------- |
-| 20 | Buskerud | 28 | Sogn og Fjordane |
-| 21 | Finnmark | 29 | Sørlandet |
-| 22 | Hordaland | 30 | Telemark |
-| 23 | Innlandet | 31 | Troms |
-| 24 | Møre og Romsdal | 32 | Trøndelag |
-| 25 | Nordland | 33 | Vestfold |
-| 26 | Stor-Oslo | 34 | Østfold |
-| 27 | Rogaland | | |
+NRK sine distriktsnavn følger ikke fylkesinndelingen. Der de er forskjellige,
+står fylket i parentes i spillelistene.
+
+| Nr. | NRK-distrikt | Fylke | Nr. | NRK-distrikt | Fylke |
+| --: | ------------ | ----- | --: | ------------ | ----- |
+| 20 | Buskerud | Buskerud | 28 | Sogn og Fjordane | Vestland |
+| 21 | Finnmark | Finnmark | 29 | Sørlandet | Agder |
+| 22 | Hordaland | Vestland | 30 | Telemark | Telemark |
+| 23 | Innlandet | Innlandet | 31 | Troms | Troms |
+| 24 | Møre og Romsdal | Møre og Romsdal | 32 | Trøndelag | Trøndelag |
+| 25 | Nordland | Nordland | 33 | Vestfold | Vestfold |
+| 26 | Stor-Oslo | Oslo | 34 | Østfold | Østfold |
+| 27 | Rogaland | Rogaland | | | |
 
 Stor-Oslo (26) og riksdekkende NRK P1 (1) deler samme strøm — NRK bruker
-Oslo-sendingen som standard P1-kanal.
+Oslo-sendingen som standard P1-kanal. Stor-Oslo dekker også Akershus, som derfor
+ikke har en egen distriktskanal.
 
 ### Bauer Media (10)
 
@@ -95,31 +99,57 @@ Oslo-sendingen som standard P1-kanal.
 
 ### Lokalradio (46)
 
-| Nr. | Kanal | Område | Nr. | Kanal | Område |
-| --: | ----- | ------ | --: | ----- | ------ |
-| 100 | Hjalarhornet | Volda og Ørsta | 140 | Radio 3 Bodø | Bodø |
-| 101 | Nordfjord Nærradio | Nordfjord | 141 | Radio Bardufoss | Bardufoss |
-| 102 | Ordentlig Radio | Ålesund | 142 | Radio Tromsø | Tromsø |
-| 103 | P5 Fosen | Fosen | 143 | Radio Tromsø Hits | Tromsø |
-| 104 | Radio 102 | Haugesund | 144 | Radio Nordkapp | Nordkapp |
-| 105 | Radio Kos | Sunnmøre | 145 | Radio Meløy | Meløy |
-| 106 | Radio Stryn | Stryn | 146 | FM 8000 Bodø | Bodø |
-| 107 | Valdres Radio | Valdres | 147 | Radio Værøy | Værøy |
-| 108 | RadiOs | Os og Bjørnafjorden | 148 | Guovdageainnu Lagasradio | Kautokeino |
-| 109 | Radio Luster | Luster | 160 | Radio Randsfjord | Randsfjord |
-| 110 | Radio Sunnmøre | Sunnmøre | 161 | Radio Øst | Østfold |
-| 111 | Radio Folgefonn | Hardanger | 162 | Radio Skjeberg | Sarpsborg |
-| 112 | Sørlandsradioen | Sørlandet | 163 | radiOrakel | Oslo |
-| 120 | ElverumsRadioen | Elverum | 164 | Radio Nova | Oslo |
-| 121 | GudbrandsdalsRadioen | Gudbrandsdalen | 165 | Radio Tønsberg | Tønsberg |
-| 122 | HamarRadioen | Hamar | 166 | Radio Lyngdal | Lyngdal |
-| 123 | RadioKongsvinger | Kongsvinger | 180 | Radio Sotra | Sotra |
-| 124 | ØsterdalsRadioen | Østerdalen | 181 | Radio Ålesund | Ålesund |
-| 125 | SolørRadioen | Solør | 182 | 1FM Jazz | Molde |
-| 126 | SolørRadioen+ | Solør | 183 | Radio Haugaland | Haugesund |
-| 127 | TrysilRadioen | Trysil | 184 | Radio Trøndelag | Trøndelag |
-| 128 | Totenradioen | Toten | 185 | Nea Radio | Selbu og Tydal |
-| 129 | Radio Sentrum | Innlandet | 186 | Radio Bø | Bø i Midt-Telemark |
+Sortert på fylke, som er rekkefølgen i [lokalradio.m3u](playlists/lokalradio.m3u).
+Området er kanalens eget dekningsområde der det er smalere enn fylket.
+
+| Nr. | Kanal | Fylke | Område |
+| --: | ----- | ----- | ------ |
+| 166 | Radio Lyngdal | Agder | Lyngdal |
+| 112 | Sørlandsradioen | Agder | Sørlandet |
+| 148 | Guovdageainnu Lagasradio | Finnmark | Kautokeino |
+| 144 | Radio Nordkapp | Finnmark | Nordkapp |
+| 120 | ElverumsRadioen | Innlandet | Elverum |
+| 121 | GudbrandsdalsRadioen | Innlandet | Gudbrandsdalen |
+| 122 | HamarRadioen | Innlandet | Hamar |
+| 123 | RadioKongsvinger | Innlandet | Kongsvinger |
+| 160 | Radio Randsfjord | Innlandet | Randsfjord |
+| 129 | Radio Sentrum | Innlandet | |
+| 125 | SolørRadioen | Innlandet | Solør |
+| 126 | SolørRadioen+ | Innlandet | Solør |
+| 128 | Totenradioen | Innlandet | Toten |
+| 127 | TrysilRadioen | Innlandet | Trysil |
+| 107 | Valdres Radio | Innlandet | Valdres |
+| 124 | ØsterdalsRadioen | Innlandet | Østerdalen |
+| 182 | 1FM Jazz | Møre og Romsdal | Molde |
+| 100 | Hjalarhornet | Møre og Romsdal | Volda og Ørsta |
+| 102 | Ordentlig Radio | Møre og Romsdal | Ålesund |
+| 105 | Radio Kos | Møre og Romsdal | Sunnmøre |
+| 110 | Radio Sunnmøre | Møre og Romsdal | Sunnmøre |
+| 181 | Radio Ålesund | Møre og Romsdal | Ålesund |
+| 146 | FM 8000 Bodø | Nordland | Bodø |
+| 140 | Radio 3 Bodø | Nordland | Bodø |
+| 145 | Radio Meløy | Nordland | Meløy |
+| 147 | Radio Værøy | Nordland | Værøy |
+| 164 | Radio Nova | Oslo | |
+| 163 | radiOrakel | Oslo | |
+| 104 | Radio 102 | Rogaland | Haugesund |
+| 183 | Radio Haugaland | Rogaland | Haugesund |
+| 186 | Radio Bø | Telemark | Bø i Midt-Telemark |
+| 141 | Radio Bardufoss | Troms | Bardufoss |
+| 142 | Radio Tromsø | Troms | Tromsø |
+| 143 | Radio Tromsø Hits | Troms | Tromsø |
+| 185 | Nea Radio | Trøndelag | Selbu og Tydal |
+| 103 | P5 Fosen | Trøndelag | Fosen |
+| 184 | Radio Trøndelag | Trøndelag | |
+| 165 | Radio Tønsberg | Vestfold | Tønsberg |
+| 101 | Nordfjord Nærradio | Vestland | Nordfjord |
+| 111 | Radio Folgefonn | Vestland | Hardanger |
+| 109 | Radio Luster | Vestland | Luster |
+| 108 | RadiOs | Vestland | Os og Bjørnafjorden |
+| 180 | Radio Sotra | Vestland | Sotra |
+| 106 | Radio Stryn | Vestland | Stryn |
+| 162 | Radio Skjeberg | Østfold | Sarpsborg |
+| 161 | Radio Øst | Østfold | |
 
 ## Struktur
 
@@ -135,24 +165,51 @@ Hver kanal i `stations.json` ser slik ut:
 
 ```json
 {
-  "id": 4,
-  "name": "NRK P3",
+  "id": 22,
+  "name": "NRK P1 Hordaland",
   "broadcaster": "NRK",
-  "region": "Riksdekkende",
-  "homepage": "https://radio.nrk.no/direkte/p3",
+  "region": "Vestland",
+  "district": "Hordaland",
+  "homepage": "https://www.nrk.no/hordaland/",
   "source": "https://lyd.nrk.no/",
   "streams": {
-    "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3",
-    "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p3",
-    "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p3",
-    "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p3"
+    "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk8",
+    "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk8",
+    "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk8",
+    "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk8"
   }
 }
 ```
 
-`source` peker på siden URL-en er hentet fra, slik at den kan hentes på nytt når
-kringkasteren endrer noe. Alle fire kvaliteter er valgfrie — mange lokalradioer
-tilbyr bare én.
+| Felt | Betydning |
+| ---- | --------- |
+| `region` | `Riksdekkende` eller ett av de 15 fylkene — ingen andre verdier |
+| `area` | Kanalens eget dekningsområde når det er smalere enn fylket, f.eks. `Volda og Ørsta` |
+| `district` | Bare NRK: distriktsnavnet NRK selv bruker. `refresh_nrk.py` slår opp kanal-slugen på dette |
+| `source` | Siden URL-en er hentet fra, slik at den kan hentes på nytt når kringkasteren endrer noe |
+| `streams` | Alle fire kvaliteter er valgfrie — mange lokalradioer tilbyr bare én |
+
+`region` og `district` er atskilt fordi NRK sine distrikter ikke er fylker:
+Hordaland og Sogn og Fjordane ligger begge i Vestland, og Sørlandet er Agder.
+Ett fylke kan altså ha flere distriktskanaler, og `refresh_nrk.py` ville ikke
+klart å skille dem hvis oppslaget gikk på fylket.
+
+### Navnene i spillelistene
+
+`name` i `stations.json` er det rene kanalnavnet. Spillelistene legger på fylket
+for regionale kanaler, slik at de er lette å skille i VLC og andre spillere:
+
+```
+103. P5 Fosen (Trøndelag)
+22. NRK P1 Hordaland (Vestland)
+20. NRK P1 Buskerud
+60. P4
+```
+
+Fylket utelates når det alt står i navnet — derfor ingen «NRK P1 Buskerud
+(Buskerud)» — og riksdekkende kanaler får aldri noe tillegg. Regelen ligger i
+`display_name()` i [scripts/common.py](scripts/common.py); rediger den der
+framfor å skrive fylket inn i `name`.
 
 ## Vedlikehold
 

@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from common import QUALITIES, REPO_ROOT, best_url, load_stations
+from common import QUALITIES, REPO_ROOT, best_url, display_name, load_stations
 
 PLAYLIST_DIR = REPO_ROOT / "playlists"
 
@@ -30,8 +30,9 @@ def write_playlist(filename: str, title: str, stations: list[dict], quality: str
         if not url:
             print(f"Hopper over {station['name']}: ingen strøm-URL", file=sys.stderr)
             continue
-        attrs = f'tvg-chno="{station["id"]}" tvg-name="{station["name"]}" group-title="{station["broadcaster"]}"'
-        lines.append(f"#EXTINF:-1 {attrs},{station['id']}. {station['name']}")
+        shown = display_name(station)
+        attrs = f'tvg-chno="{station["id"]}" tvg-name="{shown}" group-title="{station["broadcaster"]}"'
+        lines.append(f"#EXTINF:-1 {attrs},{station['id']}. {shown}")
         lines.append(url)
         written += 1
 
@@ -61,7 +62,8 @@ def main() -> int:
     write_playlist("nrk.m3u", "NRK — riksdekkende kanaler", [s for s in nrk if s["region"] == "Riksdekkende"], args.quality)
     write_playlist("nrk-distrikt.m3u", "NRK P1 — distriktskanaler", [s for s in nrk if s["region"] != "Riksdekkende"], args.quality)
     write_playlist("kommersielle.m3u", "Riksdekkende kommersielle kanaler", kommersielle, args.quality)
-    write_playlist("lokalradio.m3u", "Lokalradio", sorted(lokal, key=lambda s: s["region"]), args.quality)
+    write_playlist("lokalradio.m3u", "Lokalradio — sortert på fylke",
+                   sorted(lokal, key=lambda s: (s["region"], s["name"])), args.quality)
     return 0
 
 

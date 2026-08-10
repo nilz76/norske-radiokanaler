@@ -7,6 +7,12 @@
    kommersielle, 100+ lokalradio.
 2. Fyll ut `name`, `broadcaster`, `region`, `homepage` og `source`. `source` skal
    peke på siden URL-en er hentet fra, slik at den kan hentes på nytt senere.
+   - `region` skal være `Riksdekkende` eller ett av de 15 fylkene. Ikke bruk
+     landsdeler eller gamle fylkesnavn — schema-en avviser dem.
+   - Er dekningsområdet smalere enn fylket, sett det i `area` (`Volda og Ørsta`,
+     `Sunnmøre`). Området er dokumentasjon; fylket er det som vises i spillerne.
+   - `name` skal være det rene kanalnavnet. Ikke skriv fylket inn i navnet —
+     spillelistene legger det på selv, se `display_name()` i `scripts/common.py`.
 3. Legg inn URL-ene under `streams`. Gyldige nøkler er `mp3_high`, `mp3_low`,
    `aac_high` og `aac_low`. Ta med bare de som faktisk finnes.
 4. Verifiser og bygg:

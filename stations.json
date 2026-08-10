@@ -190,6 +190,7 @@
       "name": "NRK P1 Buskerud",
       "broadcaster": "NRK",
       "region": "Buskerud",
+      "district": "Buskerud",
       "homepage": "https://www.nrk.no/buskerud/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -204,6 +205,7 @@
       "name": "NRK P1 Finnmark",
       "broadcaster": "NRK",
       "region": "Finnmark",
+      "district": "Finnmark",
       "homepage": "https://www.nrk.no/finnmark/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -217,7 +219,8 @@
       "id": 22,
       "name": "NRK P1 Hordaland",
       "broadcaster": "NRK",
-      "region": "Hordaland",
+      "region": "Vestland",
+      "district": "Hordaland",
       "homepage": "https://www.nrk.no/hordaland/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -232,6 +235,7 @@
       "name": "NRK P1 Innlandet",
       "broadcaster": "NRK",
       "region": "Innlandet",
+      "district": "Innlandet",
       "homepage": "https://www.nrk.no/innlandet/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -246,6 +250,7 @@
       "name": "NRK P1 Møre og Romsdal",
       "broadcaster": "NRK",
       "region": "Møre og Romsdal",
+      "district": "Møre og Romsdal",
       "homepage": "https://www.nrk.no/mr/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -260,6 +265,7 @@
       "name": "NRK P1 Nordland",
       "broadcaster": "NRK",
       "region": "Nordland",
+      "district": "Nordland",
       "homepage": "https://www.nrk.no/nordland/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -273,7 +279,8 @@
       "id": 26,
       "name": "NRK P1 Stor-Oslo",
       "broadcaster": "NRK",
-      "region": "Stor-Oslo",
+      "region": "Oslo",
+      "district": "Stor-Oslo",
       "homepage": "https://www.nrk.no/stor-oslo/",
       "source": "https://lyd.nrk.no/",
       "note": "Samme strøm som riksdekkende NRK P1 (id 1)",
@@ -289,6 +296,7 @@
       "name": "NRK P1 Rogaland",
       "broadcaster": "NRK",
       "region": "Rogaland",
+      "district": "Rogaland",
       "homepage": "https://www.nrk.no/rogaland/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -302,7 +310,8 @@
       "id": 28,
       "name": "NRK P1 Sogn og Fjordane",
       "broadcaster": "NRK",
-      "region": "Sogn og Fjordane",
+      "region": "Vestland",
+      "district": "Sogn og Fjordane",
       "homepage": "https://www.nrk.no/sognogfjordane/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -316,7 +325,8 @@
       "id": 29,
       "name": "NRK P1 Sørlandet",
       "broadcaster": "NRK",
-      "region": "Sørlandet",
+      "region": "Agder",
+      "district": "Sørlandet",
       "homepage": "https://www.nrk.no/sorlandet/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -331,6 +341,7 @@
       "name": "NRK P1 Telemark",
       "broadcaster": "NRK",
       "region": "Telemark",
+      "district": "Telemark",
       "homepage": "https://www.nrk.no/telemark/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -345,6 +356,7 @@
       "name": "NRK P1 Troms",
       "broadcaster": "NRK",
       "region": "Troms",
+      "district": "Troms",
       "homepage": "https://www.nrk.no/troms/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -359,6 +371,7 @@
       "name": "NRK P1 Trøndelag",
       "broadcaster": "NRK",
       "region": "Trøndelag",
+      "district": "Trøndelag",
       "homepage": "https://www.nrk.no/trondelag/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -373,6 +386,7 @@
       "name": "NRK P1 Vestfold",
       "broadcaster": "NRK",
       "region": "Vestfold",
+      "district": "Vestfold",
       "homepage": "https://www.nrk.no/vestfold/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -387,6 +401,7 @@
       "name": "NRK P1 Østfold",
       "broadcaster": "NRK",
       "region": "Østfold",
+      "district": "Østfold",
       "homepage": "https://www.nrk.no/ostfold/",
       "source": "https://lyd.nrk.no/",
       "streams": {
@@ -787,7 +802,8 @@
       "id": 100,
       "name": "Hjalarhornet",
       "broadcaster": "Lokalradio",
-      "region": "Volda og Ørsta",
+      "region": "Møre og Romsdal",
+      "area": "Volda og Ørsta",
       "homepage": "https://hjalarhornet.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -798,7 +814,8 @@
       "id": 101,
       "name": "Nordfjord Nærradio",
       "broadcaster": "Lokalradio",
-      "region": "Nordfjord",
+      "region": "Vestland",
+      "area": "Nordfjord",
       "homepage": "https://nnr.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -811,7 +828,8 @@
       "id": 102,
       "name": "Ordentlig Radio",
       "broadcaster": "Lokalradio",
-      "region": "Ålesund",
+      "region": "Møre og Romsdal",
+      "area": "Ålesund",
       "homepage": "https://ordentligradio.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -824,7 +842,8 @@
       "id": 103,
       "name": "P5 Fosen",
       "broadcaster": "Lokalradio",
-      "region": "Fosen",
+      "region": "Trøndelag",
+      "area": "Fosen",
       "homepage": "https://p5fosen.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -837,7 +856,8 @@
       "id": 104,
       "name": "Radio 102",
       "broadcaster": "Lokalradio",
-      "region": "Haugesund",
+      "region": "Rogaland",
+      "area": "Haugesund",
       "homepage": "https://radio102.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -850,7 +870,8 @@
       "id": 105,
       "name": "Radio Kos",
       "broadcaster": "Lokalradio",
-      "region": "Sunnmøre",
+      "region": "Møre og Romsdal",
+      "area": "Sunnmøre",
       "homepage": "https://radiokos.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -863,7 +884,8 @@
       "id": 106,
       "name": "Radio Stryn",
       "broadcaster": "Lokalradio",
-      "region": "Stryn",
+      "region": "Vestland",
+      "area": "Stryn",
       "homepage": "https://radiostryn.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -876,7 +898,8 @@
       "id": 107,
       "name": "Valdres Radio",
       "broadcaster": "Lokalradio",
-      "region": "Valdres",
+      "region": "Innlandet",
+      "area": "Valdres",
       "homepage": "https://valdresradio.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -889,7 +912,8 @@
       "id": 108,
       "name": "RadiOs",
       "broadcaster": "Lokalradio",
-      "region": "Os og Bjørnafjorden",
+      "region": "Vestland",
+      "area": "Os og Bjørnafjorden",
       "homepage": "https://radios.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -902,7 +926,8 @@
       "id": 109,
       "name": "Radio Luster",
       "broadcaster": "Lokalradio",
-      "region": "Luster",
+      "region": "Vestland",
+      "area": "Luster",
       "homepage": "https://radioluster.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -915,7 +940,8 @@
       "id": 110,
       "name": "Radio Sunnmøre",
       "broadcaster": "Lokalradio",
-      "region": "Sunnmøre",
+      "region": "Møre og Romsdal",
+      "area": "Sunnmøre",
       "homepage": "https://radiosunnmore.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -928,7 +954,8 @@
       "id": 111,
       "name": "Radio Folgefonn",
       "broadcaster": "Lokalradio",
-      "region": "Hardanger",
+      "region": "Vestland",
+      "area": "Hardanger",
       "homepage": "https://radiofolgefonn.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -939,7 +966,8 @@
       "id": 112,
       "name": "Sørlandsradioen",
       "broadcaster": "Lokalradio",
-      "region": "Sørlandet",
+      "region": "Agder",
+      "area": "Sørlandet",
       "homepage": "https://sorlandsradioen.no/",
       "source": "https://lokalradio.no/",
       "streams": {
@@ -951,7 +979,8 @@
       "id": 120,
       "name": "ElverumsRadioen",
       "broadcaster": "Radioene",
-      "region": "Elverum",
+      "region": "Innlandet",
+      "area": "Elverum",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -962,7 +991,8 @@
       "id": 121,
       "name": "GudbrandsdalsRadioen",
       "broadcaster": "Radioene",
-      "region": "Gudbrandsdalen",
+      "region": "Innlandet",
+      "area": "Gudbrandsdalen",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -973,7 +1003,8 @@
       "id": 122,
       "name": "HamarRadioen",
       "broadcaster": "Radioene",
-      "region": "Hamar",
+      "region": "Innlandet",
+      "area": "Hamar",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -984,7 +1015,8 @@
       "id": 123,
       "name": "RadioKongsvinger",
       "broadcaster": "Radioene",
-      "region": "Kongsvinger",
+      "region": "Innlandet",
+      "area": "Kongsvinger",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -995,7 +1027,8 @@
       "id": 124,
       "name": "ØsterdalsRadioen",
       "broadcaster": "Radioene",
-      "region": "Østerdalen",
+      "region": "Innlandet",
+      "area": "Østerdalen",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -1006,7 +1039,8 @@
       "id": 125,
       "name": "SolørRadioen",
       "broadcaster": "Radioene",
-      "region": "Solør",
+      "region": "Innlandet",
+      "area": "Solør",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -1017,7 +1051,8 @@
       "id": 126,
       "name": "SolørRadioen+",
       "broadcaster": "Radioene",
-      "region": "Solør",
+      "region": "Innlandet",
+      "area": "Solør",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -1028,7 +1063,8 @@
       "id": 127,
       "name": "TrysilRadioen",
       "broadcaster": "Radioene",
-      "region": "Trysil",
+      "region": "Innlandet",
+      "area": "Trysil",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -1039,7 +1075,8 @@
       "id": 128,
       "name": "Totenradioen",
       "broadcaster": "Radioene",
-      "region": "Toten",
+      "region": "Innlandet",
+      "area": "Toten",
       "homepage": "https://radioene.no/",
       "source": "https://radioene.no/",
       "streams": {
@@ -1061,7 +1098,8 @@
       "id": 140,
       "name": "Radio 3 Bodø",
       "broadcaster": "Lokalradio",
-      "region": "Bodø",
+      "region": "Nordland",
+      "area": "Bodø",
       "homepage": "https://radio3.no/",
       "source": "https://radio3.no/",
       "streams": {
@@ -1074,7 +1112,8 @@
       "id": 141,
       "name": "Radio Bardufoss",
       "broadcaster": "Lokalradio",
-      "region": "Bardufoss",
+      "region": "Troms",
+      "area": "Bardufoss",
       "homepage": "https://radiobardufoss.no/",
       "source": "https://radio3.no/",
       "streams": {
@@ -1087,7 +1126,8 @@
       "id": 142,
       "name": "Radio Tromsø",
       "broadcaster": "Lokalradio",
-      "region": "Tromsø",
+      "region": "Troms",
+      "area": "Tromsø",
       "homepage": "https://radiotromso.no/",
       "source": "https://radio3.no/",
       "streams": {
@@ -1100,7 +1140,8 @@
       "id": 143,
       "name": "Radio Tromsø Hits",
       "broadcaster": "Lokalradio",
-      "region": "Tromsø",
+      "region": "Troms",
+      "area": "Tromsø",
       "homepage": "https://radiotromso.no/",
       "source": "https://radio3.no/",
       "streams": {
@@ -1113,7 +1154,8 @@
       "id": 144,
       "name": "Radio Nordkapp",
       "broadcaster": "Lokalradio",
-      "region": "Nordkapp",
+      "region": "Finnmark",
+      "area": "Nordkapp",
       "homepage": "https://radionordkapp.no/",
       "source": "https://radionordkapp.no/",
       "note": "Ogg Vorbis — spilles av VLC og mpv, men ikke av alle spillere",
@@ -1125,7 +1167,8 @@
       "id": 145,
       "name": "Radio Meløy",
       "broadcaster": "Lokalradio",
-      "region": "Meløy",
+      "region": "Nordland",
+      "area": "Meløy",
       "homepage": "https://radiomeloy.no/",
       "source": "https://radiomeloy.no/",
       "streams": {
@@ -1136,7 +1179,8 @@
       "id": 146,
       "name": "FM 8000 Bodø",
       "broadcaster": "Lokalradio",
-      "region": "Bodø",
+      "region": "Nordland",
+      "area": "Bodø",
       "homepage": "https://radiomeloy.no/",
       "source": "https://radiomeloy.no/",
       "streams": {
@@ -1147,7 +1191,8 @@
       "id": 147,
       "name": "Radio Værøy",
       "broadcaster": "Lokalradio",
-      "region": "Værøy",
+      "region": "Nordland",
+      "area": "Værøy",
       "homepage": "https://radiolatinamerika.no/",
       "source": "https://radiolatinamerika.no/",
       "streams": {
@@ -1160,7 +1205,8 @@
       "id": 148,
       "name": "Guovdageainnu Lagasradio",
       "broadcaster": "Lokalradio",
-      "region": "Kautokeino",
+      "region": "Finnmark",
+      "area": "Kautokeino",
       "homepage": "https://glr.no/",
       "source": "https://glr.no/",
       "note": "Samiskspråklig lokalradio",
@@ -1172,7 +1218,8 @@
       "id": 160,
       "name": "Radio Randsfjord",
       "broadcaster": "Lokalradio",
-      "region": "Randsfjord",
+      "region": "Innlandet",
+      "area": "Randsfjord",
       "homepage": "https://radiorandsfjord.no/",
       "source": "https://radiorandsfjord.no/",
       "streams": {
@@ -1198,7 +1245,8 @@
       "id": 162,
       "name": "Radio Skjeberg",
       "broadcaster": "Lokalradio",
-      "region": "Sarpsborg",
+      "region": "Østfold",
+      "area": "Sarpsborg",
       "homepage": "https://radioskjeberg.no/",
       "source": "https://radiorandsfjord.no/",
       "streams": {
@@ -1236,7 +1284,8 @@
       "id": 165,
       "name": "Radio Tønsberg",
       "broadcaster": "Jærradiogruppen",
-      "region": "Tønsberg",
+      "region": "Vestfold",
+      "area": "Tønsberg",
       "homepage": "https://radiotonsberg.no/",
       "source": "https://jaerradiogruppen.no/",
       "streams": {
@@ -1247,7 +1296,8 @@
       "id": 166,
       "name": "Radio Lyngdal",
       "broadcaster": "Lokalradio",
-      "region": "Lyngdal",
+      "region": "Agder",
+      "area": "Lyngdal",
       "homepage": "https://radiolyngdal.com/",
       "source": "https://radiolyngdal.com/",
       "streams": {
@@ -1260,7 +1310,8 @@
       "id": 180,
       "name": "Radio Sotra",
       "broadcaster": "Lokalradio",
-      "region": "Sotra",
+      "region": "Vestland",
+      "area": "Sotra",
       "homepage": "https://radiosotra.no/",
       "source": "https://radiosotra.no/",
       "streams": {
@@ -1271,7 +1322,8 @@
       "id": 181,
       "name": "Radio Ålesund",
       "broadcaster": "Lokalradio",
-      "region": "Ålesund",
+      "region": "Møre og Romsdal",
+      "area": "Ålesund",
       "homepage": "https://radioaalesund.no/",
       "source": "https://radioaalesund.no/",
       "streams": {
@@ -1283,7 +1335,8 @@
       "id": 182,
       "name": "1FM Jazz",
       "broadcaster": "1FM",
-      "region": "Molde",
+      "region": "Møre og Romsdal",
+      "area": "Molde",
       "homepage": "https://1fm.no/",
       "source": "https://1fm.no/",
       "streams": {
@@ -1295,7 +1348,8 @@
       "id": 183,
       "name": "Radio Haugaland",
       "broadcaster": "Lokalradio",
-      "region": "Haugesund",
+      "region": "Rogaland",
+      "area": "Haugesund",
       "homepage": "https://radiohaugaland.no/",
       "source": "https://radiohaugaland.no/",
       "streams": {
@@ -1317,7 +1371,8 @@
       "id": 185,
       "name": "Nea Radio",
       "broadcaster": "Lokalradio",
-      "region": "Selbu og Tydal",
+      "region": "Trøndelag",
+      "area": "Selbu og Tydal",
       "homepage": "https://nearadio.no/",
       "source": "https://nearadio.no/",
       "streams": {
@@ -1328,7 +1383,8 @@
       "id": 186,
       "name": "Radio Bø",
       "broadcaster": "Lokalradio",
-      "region": "Bø i Midt-Telemark",
+      "region": "Telemark",
+      "area": "Bø i Midt-Telemark",
       "homepage": "https://radiobo.com/",
       "source": "https://radiobo.com/",
       "streams": {

@@ -1,95 +1,95 @@
 #EXTM3U
-# Lokalradio
+# Lokalradio — sortert på fylke
 # Generert av scripts/build_playlists.py — rediger stations.json i stedet.
-#EXTINF:-1 tvg-chno="141" tvg-name="Radio Bardufoss" group-title="Lokalradio",141. Radio Bardufoss
-https://stream.bardufoss.no/radiobardufoss192
-#EXTINF:-1 tvg-chno="140" tvg-name="Radio 3 Bodø" group-title="Lokalradio",140. Radio 3 Bodø
-https://stream.bardufoss.no/Radio3Bodo
-#EXTINF:-1 tvg-chno="146" tvg-name="FM 8000 Bodø" group-title="Lokalradio",146. FM 8000 Bodø
-https://stream.radiomeloy.no:8003/8000bodo
-#EXTINF:-1 tvg-chno="186" tvg-name="Radio Bø" group-title="Lokalradio",186. Radio Bø
-https://nettradio.radiobo.com/radiobo-high
-#EXTINF:-1 tvg-chno="120" tvg-name="ElverumsRadioen" group-title="Radioene",120. ElverumsRadioen
-https://lyd.radioene.no/elverum.mp3
-#EXTINF:-1 tvg-chno="103" tvg-name="P5 Fosen" group-title="Lokalradio",103. P5 Fosen
-https://lyd1.lokalradio.no/p5fosen_hq
-#EXTINF:-1 tvg-chno="121" tvg-name="GudbrandsdalsRadioen" group-title="Radioene",121. GudbrandsdalsRadioen
-https://lyd.radioene.no/gdal.mp3
-#EXTINF:-1 tvg-chno="122" tvg-name="HamarRadioen" group-title="Radioene",122. HamarRadioen
-https://lyd.radioene.no/hamar.mp3
-#EXTINF:-1 tvg-chno="111" tvg-name="Radio Folgefonn" group-title="Lokalradio",111. Radio Folgefonn
-https://lyd2.lokalradio.no/folgefonn_hq
-#EXTINF:-1 tvg-chno="104" tvg-name="Radio 102" group-title="Lokalradio",104. Radio 102
-https://lyd1.lokalradio.no/radio102_hq
-#EXTINF:-1 tvg-chno="183" tvg-name="Radio Haugaland" group-title="Lokalradio",183. Radio Haugaland
-https://stream.theradiohub.com/?server=radioip.no&port=443&type=mp3&mount=rh.mp3
-#EXTINF:-1 tvg-chno="129" tvg-name="Radio Sentrum" group-title="Radioene",129. Radio Sentrum
-https://lyd.radioene.no/radiosentrum.mp3
-#EXTINF:-1 tvg-chno="148" tvg-name="Guovdageainnu Lagasradio" group-title="Lokalradio",148. Guovdageainnu Lagasradio
-https://streaming.radio.co/s5b773f8d3/listen
-#EXTINF:-1 tvg-chno="123" tvg-name="RadioKongsvinger" group-title="Radioene",123. RadioKongsvinger
-https://lyd.radioene.no/kongsvinger.mp3
-#EXTINF:-1 tvg-chno="109" tvg-name="Radio Luster" group-title="Lokalradio",109. Radio Luster
-https://lyd2.lokalradio.no/luster_hq
-#EXTINF:-1 tvg-chno="166" tvg-name="Radio Lyngdal" group-title="Lokalradio",166. Radio Lyngdal
+#EXTINF:-1 tvg-chno="166" tvg-name="Radio Lyngdal (Agder)" group-title="Lokalradio",166. Radio Lyngdal (Agder)
 https://live.radiolyngdal.com/rly_hq
-#EXTINF:-1 tvg-chno="145" tvg-name="Radio Meløy" group-title="Lokalradio",145. Radio Meløy
-https://stream.radiomeloy.no:8003/radiomeloy
-#EXTINF:-1 tvg-chno="182" tvg-name="1FM Jazz" group-title="1FM",182. 1FM Jazz
-https://lyd.1fm.no/1fmjazz_hq
-#EXTINF:-1 tvg-chno="101" tvg-name="Nordfjord Nærradio" group-title="Lokalradio",101. Nordfjord Nærradio
-https://lyd1.lokalradio.no/nnr_hq
-#EXTINF:-1 tvg-chno="144" tvg-name="Radio Nordkapp" group-title="Lokalradio",144. Radio Nordkapp
-http://audio.visto.no/radionordkapp.ogg
-#EXTINF:-1 tvg-chno="108" tvg-name="RadiOs" group-title="Lokalradio",108. RadiOs
-https://lyd2.lokalradio.no/radios_hq
-#EXTINF:-1 tvg-chno="163" tvg-name="radiOrakel" group-title="Lokalradio",163. radiOrakel
-https://stream.radiorakel.no/radiorakel_hq
-#EXTINF:-1 tvg-chno="164" tvg-name="Radio Nova" group-title="Lokalradio",164. Radio Nova
-http://stream.radionova.no/mp3
-#EXTINF:-1 tvg-chno="160" tvg-name="Radio Randsfjord" group-title="Lokalradio",160. Radio Randsfjord
-https://stream.radiorandsfjord.no/randsfjord_hq
-#EXTINF:-1 tvg-chno="162" tvg-name="Radio Skjeberg" group-title="Lokalradio",162. Radio Skjeberg
-https://stream.radiorandsfjord.no/radioskjeberg
-#EXTINF:-1 tvg-chno="185" tvg-name="Nea Radio" group-title="Lokalradio",185. Nea Radio
-http://nettradio.nearadio.no:8000/stream
-#EXTINF:-1 tvg-chno="125" tvg-name="SolørRadioen" group-title="Radioene",125. SolørRadioen
-https://lyd.radioene.no/solor.mp3
-#EXTINF:-1 tvg-chno="126" tvg-name="SolørRadioen+" group-title="Radioene",126. SolørRadioen+
-https://lyd.radioene.no/solorpluss.mp3
-#EXTINF:-1 tvg-chno="180" tvg-name="Radio Sotra" group-title="Lokalradio",180. Radio Sotra
-https://streaming.radiosotra.no:8443/radiosotra
-#EXTINF:-1 tvg-chno="106" tvg-name="Radio Stryn" group-title="Lokalradio",106. Radio Stryn
-https://lyd1.lokalradio.no/stryn_hq
-#EXTINF:-1 tvg-chno="105" tvg-name="Radio Kos" group-title="Lokalradio",105. Radio Kos
-https://lyd1.lokalradio.no/kos_hq
-#EXTINF:-1 tvg-chno="110" tvg-name="Radio Sunnmøre" group-title="Lokalradio",110. Radio Sunnmøre
-https://lyd2.lokalradio.no/sunnmore_hq
-#EXTINF:-1 tvg-chno="112" tvg-name="Sørlandsradioen" group-title="Lokalradio",112. Sørlandsradioen
+#EXTINF:-1 tvg-chno="112" tvg-name="Sørlandsradioen (Agder)" group-title="Lokalradio",112. Sørlandsradioen (Agder)
 https://lyd2.lokalradio.no/sorlandsradioen_hq
-#EXTINF:-1 tvg-chno="128" tvg-name="Totenradioen" group-title="Radioene",128. Totenradioen
+#EXTINF:-1 tvg-chno="148" tvg-name="Guovdageainnu Lagasradio (Finnmark)" group-title="Lokalradio",148. Guovdageainnu Lagasradio (Finnmark)
+https://streaming.radio.co/s5b773f8d3/listen
+#EXTINF:-1 tvg-chno="144" tvg-name="Radio Nordkapp (Finnmark)" group-title="Lokalradio",144. Radio Nordkapp (Finnmark)
+http://audio.visto.no/radionordkapp.ogg
+#EXTINF:-1 tvg-chno="120" tvg-name="ElverumsRadioen (Innlandet)" group-title="Radioene",120. ElverumsRadioen (Innlandet)
+https://lyd.radioene.no/elverum.mp3
+#EXTINF:-1 tvg-chno="121" tvg-name="GudbrandsdalsRadioen (Innlandet)" group-title="Radioene",121. GudbrandsdalsRadioen (Innlandet)
+https://lyd.radioene.no/gdal.mp3
+#EXTINF:-1 tvg-chno="122" tvg-name="HamarRadioen (Innlandet)" group-title="Radioene",122. HamarRadioen (Innlandet)
+https://lyd.radioene.no/hamar.mp3
+#EXTINF:-1 tvg-chno="160" tvg-name="Radio Randsfjord (Innlandet)" group-title="Lokalradio",160. Radio Randsfjord (Innlandet)
+https://stream.radiorandsfjord.no/randsfjord_hq
+#EXTINF:-1 tvg-chno="129" tvg-name="Radio Sentrum (Innlandet)" group-title="Radioene",129. Radio Sentrum (Innlandet)
+https://lyd.radioene.no/radiosentrum.mp3
+#EXTINF:-1 tvg-chno="123" tvg-name="RadioKongsvinger (Innlandet)" group-title="Radioene",123. RadioKongsvinger (Innlandet)
+https://lyd.radioene.no/kongsvinger.mp3
+#EXTINF:-1 tvg-chno="125" tvg-name="SolørRadioen (Innlandet)" group-title="Radioene",125. SolørRadioen (Innlandet)
+https://lyd.radioene.no/solor.mp3
+#EXTINF:-1 tvg-chno="126" tvg-name="SolørRadioen+ (Innlandet)" group-title="Radioene",126. SolørRadioen+ (Innlandet)
+https://lyd.radioene.no/solorpluss.mp3
+#EXTINF:-1 tvg-chno="128" tvg-name="Totenradioen (Innlandet)" group-title="Radioene",128. Totenradioen (Innlandet)
 https://lyd.radioene.no/radiototen-mp3
-#EXTINF:-1 tvg-chno="142" tvg-name="Radio Tromsø" group-title="Lokalradio",142. Radio Tromsø
-https://stream.bardufoss.no/radiotromso
-#EXTINF:-1 tvg-chno="143" tvg-name="Radio Tromsø Hits" group-title="Lokalradio",143. Radio Tromsø Hits
-https://stream.bardufoss.no/rthits192
-#EXTINF:-1 tvg-chno="127" tvg-name="TrysilRadioen" group-title="Radioene",127. TrysilRadioen
+#EXTINF:-1 tvg-chno="127" tvg-name="TrysilRadioen (Innlandet)" group-title="Radioene",127. TrysilRadioen (Innlandet)
 https://lyd.radioene.no/trysil.mp3
+#EXTINF:-1 tvg-chno="107" tvg-name="Valdres Radio (Innlandet)" group-title="Lokalradio",107. Valdres Radio (Innlandet)
+https://lyd1.lokalradio.no/valdres_hq
+#EXTINF:-1 tvg-chno="124" tvg-name="ØsterdalsRadioen (Innlandet)" group-title="Radioene",124. ØsterdalsRadioen (Innlandet)
+https://lyd.radioene.no/osterdal.mp3
+#EXTINF:-1 tvg-chno="182" tvg-name="1FM Jazz (Møre og Romsdal)" group-title="1FM",182. 1FM Jazz (Møre og Romsdal)
+https://lyd.1fm.no/1fmjazz_hq
+#EXTINF:-1 tvg-chno="100" tvg-name="Hjalarhornet (Møre og Romsdal)" group-title="Lokalradio",100. Hjalarhornet (Møre og Romsdal)
+https://lyd1.lokalradio.no/hjalar_hq
+#EXTINF:-1 tvg-chno="102" tvg-name="Ordentlig Radio (Møre og Romsdal)" group-title="Lokalradio",102. Ordentlig Radio (Møre og Romsdal)
+https://lyd1.lokalradio.no/oradio_hq
+#EXTINF:-1 tvg-chno="105" tvg-name="Radio Kos (Møre og Romsdal)" group-title="Lokalradio",105. Radio Kos (Møre og Romsdal)
+https://lyd1.lokalradio.no/kos_hq
+#EXTINF:-1 tvg-chno="110" tvg-name="Radio Sunnmøre (Møre og Romsdal)" group-title="Lokalradio",110. Radio Sunnmøre (Møre og Romsdal)
+https://lyd2.lokalradio.no/sunnmore_hq
+#EXTINF:-1 tvg-chno="181" tvg-name="Radio Ålesund (Møre og Romsdal)" group-title="Lokalradio",181. Radio Ålesund (Møre og Romsdal)
+https://audio.radioaalesund.no/aalesund_hq
+#EXTINF:-1 tvg-chno="146" tvg-name="FM 8000 Bodø (Nordland)" group-title="Lokalradio",146. FM 8000 Bodø (Nordland)
+https://stream.radiomeloy.no:8003/8000bodo
+#EXTINF:-1 tvg-chno="140" tvg-name="Radio 3 Bodø (Nordland)" group-title="Lokalradio",140. Radio 3 Bodø (Nordland)
+https://stream.bardufoss.no/Radio3Bodo
+#EXTINF:-1 tvg-chno="145" tvg-name="Radio Meløy (Nordland)" group-title="Lokalradio",145. Radio Meløy (Nordland)
+https://stream.radiomeloy.no:8003/radiomeloy
+#EXTINF:-1 tvg-chno="147" tvg-name="Radio Værøy (Nordland)" group-title="Lokalradio",147. Radio Værøy (Nordland)
+https://stream.radiolatinamerika.no/varoy_hq
+#EXTINF:-1 tvg-chno="164" tvg-name="Radio Nova (Oslo)" group-title="Lokalradio",164. Radio Nova (Oslo)
+http://stream.radionova.no/mp3
+#EXTINF:-1 tvg-chno="163" tvg-name="radiOrakel (Oslo)" group-title="Lokalradio",163. radiOrakel (Oslo)
+https://stream.radiorakel.no/radiorakel_hq
+#EXTINF:-1 tvg-chno="104" tvg-name="Radio 102 (Rogaland)" group-title="Lokalradio",104. Radio 102 (Rogaland)
+https://lyd1.lokalradio.no/radio102_hq
+#EXTINF:-1 tvg-chno="183" tvg-name="Radio Haugaland (Rogaland)" group-title="Lokalradio",183. Radio Haugaland (Rogaland)
+https://stream.theradiohub.com/?server=radioip.no&port=443&type=mp3&mount=rh.mp3
+#EXTINF:-1 tvg-chno="186" tvg-name="Radio Bø (Telemark)" group-title="Lokalradio",186. Radio Bø (Telemark)
+https://nettradio.radiobo.com/radiobo-high
+#EXTINF:-1 tvg-chno="141" tvg-name="Radio Bardufoss (Troms)" group-title="Lokalradio",141. Radio Bardufoss (Troms)
+https://stream.bardufoss.no/radiobardufoss192
+#EXTINF:-1 tvg-chno="142" tvg-name="Radio Tromsø (Troms)" group-title="Lokalradio",142. Radio Tromsø (Troms)
+https://stream.bardufoss.no/radiotromso
+#EXTINF:-1 tvg-chno="143" tvg-name="Radio Tromsø Hits (Troms)" group-title="Lokalradio",143. Radio Tromsø Hits (Troms)
+https://stream.bardufoss.no/rthits192
+#EXTINF:-1 tvg-chno="185" tvg-name="Nea Radio (Trøndelag)" group-title="Lokalradio",185. Nea Radio (Trøndelag)
+http://nettradio.nearadio.no:8000/stream
+#EXTINF:-1 tvg-chno="103" tvg-name="P5 Fosen (Trøndelag)" group-title="Lokalradio",103. P5 Fosen (Trøndelag)
+https://lyd1.lokalradio.no/p5fosen_hq
 #EXTINF:-1 tvg-chno="184" tvg-name="Radio Trøndelag" group-title="Lokalradio",184. Radio Trøndelag
 https://nettradio.radiotrondelag.no:8443/radio_trondelag
-#EXTINF:-1 tvg-chno="165" tvg-name="Radio Tønsberg" group-title="Jærradiogruppen",165. Radio Tønsberg
+#EXTINF:-1 tvg-chno="165" tvg-name="Radio Tønsberg (Vestfold)" group-title="Jærradiogruppen",165. Radio Tønsberg (Vestfold)
 https://audio.jaerradiogruppen.no/tonsberg_hq
-#EXTINF:-1 tvg-chno="107" tvg-name="Valdres Radio" group-title="Lokalradio",107. Valdres Radio
-https://lyd1.lokalradio.no/valdres_hq
-#EXTINF:-1 tvg-chno="100" tvg-name="Hjalarhornet" group-title="Lokalradio",100. Hjalarhornet
-https://lyd1.lokalradio.no/hjalar_hq
-#EXTINF:-1 tvg-chno="147" tvg-name="Radio Værøy" group-title="Lokalradio",147. Radio Værøy
-https://stream.radiolatinamerika.no/varoy_hq
-#EXTINF:-1 tvg-chno="102" tvg-name="Ordentlig Radio" group-title="Lokalradio",102. Ordentlig Radio
-https://lyd1.lokalradio.no/oradio_hq
-#EXTINF:-1 tvg-chno="181" tvg-name="Radio Ålesund" group-title="Lokalradio",181. Radio Ålesund
-https://audio.radioaalesund.no/aalesund_hq
-#EXTINF:-1 tvg-chno="124" tvg-name="ØsterdalsRadioen" group-title="Radioene",124. ØsterdalsRadioen
-https://lyd.radioene.no/osterdal.mp3
-#EXTINF:-1 tvg-chno="161" tvg-name="Radio Øst" group-title="Lokalradio",161. Radio Øst
+#EXTINF:-1 tvg-chno="101" tvg-name="Nordfjord Nærradio (Vestland)" group-title="Lokalradio",101. Nordfjord Nærradio (Vestland)
+https://lyd1.lokalradio.no/nnr_hq
+#EXTINF:-1 tvg-chno="108" tvg-name="RadiOs (Vestland)" group-title="Lokalradio",108. RadiOs (Vestland)
+https://lyd2.lokalradio.no/radios_hq
+#EXTINF:-1 tvg-chno="111" tvg-name="Radio Folgefonn (Vestland)" group-title="Lokalradio",111. Radio Folgefonn (Vestland)
+https://lyd2.lokalradio.no/folgefonn_hq
+#EXTINF:-1 tvg-chno="109" tvg-name="Radio Luster (Vestland)" group-title="Lokalradio",109. Radio Luster (Vestland)
+https://lyd2.lokalradio.no/luster_hq
+#EXTINF:-1 tvg-chno="180" tvg-name="Radio Sotra (Vestland)" group-title="Lokalradio",180. Radio Sotra (Vestland)
+https://streaming.radiosotra.no:8443/radiosotra
+#EXTINF:-1 tvg-chno="106" tvg-name="Radio Stryn (Vestland)" group-title="Lokalradio",106. Radio Stryn (Vestland)
+https://lyd1.lokalradio.no/stryn_hq
+#EXTINF:-1 tvg-chno="162" tvg-name="Radio Skjeberg (Østfold)" group-title="Lokalradio",162. Radio Skjeberg (Østfold)
+https://stream.radiorandsfjord.no/radioskjeberg
+#EXTINF:-1 tvg-chno="161" tvg-name="Radio Øst (Østfold)" group-title="Lokalradio",161. Radio Øst (Østfold)
 https://stream.radiorandsfjord.no/radioost_hq
