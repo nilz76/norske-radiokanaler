@@ -1,0 +1,470 @@
+{
+  "$schema": "./schema/stations.schema.json",
+  "updated": "2026-08-10",
+  "stations": [
+    {
+      "id": 1,
+      "name": "NRK P1",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/p1",
+      "source": "https://lyd.nrk.no/",
+      "note": "Stor-Oslo brukes som standard P1-strøm",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "NRK P1+",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/p1pluss",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1pluss",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1pluss",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1pluss",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1pluss"
+      }
+    },
+    {
+      "id": 3,
+      "name": "NRK P2",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/p2",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p2",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p2",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p2",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p2"
+      }
+    },
+    {
+      "id": 4,
+      "name": "NRK P3",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/p3",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p3",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p3",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p3"
+      }
+    },
+    {
+      "id": 5,
+      "name": "NRK P3 Musikk",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/p3musikk",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3musikk",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p3musikk",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p3musikk",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p3musikk"
+      }
+    },
+    {
+      "id": 6,
+      "name": "NRK mP3",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/mp3",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/mp3",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/mp3",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/mp3",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/mp3"
+      }
+    },
+    {
+      "id": 7,
+      "name": "NRK Alltid Nyheter",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/nyheter",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/nyheter",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/nyheter",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/nyheter",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/nyheter"
+      }
+    },
+    {
+      "id": 8,
+      "name": "NRK Radio Super",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/radio_super",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/radio_super",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/radio_super",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/radio_super",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/radio_super"
+      }
+    },
+    {
+      "id": 9,
+      "name": "NRK Klassisk",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/klassisk",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/klassisk",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/klassisk",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/klassisk",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/klassisk"
+      }
+    },
+    {
+      "id": 10,
+      "name": "NRK Sápmi",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/sapmi",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sapmi",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/sapmi",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/sapmi",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/sapmi"
+      }
+    },
+    {
+      "id": 11,
+      "name": "NRK Jazz",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/jazz",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/jazz",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/jazz",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/jazz",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/jazz"
+      }
+    },
+    {
+      "id": 12,
+      "name": "NRK Folkemusikk",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/folkemusikk",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/folkemusikk",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/folkemusikk",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/folkemusikk",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/folkemusikk"
+      }
+    },
+    {
+      "id": 13,
+      "name": "NRK Sport",
+      "broadcaster": "NRK",
+      "region": "Riksdekkende",
+      "homepage": "https://radio.nrk.no/direkte/sport",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sport",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/sport",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/sport",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/sport"
+      }
+    },
+    {
+      "id": 20,
+      "name": "NRK P1 Buskerud",
+      "broadcaster": "NRK",
+      "region": "Buskerud",
+      "homepage": "https://www.nrk.no/buskerud/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk13",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk13",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk13",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk13"
+      }
+    },
+    {
+      "id": 21,
+      "name": "NRK P1 Finnmark",
+      "broadcaster": "NRK",
+      "region": "Finnmark",
+      "homepage": "https://www.nrk.no/finnmark/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk2",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk2",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk2",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk2"
+      }
+    },
+    {
+      "id": 22,
+      "name": "NRK P1 Hordaland",
+      "broadcaster": "NRK",
+      "region": "Hordaland",
+      "homepage": "https://www.nrk.no/hordaland/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk8",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk8",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk8",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk8"
+      }
+    },
+    {
+      "id": 23,
+      "name": "NRK P1 Innlandet",
+      "broadcaster": "NRK",
+      "region": "Innlandet",
+      "homepage": "https://www.nrk.no/innlandet/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk14",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk14",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk14",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk14"
+      }
+    },
+    {
+      "id": 24,
+      "name": "NRK P1 Møre og Romsdal",
+      "broadcaster": "NRK",
+      "region": "Møre og Romsdal",
+      "homepage": "https://www.nrk.no/mr/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk6",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk6",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk6",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk6"
+      }
+    },
+    {
+      "id": 25,
+      "name": "NRK P1 Nordland",
+      "broadcaster": "NRK",
+      "region": "Nordland",
+      "homepage": "https://www.nrk.no/nordland/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk4",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk4",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk4",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk4"
+      }
+    },
+    {
+      "id": 26,
+      "name": "NRK P1 Stor-Oslo",
+      "broadcaster": "NRK",
+      "region": "Stor-Oslo",
+      "homepage": "https://www.nrk.no/stor-oslo/",
+      "source": "https://lyd.nrk.no/",
+      "note": "Samme strøm som riksdekkende NRK P1 (id 1)",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1"
+      }
+    },
+    {
+      "id": 27,
+      "name": "NRK P1 Rogaland",
+      "broadcaster": "NRK",
+      "region": "Rogaland",
+      "homepage": "https://www.nrk.no/rogaland/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk9",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk9",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk9",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk9"
+      }
+    },
+    {
+      "id": 28,
+      "name": "NRK P1 Sogn og Fjordane",
+      "broadcaster": "NRK",
+      "region": "Sogn og Fjordane",
+      "homepage": "https://www.nrk.no/sognogfjordane/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk7",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk7",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk7",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk7"
+      }
+    },
+    {
+      "id": 29,
+      "name": "NRK P1 Sørlandet",
+      "broadcaster": "NRK",
+      "region": "Sørlandet",
+      "homepage": "https://www.nrk.no/sorlandet/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk10",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk10",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk10",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk10"
+      }
+    },
+    {
+      "id": 30,
+      "name": "NRK P1 Telemark",
+      "broadcaster": "NRK",
+      "region": "Telemark",
+      "homepage": "https://www.nrk.no/telemark/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk11",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk11",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk11",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk11"
+      }
+    },
+    {
+      "id": 31,
+      "name": "NRK P1 Troms",
+      "broadcaster": "NRK",
+      "region": "Troms",
+      "homepage": "https://www.nrk.no/troms/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk3",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk3",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk3",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk3"
+      }
+    },
+    {
+      "id": 32,
+      "name": "NRK P1 Trøndelag",
+      "broadcaster": "NRK",
+      "region": "Trøndelag",
+      "homepage": "https://www.nrk.no/trondelag/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk5",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk5",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk5",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk5"
+      }
+    },
+    {
+      "id": 33,
+      "name": "NRK P1 Vestfold",
+      "broadcaster": "NRK",
+      "region": "Vestfold",
+      "homepage": "https://www.nrk.no/vestfold/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk12",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk12",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk12",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk12"
+      }
+    },
+    {
+      "id": 34,
+      "name": "NRK P1 Østfold",
+      "broadcaster": "NRK",
+      "region": "Østfold",
+      "homepage": "https://www.nrk.no/ostfold/",
+      "source": "https://lyd.nrk.no/",
+      "streams": {
+        "mp3_high": "https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk15",
+        "mp3_low": "https://lyd.nrk.no/icecast/mp3/low/s0w7hwn47m/p1_dk15",
+        "aac_high": "https://lyd.nrk.no/icecast/aac/high/s0w7hwn47m/p1_dk15",
+        "aac_low": "https://lyd.nrk.no/icecast/aac/low/s0w7hwn47m/p1_dk15"
+      }
+    },
+    {
+      "id": 50,
+      "name": "Radio Norge",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radionorge.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/radionorge_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/radionorge_no_aac"
+      }
+    },
+    {
+      "id": 51,
+      "name": "Radio Rock",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radiorock.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/radiorock_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/radiorock_no_aac"
+      }
+    },
+    {
+      "id": 52,
+      "name": "Kiss",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://kiss.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/kiss_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/kiss_no_aac"
+      }
+    },
+    {
+      "id": 53,
+      "name": "Radio 1",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radio1.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/radio1_no_mp3",
+        "aac_high": "https://live-bauerno.sharp-stream.com/radio1_no_aac"
+      }
+    },
+    {
+      "id": 54,
+      "name": "Norsk Pop",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radionorge.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/norskpop_no_mp3"
+      }
+    },
+    {
+      "id": 55,
+      "name": "Radio Vinyl",
+      "broadcaster": "Bauer Media",
+      "region": "Riksdekkende",
+      "homepage": "https://radionorge.no/",
+      "source": "https://live-bauerno.sharp-stream.com/",
+      "streams": {
+        "mp3_high": "https://live-bauerno.sharp-stream.com/vinyl_no_mp3"
+      }
+    }
+  ]
+}

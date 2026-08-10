@@ -1,0 +1,33 @@
+#EXTM3U
+# NRK P1 — distriktskanaler
+# Generert av scripts/build_playlists.py — rediger stations.json i stedet.
+#EXTINF:-1 tvg-chno="20" tvg-name="NRK P1 Buskerud" group-title="NRK",20. NRK P1 Buskerud
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk13
+#EXTINF:-1 tvg-chno="21" tvg-name="NRK P1 Finnmark" group-title="NRK",21. NRK P1 Finnmark
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk2
+#EXTINF:-1 tvg-chno="22" tvg-name="NRK P1 Hordaland" group-title="NRK",22. NRK P1 Hordaland
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk8
+#EXTINF:-1 tvg-chno="23" tvg-name="NRK P1 Innlandet" group-title="NRK",23. NRK P1 Innlandet
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk14
+#EXTINF:-1 tvg-chno="24" tvg-name="NRK P1 Møre og Romsdal" group-title="NRK",24. NRK P1 Møre og Romsdal
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk6
+#EXTINF:-1 tvg-chno="25" tvg-name="NRK P1 Nordland" group-title="NRK",25. NRK P1 Nordland
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk4
+#EXTINF:-1 tvg-chno="26" tvg-name="NRK P1 Stor-Oslo" group-title="NRK",26. NRK P1 Stor-Oslo
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1
+#EXTINF:-1 tvg-chno="27" tvg-name="NRK P1 Rogaland" group-title="NRK",27. NRK P1 Rogaland
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk9
+#EXTINF:-1 tvg-chno="28" tvg-name="NRK P1 Sogn og Fjordane" group-title="NRK",28. NRK P1 Sogn og Fjordane
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk7
+#EXTINF:-1 tvg-chno="29" tvg-name="NRK P1 Sørlandet" group-title="NRK",29. NRK P1 Sørlandet
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk10
+#EXTINF:-1 tvg-chno="30" tvg-name="NRK P1 Telemark" group-title="NRK",30. NRK P1 Telemark
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk11
+#EXTINF:-1 tvg-chno="31" tvg-name="NRK P1 Troms" group-title="NRK",31. NRK P1 Troms
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk3
+#EXTINF:-1 tvg-chno="32" tvg-name="NRK P1 Trøndelag" group-title="NRK",32. NRK P1 Trøndelag
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk5
+#EXTINF:-1 tvg-chno="33" tvg-name="NRK P1 Vestfold" group-title="NRK",33. NRK P1 Vestfold
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk12
+#EXTINF:-1 tvg-chno="34" tvg-name="NRK P1 Østfold" group-title="NRK",34. NRK P1 Østfold
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk15

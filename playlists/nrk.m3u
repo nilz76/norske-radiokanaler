@@ -1,0 +1,29 @@
+#EXTM3U
+# NRK — riksdekkende kanaler
+# Generert av scripts/build_playlists.py — rediger stations.json i stedet.
+#EXTINF:-1 tvg-chno="1" tvg-name="NRK P1" group-title="NRK",1. NRK P1
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1
+#EXTINF:-1 tvg-chno="2" tvg-name="NRK P1+" group-title="NRK",2. NRK P1+
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1pluss
+#EXTINF:-1 tvg-chno="3" tvg-name="NRK P2" group-title="NRK",3. NRK P2
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p2
+#EXTINF:-1 tvg-chno="4" tvg-name="NRK P3" group-title="NRK",4. NRK P3
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3
+#EXTINF:-1 tvg-chno="5" tvg-name="NRK P3 Musikk" group-title="NRK",5. NRK P3 Musikk
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3musikk
+#EXTINF:-1 tvg-chno="6" tvg-name="NRK mP3" group-title="NRK",6. NRK mP3
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/mp3
+#EXTINF:-1 tvg-chno="7" tvg-name="NRK Alltid Nyheter" group-title="NRK",7. NRK Alltid Nyheter
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/nyheter
+#EXTINF:-1 tvg-chno="8" tvg-name="NRK Radio Super" group-title="NRK",8. NRK Radio Super
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/radio_super
+#EXTINF:-1 tvg-chno="9" tvg-name="NRK Klassisk" group-title="NRK",9. NRK Klassisk
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/klassisk
+#EXTINF:-1 tvg-chno="10" tvg-name="NRK Sápmi" group-title="NRK",10. NRK Sápmi
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sapmi
+#EXTINF:-1 tvg-chno="11" tvg-name="NRK Jazz" group-title="NRK",11. NRK Jazz
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/jazz
+#EXTINF:-1 tvg-chno="12" tvg-name="NRK Folkemusikk" group-title="NRK",12. NRK Folkemusikk
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/folkemusikk
+#EXTINF:-1 tvg-chno="13" tvg-name="NRK Sport" group-title="NRK",13. NRK Sport
+https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sport

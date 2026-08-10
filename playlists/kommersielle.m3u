@@ -1,0 +1,15 @@
+#EXTM3U
+# Kommersielle kanaler
+# Generert av scripts/build_playlists.py — rediger stations.json i stedet.
+#EXTINF:-1 tvg-chno="50" tvg-name="Radio Norge" group-title="Bauer Media",50. Radio Norge
+https://live-bauerno.sharp-stream.com/radionorge_no_mp3
+#EXTINF:-1 tvg-chno="51" tvg-name="Radio Rock" group-title="Bauer Media",51. Radio Rock
+https://live-bauerno.sharp-stream.com/radiorock_no_mp3
+#EXTINF:-1 tvg-chno="52" tvg-name="Kiss" group-title="Bauer Media",52. Kiss
+https://live-bauerno.sharp-stream.com/kiss_no_mp3
+#EXTINF:-1 tvg-chno="53" tvg-name="Radio 1" group-title="Bauer Media",53. Radio 1
+https://live-bauerno.sharp-stream.com/radio1_no_mp3
+#EXTINF:-1 tvg-chno="54" tvg-name="Norsk Pop" group-title="Bauer Media",54. Norsk Pop
+https://live-bauerno.sharp-stream.com/norskpop_no_mp3
+#EXTINF:-1 tvg-chno="55" tvg-name="Radio Vinyl" group-title="Bauer Media",55. Radio Vinyl
+https://live-bauerno.sharp-stream.com/vinyl_no_mp3
