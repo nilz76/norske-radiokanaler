@@ -1,5 +1,7 @@
 # Norske radiokanaler — strømme-URL-er
 
+[![Sjekk strømmer](https://github.com/nilz76/norske-radiokanaler/actions/workflows/check-streams.yml/badge.svg)](https://github.com/nilz76/norske-radiokanaler/actions/workflows/check-streams.yml)
+
 Vedlikeholdt liste over direktestrømmer for norske radiokanaler, klar til bruk i
 VLC, Kodi, mpv, Sonos, bilstereo og andre spillere.
 
@@ -26,6 +28,37 @@ Fra kommandolinja:
 vlc playlists/nrk.m3u
 mpv https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1
 ```
+
+## I bil — Tesla MCU2 og andre nettleserbaserte skjermer
+
+MCU2 kan ikke åpne `.m3u`-filer: nettleseren laster dem ned istedenfor å spille
+dem, og USB-inngangen spiller bare lokale filer, ikke strømmer. Veien inn er
+nettleseren, og [docs/index.html](docs/index.html) er en side laget for det —
+store trykkflater, søkefelt og ett `<audio>`-element som bytter kilde.
+
+Slå på GitHub Pages for repoet (**Settings → Pages → Deploy from a branch →
+`main` → `/docs`**), så ligger spilleren på
+`https://<brukernavn>.github.io/<repo>/`. Legg den inn som bokmerke i bilen.
+
+Siden tar hensyn til to begrensninger i den nettleseren:
+
+- **Bare https-strømmer.** Pages går over https, og Chromium blokkerer
+  http-strømmer på en https-side som usikkert innhold. 7 kanaler er derfor
+  utelatt, og listet nederst på siden med begrunnelse — 98 av 105 er med.
+- **MP3 framfor AAC.** AAC i Icecast (`audio/aacp`) spilles ikke pålitelig i
+  MCU2, så MP3 velges når kanalen har det. AAC brukes bare der det er eneste
+  alternativ.
+
+Bygg siden på nytt etter endringer i `stations.json`:
+
+```sh
+python3 scripts/build_webplayer.py
+```
+
+Vær oppmerksom på at nettleserlyd i MCU2 ikke styres av rattknappene, og at
+bilens medieapp ikke viser kanalnavnet. Vil du ha rattstyring og bedre
+integrasjon, er Bluetooth fra telefonen fortsatt det som fungerer best; da kan du
+bruke `.m3u`-filene i en vanlig spiller på telefonen.
 
 ## Kanaloversikt
 
@@ -156,6 +189,7 @@ Området er kanalens eget dekningsområde der det er smalere enn fylket.
 ```
 stations.json          Kilden til sannhet — alle kanaler og URL-er
 playlists/*.m3u        Generert av scripts/build_playlists.py
+docs/index.html        Nettleserspiller, generert av scripts/build_webplayer.py
 STATUS.md              Generert av scripts/check_streams.py --report
 schema/                JSON Schema for stations.json
 scripts/               Vedlikeholdsverktøy (Python 3.9+, ingen avhengigheter)
@@ -236,6 +270,9 @@ python3 scripts/discover_icecast.py lyd3.lokalradio.no
 # Bygg spillelistene på nytt etter endringer i stations.json
 python3 scripts/build_playlists.py
 python3 scripts/build_playlists.py --quality aac_high
+
+# Bygg nettleserspilleren i docs/ på nytt
+python3 scripts/build_webplayer.py
 ```
 
 `check_streams.py` åpner hver strøm, leser de første par kilobytene og godtar den

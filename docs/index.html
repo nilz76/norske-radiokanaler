@@ -1,0 +1,298 @@
+<title>Norsk radio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg: #12141a; --panel: #1c1f27; --panel-hi: #262a35; --line: #333846;
+  --text: #f2f4f8; --dim: #9aa3b4; --accent: #4da3ff; --accent-ink: #06121f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+header {
+  position: sticky; top: 0; z-index: 10; background: var(--panel);
+  border-bottom: 1px solid var(--line); padding: 14px 18px;
+}
+h1 { margin: 0 0 4px; font-size: 20px; }
+.sub { color: var(--dim); font-size: 14px; }
+#now {
+  display: flex; align-items: center; gap: 14px; margin-top: 12px;
+  background: var(--panel-hi); border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; min-height: 62px;
+}
+#now-name { flex: 1; font-size: 18px; font-weight: 600; }
+#now-meta { color: var(--dim); font-size: 13px; font-weight: 400; }
+button {
+  font: inherit; color: var(--text); background: var(--panel-hi);
+  border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+}
+#stop {
+  min-width: 104px; min-height: 52px; font-weight: 600;
+}
+#stop:disabled { opacity: .4; }
+#filter {
+  width: 100%; margin-top: 10px; padding: 14px; font: inherit;
+  color: var(--text); background: var(--panel-hi);
+  border: 1px solid var(--line); border-radius: 12px;
+}
+main { padding: 8px 18px 60px; }
+h2 {
+  font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--dim); margin: 26px 0 10px;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.station {
+  display: flex; align-items: center; gap: 10px; text-align: left;
+  min-height: 64px; padding: 10px 14px;
+}
+.station:active { background: var(--accent); color: var(--accent-ink); }
+.station[aria-current="true"] {
+  background: var(--accent); color: var(--accent-ink); border-color: var(--accent);
+}
+.num {
+  flex: 0 0 auto; min-width: 34px; font-variant-numeric: tabular-nums;
+  color: var(--dim); font-size: 14px;
+}
+.station[aria-current="true"] .num { color: var(--accent-ink); }
+.nm { flex: 1; font-weight: 600; }
+footer { color: var(--dim); font-size: 13px; padding: 0 18px 40px; }
+footer ul { padding-left: 20px; }
+a { color: var(--accent); }
+.hidden { display: none !important; }
+</style>
+<header>
+<h1>Norsk radio</h1>
+<div class="sub">98 kanaler — trykk for å spille</div>
+<div id="now"><div id="now-name">Ingen kanal<div id="now-meta"></div></div>
+<button id="stop" disabled>Stopp</button></div>
+<input id="filter" type="search" placeholder="Søk på kanal eller fylke" autocomplete="off">
+</header>
+<main>
+<section><h2>NRK</h2><div class='grid'>
+<button class='station' data-id="1" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1" data-name="NRK P1" data-quality="MP3 høy" data-search="nrk p1 nrk riksdekkende"><span class='num'>1</span><span class='nm'>NRK P1</span></button>
+<button class='station' data-id="2" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1pluss" data-name="NRK P1+" data-quality="MP3 høy" data-search="nrk p1+ nrk riksdekkende"><span class='num'>2</span><span class='nm'>NRK P1+</span></button>
+<button class='station' data-id="3" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p2" data-name="NRK P2" data-quality="MP3 høy" data-search="nrk p2 nrk riksdekkende"><span class='num'>3</span><span class='nm'>NRK P2</span></button>
+<button class='station' data-id="4" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3" data-name="NRK P3" data-quality="MP3 høy" data-search="nrk p3 nrk riksdekkende"><span class='num'>4</span><span class='nm'>NRK P3</span></button>
+<button class='station' data-id="5" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p3musikk" data-name="NRK P3 Musikk" data-quality="MP3 høy" data-search="nrk p3 musikk nrk riksdekkende"><span class='num'>5</span><span class='nm'>NRK P3 Musikk</span></button>
+<button class='station' data-id="6" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/mp3" data-name="NRK mP3" data-quality="MP3 høy" data-search="nrk mp3 nrk riksdekkende"><span class='num'>6</span><span class='nm'>NRK mP3</span></button>
+<button class='station' data-id="7" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/nyheter" data-name="NRK Alltid Nyheter" data-quality="MP3 høy" data-search="nrk alltid nyheter nrk riksdekkende"><span class='num'>7</span><span class='nm'>NRK Alltid Nyheter</span></button>
+<button class='station' data-id="8" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/radio_super" data-name="NRK Radio Super" data-quality="MP3 høy" data-search="nrk radio super nrk riksdekkende"><span class='num'>8</span><span class='nm'>NRK Radio Super</span></button>
+<button class='station' data-id="9" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/klassisk" data-name="NRK Klassisk" data-quality="MP3 høy" data-search="nrk klassisk nrk riksdekkende"><span class='num'>9</span><span class='nm'>NRK Klassisk</span></button>
+<button class='station' data-id="10" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sapmi" data-name="NRK Sápmi" data-quality="MP3 høy" data-search="nrk sápmi nrk riksdekkende"><span class='num'>10</span><span class='nm'>NRK Sápmi</span></button>
+<button class='station' data-id="11" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/jazz" data-name="NRK Jazz" data-quality="MP3 høy" data-search="nrk jazz nrk riksdekkende"><span class='num'>11</span><span class='nm'>NRK Jazz</span></button>
+<button class='station' data-id="12" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/folkemusikk" data-name="NRK Folkemusikk" data-quality="MP3 høy" data-search="nrk folkemusikk nrk riksdekkende"><span class='num'>12</span><span class='nm'>NRK Folkemusikk</span></button>
+<button class='station' data-id="13" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/sport" data-name="NRK Sport" data-quality="MP3 høy" data-search="nrk sport nrk riksdekkende"><span class='num'>13</span><span class='nm'>NRK Sport</span></button>
+</div></section>
+<section><h2>NRK P1 distrikt</h2><div class='grid'>
+<button class='station' data-id="20" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk13" data-name="NRK P1 Buskerud" data-quality="MP3 høy" data-search="nrk p1 buskerud nrk buskerud"><span class='num'>20</span><span class='nm'>NRK P1 Buskerud</span></button>
+<button class='station' data-id="21" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk2" data-name="NRK P1 Finnmark" data-quality="MP3 høy" data-search="nrk p1 finnmark nrk finnmark"><span class='num'>21</span><span class='nm'>NRK P1 Finnmark</span></button>
+<button class='station' data-id="22" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk8" data-name="NRK P1 Hordaland (Vestland)" data-quality="MP3 høy" data-search="nrk p1 hordaland (vestland) nrk vestland"><span class='num'>22</span><span class='nm'>NRK P1 Hordaland (Vestland)</span></button>
+<button class='station' data-id="23" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk14" data-name="NRK P1 Innlandet" data-quality="MP3 høy" data-search="nrk p1 innlandet nrk innlandet"><span class='num'>23</span><span class='nm'>NRK P1 Innlandet</span></button>
+<button class='station' data-id="24" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk6" data-name="NRK P1 Møre og Romsdal" data-quality="MP3 høy" data-search="nrk p1 møre og romsdal nrk møre og romsdal"><span class='num'>24</span><span class='nm'>NRK P1 Møre og Romsdal</span></button>
+<button class='station' data-id="25" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk4" data-name="NRK P1 Nordland" data-quality="MP3 høy" data-search="nrk p1 nordland nrk nordland"><span class='num'>25</span><span class='nm'>NRK P1 Nordland</span></button>
+<button class='station' data-id="26" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1" data-name="NRK P1 Stor-Oslo" data-quality="MP3 høy" data-search="nrk p1 stor-oslo nrk oslo"><span class='num'>26</span><span class='nm'>NRK P1 Stor-Oslo</span></button>
+<button class='station' data-id="27" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk9" data-name="NRK P1 Rogaland" data-quality="MP3 høy" data-search="nrk p1 rogaland nrk rogaland"><span class='num'>27</span><span class='nm'>NRK P1 Rogaland</span></button>
+<button class='station' data-id="28" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk7" data-name="NRK P1 Sogn og Fjordane (Vestland)" data-quality="MP3 høy" data-search="nrk p1 sogn og fjordane (vestland) nrk vestland"><span class='num'>28</span><span class='nm'>NRK P1 Sogn og Fjordane (Vestland)</span></button>
+<button class='station' data-id="29" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk10" data-name="NRK P1 Sørlandet (Agder)" data-quality="MP3 høy" data-search="nrk p1 sørlandet (agder) nrk agder"><span class='num'>29</span><span class='nm'>NRK P1 Sørlandet (Agder)</span></button>
+<button class='station' data-id="30" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk11" data-name="NRK P1 Telemark" data-quality="MP3 høy" data-search="nrk p1 telemark nrk telemark"><span class='num'>30</span><span class='nm'>NRK P1 Telemark</span></button>
+<button class='station' data-id="31" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk3" data-name="NRK P1 Troms" data-quality="MP3 høy" data-search="nrk p1 troms nrk troms"><span class='num'>31</span><span class='nm'>NRK P1 Troms</span></button>
+<button class='station' data-id="32" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk5" data-name="NRK P1 Trøndelag" data-quality="MP3 høy" data-search="nrk p1 trøndelag nrk trøndelag"><span class='num'>32</span><span class='nm'>NRK P1 Trøndelag</span></button>
+<button class='station' data-id="33" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk12" data-name="NRK P1 Vestfold" data-quality="MP3 høy" data-search="nrk p1 vestfold nrk vestfold"><span class='num'>33</span><span class='nm'>NRK P1 Vestfold</span></button>
+<button class='station' data-id="34" data-url="https://lyd.nrk.no/icecast/mp3/high/s0w7hwn47m/p1_dk15" data-name="NRK P1 Østfold" data-quality="MP3 høy" data-search="nrk p1 østfold nrk østfold"><span class='num'>34</span><span class='nm'>NRK P1 Østfold</span></button>
+</div></section>
+<section><h2>Bauer Media</h2><div class='grid'>
+<button class='station' data-id="50" data-url="https://live-bauerno.sharp-stream.com/radionorge_no_mp3" data-name="Radio Norge" data-quality="MP3 høy" data-search="radio norge bauer media riksdekkende"><span class='num'>50</span><span class='nm'>Radio Norge</span></button>
+<button class='station' data-id="51" data-url="https://live-bauerno.sharp-stream.com/radiorock_no_mp3" data-name="Radio Rock" data-quality="MP3 høy" data-search="radio rock bauer media riksdekkende"><span class='num'>51</span><span class='nm'>Radio Rock</span></button>
+<button class='station' data-id="52" data-url="https://live-bauerno.sharp-stream.com/kiss_no_mp3" data-name="Kiss" data-quality="MP3 høy" data-search="kiss bauer media riksdekkende"><span class='num'>52</span><span class='nm'>Kiss</span></button>
+<button class='station' data-id="53" data-url="https://live-bauerno.sharp-stream.com/radio1_no_mp3" data-name="Radio 1" data-quality="MP3 høy" data-search="radio 1 bauer media riksdekkende"><span class='num'>53</span><span class='nm'>Radio 1</span></button>
+<button class='station' data-id="54" data-url="https://live-bauerno.sharp-stream.com/norskpop_no_mp3" data-name="Norsk Pop" data-quality="MP3 høy" data-search="norsk pop bauer media riksdekkende"><span class='num'>54</span><span class='nm'>Norsk Pop</span></button>
+<button class='station' data-id="55" data-url="https://live-bauerno.sharp-stream.com/vinyl_no_mp3" data-name="Radio Vinyl" data-quality="MP3 høy" data-search="radio vinyl bauer media riksdekkende"><span class='num'>55</span><span class='nm'>Radio Vinyl</span></button>
+<button class='station' data-id="56" data-url="https://live-bauerno.sharp-stream.com/top40_no_mp3" data-name="Topp 40" data-quality="MP3 høy" data-search="topp 40 bauer media riksdekkende"><span class='num'>56</span><span class='nm'>Topp 40</span></button>
+<button class='station' data-id="57" data-url="https://live-bauerno.sharp-stream.com/p247mix_no_mp3" data-name="P24-7 Mix" data-quality="MP3 høy" data-search="p24-7 mix bauer media riksdekkende"><span class='num'>57</span><span class='nm'>P24-7 Mix</span></button>
+<button class='station' data-id="58" data-url="https://live-bauerno.sharp-stream.com/p247kos_no_mp3" data-name="P24-7 Kos" data-quality="MP3 høy" data-search="p24-7 kos bauer media riksdekkende"><span class='num'>58</span><span class='nm'>P24-7 Kos</span></button>
+<button class='station' data-id="59" data-url="https://live-bauerno.sharp-stream.com/station17_no_mp3" data-name="P24-7 Juleradioen" data-quality="MP3 høy" data-search="p24-7 juleradioen bauer media riksdekkende"><span class='num'>59</span><span class='nm'>P24-7 Juleradioen</span></button>
+</div></section>
+<section><h2>P4-gruppen</h2><div class='grid'>
+<button class='station' data-id="60" data-url="https://p4.p4groupaudio.com/P04_MH" data-name="P4" data-quality="MP3 høy" data-search="p4 p4-gruppen riksdekkende"><span class='num'>60</span><span class='nm'>P4</span></button>
+<button class='station' data-id="61" data-url="https://p5.p4groupaudio.com/P05_MH" data-name="P5 Hits" data-quality="MP3 høy" data-search="p5 hits p4-gruppen riksdekkende"><span class='num'>61</span><span class='nm'>P5 Hits</span></button>
+<button class='station' data-id="62" data-url="https://p5n.p4groupaudio.com/P05AMM" data-name="P5 Nonstop Hits" data-quality="MP3" data-search="p5 nonstop hits p4-gruppen riksdekkende"><span class='num'>62</span><span class='nm'>P5 Nonstop Hits</span></button>
+<button class='station' data-id="63" data-url="https://p6.p4groupaudio.com/P06_MH" data-name="P6 Rock" data-quality="MP3 høy" data-search="p6 rock p4-gruppen riksdekkende"><span class='num'>63</span><span class='nm'>P6 Rock</span></button>
+<button class='station' data-id="64" data-url="https://p7.p4groupaudio.com/P07_MH" data-name="P7 Klem" data-quality="MP3 høy" data-search="p7 klem p4-gruppen riksdekkende"><span class='num'>64</span><span class='nm'>P7 Klem</span></button>
+<button class='station' data-id="65" data-url="https://p8.p4groupaudio.com/P08_MH" data-name="P8 Pop" data-quality="MP3 høy" data-search="p8 pop p4-gruppen riksdekkende"><span class='num'>65</span><span class='nm'>P8 Pop</span></button>
+<button class='station' data-id="66" data-url="https://p9.p4groupaudio.com/P09_MH" data-name="P9 Retro" data-quality="MP3 høy" data-search="p9 retro p4-gruppen riksdekkende"><span class='num'>66</span><span class='nm'>P9 Retro</span></button>
+<button class='station' data-id="67" data-url="https://p10.p4groupaudio.com/P10_MH" data-name="P10 Country" data-quality="MP3 høy" data-search="p10 country p4-gruppen riksdekkende"><span class='num'>67</span><span class='nm'>P10 Country</span></button>
+<button class='station' data-id="68" data-url="https://p11.p4groupaudio.com/P11_MH" data-name="P11 Dance" data-quality="MP3 høy" data-search="p11 dance p4-gruppen riksdekkende"><span class='num'>68</span><span class='nm'>P11 Dance</span></button>
+<button class='station' data-id="69" data-url="https://nrj.p4groupaudio.com/NRJ_MH" data-name="P12 Hitmix" data-quality="MP3 høy" data-search="p12 hitmix p4-gruppen riksdekkende"><span class='num'>69</span><span class='nm'>P12 Hitmix</span></button>
+</div></section>
+<section><h2>Agder</h2><div class='grid'>
+<button class='station' data-id="112" data-url="https://lyd2.lokalradio.no/sorlandsradioen_hq" data-name="Sørlandsradioen (Agder)" data-quality="MP3 høy" data-search="sørlandsradioen (agder) lokalradio agder sørlandet"><span class='num'>112</span><span class='nm'>Sørlandsradioen (Agder)</span></button>
+<button class='station' data-id="166" data-url="https://live.radiolyngdal.com/rly_hq" data-name="Radio Lyngdal (Agder)" data-quality="MP3 høy" data-search="radio lyngdal (agder) lokalradio agder lyngdal"><span class='num'>166</span><span class='nm'>Radio Lyngdal (Agder)</span></button>
+</div></section>
+<section><h2>DinLyd</h2><div class='grid'>
+<button class='station' data-id="90" data-url="https://live-nors.sharp-stream.com/nors13.mp3" data-name="Radio Rox (Oslo)" data-quality="MP3 høy" data-search="radio rox (oslo) dinlyd oslo"><span class='num'>90</span><span class='nm'>Radio Rox (Oslo)</span></button>
+<button class='station' data-id="91" data-url="https://live-nors.sharp-stream.com/nors17.mp3" data-name="The Beat (Oslo)" data-quality="MP3 høy" data-search="the beat (oslo) dinlyd oslo"><span class='num'>91</span><span class='nm'>The Beat (Oslo)</span></button>
+<button class='station' data-id="92" data-url="https://live-nors.sharp-stream.com/nors15.mp3" data-name="Heart Radio (Oslo)" data-quality="MP3 høy" data-search="heart radio (oslo) dinlyd oslo"><span class='num'>92</span><span class='nm'>Heart Radio (Oslo)</span></button>
+</div></section>
+<section><h2>Finnmark</h2><div class='grid'>
+<button class='station' data-id="148" data-url="https://streaming.radio.co/s5b773f8d3/listen" data-name="Guovdageainnu Lagasradio (Finnmark)" data-quality="AAC" data-search="guovdageainnu lagasradio (finnmark) lokalradio finnmark kautokeino"><span class='num'>148</span><span class='nm'>Guovdageainnu Lagasradio (Finnmark)</span></button>
+</div></section>
+<section><h2>Innlandet</h2><div class='grid'>
+<button class='station' data-id="107" data-url="https://lyd1.lokalradio.no/valdres_hq" data-name="Valdres Radio (Innlandet)" data-quality="MP3 høy" data-search="valdres radio (innlandet) lokalradio innlandet valdres"><span class='num'>107</span><span class='nm'>Valdres Radio (Innlandet)</span></button>
+<button class='station' data-id="120" data-url="https://lyd.radioene.no/elverum.mp3" data-name="ElverumsRadioen (Innlandet)" data-quality="MP3" data-search="elverumsradioen (innlandet) radioene innlandet elverum"><span class='num'>120</span><span class='nm'>ElverumsRadioen (Innlandet)</span></button>
+<button class='station' data-id="121" data-url="https://lyd.radioene.no/gdal.mp3" data-name="GudbrandsdalsRadioen (Innlandet)" data-quality="MP3" data-search="gudbrandsdalsradioen (innlandet) radioene innlandet gudbrandsdalen"><span class='num'>121</span><span class='nm'>GudbrandsdalsRadioen (Innlandet)</span></button>
+<button class='station' data-id="122" data-url="https://lyd.radioene.no/hamar.mp3" data-name="HamarRadioen (Innlandet)" data-quality="MP3" data-search="hamarradioen (innlandet) radioene innlandet hamar"><span class='num'>122</span><span class='nm'>HamarRadioen (Innlandet)</span></button>
+<button class='station' data-id="123" data-url="https://lyd.radioene.no/kongsvinger.mp3" data-name="RadioKongsvinger (Innlandet)" data-quality="MP3" data-search="radiokongsvinger (innlandet) radioene innlandet kongsvinger"><span class='num'>123</span><span class='nm'>RadioKongsvinger (Innlandet)</span></button>
+<button class='station' data-id="124" data-url="https://lyd.radioene.no/osterdal.mp3" data-name="ØsterdalsRadioen (Innlandet)" data-quality="MP3" data-search="østerdalsradioen (innlandet) radioene innlandet østerdalen"><span class='num'>124</span><span class='nm'>ØsterdalsRadioen (Innlandet)</span></button>
+<button class='station' data-id="125" data-url="https://lyd.radioene.no/solor.mp3" data-name="SolørRadioen (Innlandet)" data-quality="MP3" data-search="solørradioen (innlandet) radioene innlandet solør"><span class='num'>125</span><span class='nm'>SolørRadioen (Innlandet)</span></button>
+<button class='station' data-id="126" data-url="https://lyd.radioene.no/solorpluss.mp3" data-name="SolørRadioen+ (Innlandet)" data-quality="MP3" data-search="solørradioen+ (innlandet) radioene innlandet solør"><span class='num'>126</span><span class='nm'>SolørRadioen+ (Innlandet)</span></button>
+<button class='station' data-id="127" data-url="https://lyd.radioene.no/trysil.mp3" data-name="TrysilRadioen (Innlandet)" data-quality="MP3" data-search="trysilradioen (innlandet) radioene innlandet trysil"><span class='num'>127</span><span class='nm'>TrysilRadioen (Innlandet)</span></button>
+<button class='station' data-id="128" data-url="https://lyd.radioene.no/radiototen-mp3" data-name="Totenradioen (Innlandet)" data-quality="MP3" data-search="totenradioen (innlandet) radioene innlandet toten"><span class='num'>128</span><span class='nm'>Totenradioen (Innlandet)</span></button>
+<button class='station' data-id="129" data-url="https://lyd.radioene.no/radiosentrum.mp3" data-name="Radio Sentrum (Innlandet)" data-quality="MP3" data-search="radio sentrum (innlandet) radioene innlandet"><span class='num'>129</span><span class='nm'>Radio Sentrum (Innlandet)</span></button>
+<button class='station' data-id="160" data-url="https://stream.radiorandsfjord.no/randsfjord_hq" data-name="Radio Randsfjord (Innlandet)" data-quality="MP3 høy" data-search="radio randsfjord (innlandet) lokalradio innlandet randsfjord"><span class='num'>160</span><span class='nm'>Radio Randsfjord (Innlandet)</span></button>
+</div></section>
+<section><h2>Møre og Romsdal</h2><div class='grid'>
+<button class='station' data-id="100" data-url="https://lyd1.lokalradio.no/hjalar_hq" data-name="Hjalarhornet (Møre og Romsdal)" data-quality="MP3 høy" data-search="hjalarhornet (møre og romsdal) lokalradio møre og romsdal volda og ørsta"><span class='num'>100</span><span class='nm'>Hjalarhornet (Møre og Romsdal)</span></button>
+<button class='station' data-id="102" data-url="https://lyd1.lokalradio.no/oradio_hq" data-name="Ordentlig Radio (Møre og Romsdal)" data-quality="MP3 høy" data-search="ordentlig radio (møre og romsdal) lokalradio møre og romsdal ålesund"><span class='num'>102</span><span class='nm'>Ordentlig Radio (Møre og Romsdal)</span></button>
+<button class='station' data-id="105" data-url="https://lyd1.lokalradio.no/kos_hq" data-name="Radio Kos (Møre og Romsdal)" data-quality="MP3 høy" data-search="radio kos (møre og romsdal) lokalradio møre og romsdal sunnmøre"><span class='num'>105</span><span class='nm'>Radio Kos (Møre og Romsdal)</span></button>
+<button class='station' data-id="110" data-url="https://lyd2.lokalradio.no/sunnmore_hq" data-name="Radio Sunnmøre (Møre og Romsdal)" data-quality="MP3 høy" data-search="radio sunnmøre (møre og romsdal) lokalradio møre og romsdal sunnmøre"><span class='num'>110</span><span class='nm'>Radio Sunnmøre (Møre og Romsdal)</span></button>
+<button class='station' data-id="181" data-url="https://audio.radioaalesund.no/aalesund_hq" data-name="Radio Ålesund (Møre og Romsdal)" data-quality="MP3 høy" data-search="radio ålesund (møre og romsdal) lokalradio møre og romsdal ålesund"><span class='num'>181</span><span class='nm'>Radio Ålesund (Møre og Romsdal)</span></button>
+<button class='station' data-id="182" data-url="https://lyd.1fm.no/1fmjazz_hq" data-name="1FM Jazz (Møre og Romsdal)" data-quality="MP3 høy" data-search="1fm jazz (møre og romsdal) 1fm møre og romsdal molde"><span class='num'>182</span><span class='nm'>1FM Jazz (Møre og Romsdal)</span></button>
+</div></section>
+<section><h2>Nordland</h2><div class='grid'>
+<button class='station' data-id="140" data-url="https://stream.bardufoss.no/Radio3Bodo" data-name="Radio 3 Bodø (Nordland)" data-quality="MP3 høy" data-search="radio 3 bodø (nordland) lokalradio nordland bodø"><span class='num'>140</span><span class='nm'>Radio 3 Bodø (Nordland)</span></button>
+<button class='station' data-id="145" data-url="https://stream.radiomeloy.no:8003/radiomeloy" data-name="Radio Meløy (Nordland)" data-quality="MP3 høy" data-search="radio meløy (nordland) lokalradio nordland meløy"><span class='num'>145</span><span class='nm'>Radio Meløy (Nordland)</span></button>
+<button class='station' data-id="146" data-url="https://stream.radiomeloy.no:8003/8000bodo" data-name="FM 8000 Bodø (Nordland)" data-quality="MP3 høy" data-search="fm 8000 bodø (nordland) lokalradio nordland bodø"><span class='num'>146</span><span class='nm'>FM 8000 Bodø (Nordland)</span></button>
+<button class='station' data-id="147" data-url="https://stream.radiolatinamerika.no/varoy_hq" data-name="Radio Værøy (Nordland)" data-quality="MP3 høy" data-search="radio værøy (nordland) lokalradio nordland værøy"><span class='num'>147</span><span class='nm'>Radio Værøy (Nordland)</span></button>
+</div></section>
+<section><h2>Oslo</h2><div class='grid'>
+<button class='station' data-id="163" data-url="https://stream.radiorakel.no/radiorakel_hq" data-name="radiOrakel (Oslo)" data-quality="MP3 høy" data-search="radiorakel (oslo) lokalradio oslo"><span class='num'>163</span><span class='nm'>radiOrakel (Oslo)</span></button>
+</div></section>
+<section><h2>P7</h2><div class='grid'>
+<button class='station' data-id="80" data-url="https://radio.p7.no/listen/p7_kristen_riksradio/kristen_riksradio" data-name="P7 Kristen Riksradio" data-quality="MP3 høy" data-search="p7 kristen riksradio p7 riksdekkende"><span class='num'>80</span><span class='nm'>P7 Kristen Riksradio</span></button>
+<button class='station' data-id="81" data-url="https://radio.p7.no/listen/p7_kristen_pop/kristen_pop" data-name="P7 Pop" data-quality="MP3 høy" data-search="p7 pop p7 riksdekkende"><span class='num'>81</span><span class='nm'>P7 Pop</span></button>
+</div></section>
+<section><h2>Radio 3.16</h2><div class='grid'>
+<button class='station' data-id="82" data-url="https://streaming.radio.co/se326fb378/listen" data-name="Radio 3.16" data-quality="AAC" data-search="radio 3.16 radio 3.16 riksdekkende"><span class='num'>82</span><span class='nm'>Radio 3.16</span></button>
+</div></section>
+<section><h2>Radio Latin-Amerika</h2><div class='grid'>
+<button class='station' data-id="85" data-url="https://stream.radiolatinamerika.no/latam_hq" data-name="Radio Latin-Amerika (Oslo)" data-quality="MP3 høy" data-search="radio latin-amerika (oslo) radio latin-amerika oslo"><span class='num'>85</span><span class='nm'>Radio Latin-Amerika (Oslo)</span></button>
+</div></section>
+<section><h2>Rogaland</h2><div class='grid'>
+<button class='station' data-id="104" data-url="https://lyd1.lokalradio.no/radio102_hq" data-name="Radio 102 (Rogaland)" data-quality="MP3 høy" data-search="radio 102 (rogaland) lokalradio rogaland haugesund"><span class='num'>104</span><span class='nm'>Radio 102 (Rogaland)</span></button>
+<button class='station' data-id="183" data-url="https://stream.theradiohub.com/?server=radioip.no&amp;port=443&amp;type=mp3&amp;mount=rh.mp3" data-name="Radio Haugaland (Rogaland)" data-quality="MP3" data-search="radio haugaland (rogaland) lokalradio rogaland haugesund"><span class='num'>183</span><span class='nm'>Radio Haugaland (Rogaland)</span></button>
+</div></section>
+<section><h2>Telemark</h2><div class='grid'>
+<button class='station' data-id="186" data-url="https://nettradio.radiobo.com/radiobo-high" data-name="Radio Bø (Telemark)" data-quality="MP3 høy" data-search="radio bø (telemark) lokalradio telemark bø i midt-telemark"><span class='num'>186</span><span class='nm'>Radio Bø (Telemark)</span></button>
+</div></section>
+<section><h2>Troms</h2><div class='grid'>
+<button class='station' data-id="141" data-url="https://stream.bardufoss.no/radiobardufoss192" data-name="Radio Bardufoss (Troms)" data-quality="MP3 høy" data-search="radio bardufoss (troms) lokalradio troms bardufoss"><span class='num'>141</span><span class='nm'>Radio Bardufoss (Troms)</span></button>
+<button class='station' data-id="142" data-url="https://stream.bardufoss.no/radiotromso" data-name="Radio Tromsø (Troms)" data-quality="MP3 høy" data-search="radio tromsø (troms) lokalradio troms tromsø"><span class='num'>142</span><span class='nm'>Radio Tromsø (Troms)</span></button>
+<button class='station' data-id="143" data-url="https://stream.bardufoss.no/rthits192" data-name="Radio Tromsø Hits (Troms)" data-quality="MP3 høy" data-search="radio tromsø hits (troms) lokalradio troms tromsø"><span class='num'>143</span><span class='nm'>Radio Tromsø Hits (Troms)</span></button>
+</div></section>
+<section><h2>Trøndelag</h2><div class='grid'>
+<button class='station' data-id="103" data-url="https://lyd1.lokalradio.no/p5fosen_hq" data-name="P5 Fosen (Trøndelag)" data-quality="MP3 høy" data-search="p5 fosen (trøndelag) lokalradio trøndelag fosen"><span class='num'>103</span><span class='nm'>P5 Fosen (Trøndelag)</span></button>
+<button class='station' data-id="184" data-url="https://nettradio.radiotrondelag.no:8443/radio_trondelag" data-name="Radio Trøndelag" data-quality="MP3 høy" data-search="radio trøndelag lokalradio trøndelag"><span class='num'>184</span><span class='nm'>Radio Trøndelag</span></button>
+</div></section>
+<section><h2>Vestfold</h2><div class='grid'>
+<button class='station' data-id="165" data-url="https://audio.jaerradiogruppen.no/tonsberg_hq" data-name="Radio Tønsberg (Vestfold)" data-quality="MP3 høy" data-search="radio tønsberg (vestfold) jærradiogruppen vestfold tønsberg"><span class='num'>165</span><span class='nm'>Radio Tønsberg (Vestfold)</span></button>
+</div></section>
+<section><h2>Vestland</h2><div class='grid'>
+<button class='station' data-id="101" data-url="https://lyd1.lokalradio.no/nnr_hq" data-name="Nordfjord Nærradio (Vestland)" data-quality="MP3 høy" data-search="nordfjord nærradio (vestland) lokalradio vestland nordfjord"><span class='num'>101</span><span class='nm'>Nordfjord Nærradio (Vestland)</span></button>
+<button class='station' data-id="106" data-url="https://lyd1.lokalradio.no/stryn_hq" data-name="Radio Stryn (Vestland)" data-quality="MP3 høy" data-search="radio stryn (vestland) lokalradio vestland stryn"><span class='num'>106</span><span class='nm'>Radio Stryn (Vestland)</span></button>
+<button class='station' data-id="108" data-url="https://lyd2.lokalradio.no/radios_hq" data-name="RadiOs (Vestland)" data-quality="MP3 høy" data-search="radios (vestland) lokalradio vestland os og bjørnafjorden"><span class='num'>108</span><span class='nm'>RadiOs (Vestland)</span></button>
+<button class='station' data-id="109" data-url="https://lyd2.lokalradio.no/luster_hq" data-name="Radio Luster (Vestland)" data-quality="MP3 høy" data-search="radio luster (vestland) lokalradio vestland luster"><span class='num'>109</span><span class='nm'>Radio Luster (Vestland)</span></button>
+<button class='station' data-id="111" data-url="https://lyd2.lokalradio.no/folgefonn_hq" data-name="Radio Folgefonn (Vestland)" data-quality="MP3 høy" data-search="radio folgefonn (vestland) lokalradio vestland hardanger"><span class='num'>111</span><span class='nm'>Radio Folgefonn (Vestland)</span></button>
+<button class='station' data-id="180" data-url="https://streaming.radiosotra.no:8443/radiosotra" data-name="Radio Sotra (Vestland)" data-quality="MP3" data-search="radio sotra (vestland) lokalradio vestland sotra"><span class='num'>180</span><span class='nm'>Radio Sotra (Vestland)</span></button>
+</div></section>
+<section><h2>Østfold</h2><div class='grid'>
+<button class='station' data-id="161" data-url="https://stream.radiorandsfjord.no/radioost_hq" data-name="Radio Øst (Østfold)" data-quality="MP3 høy" data-search="radio øst (østfold) lokalradio østfold"><span class='num'>161</span><span class='nm'>Radio Øst (Østfold)</span></button>
+<button class='station' data-id="162" data-url="https://stream.radiorandsfjord.no/radioskjeberg" data-name="Radio Skjeberg (Østfold)" data-quality="MP3 høy" data-search="radio skjeberg (østfold) lokalradio østfold sarpsborg"><span class='num'>162</span><span class='nm'>Radio Skjeberg (Østfold)</span></button>
+</div></section>
+</main>
+<footer>
+<p>7 kanaler er utelatt fordi de bare finnes over http. Denne siden går over https, og nettleseren blokkerer da http-strømmer som usikkert innhold:</p><ul>
+<li>83. Norsk Country Radio</li>
+<li>84. Metal Express Radio</li>
+<li>86. historyradio.org</li>
+<li>87. Radio Northern Star</li>
+<li>144. Radio Nordkapp (Finnmark)</li>
+<li>164. Radio Nova (Oslo)</li>
+<li>185. Nea Radio (Trøndelag)</li>
+</ul>
+<p>Generert av <code>scripts/build_webplayer.py</code> fra <a href="https://github.com/nilz76/norske-radiokanaler">norske-radiokanaler</a>. Rediger stations.json, ikke denne filen.</p>
+</footer>
+<script>
+var audio = new Audio();
+audio.preload = 'none';
+var nowName = document.getElementById('now-name');
+var nowMeta = document.getElementById('now-meta');
+var stopBtn = document.getElementById('stop');
+var current = null;
+
+function play(button) {
+  if (current) { current.setAttribute('aria-current', 'false'); }
+  current = button;
+  button.setAttribute('aria-current', 'true');
+  nowName.textContent = button.dataset.name;
+  nowMeta.textContent = 'kobler til …';
+  stopBtn.disabled = false;
+  // Ny src på samme element: unngår at flere strømmer lastes samtidig.
+  audio.src = button.dataset.url;
+  audio.play().then(function () {
+    nowMeta.textContent = button.dataset.quality;
+  }).catch(function (err) {
+    nowMeta.textContent = 'kunne ikke spille: ' + err.message;
+  });
+  try { localStorage.setItem('sisteKanal', button.dataset.id); } catch (e) {}
+}
+
+function stop() {
+  audio.pause();
+  audio.removeAttribute('src');
+  audio.load();
+  if (current) { current.setAttribute('aria-current', 'false'); current = null; }
+  nowName.textContent = 'Ingen kanal';
+  nowMeta.textContent = '';
+  stopBtn.disabled = true;
+}
+
+audio.addEventListener('stalled', function () { nowMeta.textContent = 'strømmen stopper opp …'; });
+audio.addEventListener('playing', function () {
+  if (current) { nowMeta.textContent = current.dataset.quality; }
+});
+
+document.querySelectorAll('.station').forEach(function (button) {
+  button.addEventListener('click', function () { play(button); });
+});
+stopBtn.addEventListener('click', stop);
+
+// Søkefeltet skjuler både kanaler og grupper som blir tomme.
+var filter = document.getElementById('filter');
+filter.addEventListener('input', function () {
+  var q = filter.value.trim().toLowerCase();
+  document.querySelectorAll('section').forEach(function (section) {
+    var synlige = 0;
+    section.querySelectorAll('.station').forEach(function (button) {
+      var treff = !q || button.dataset.search.indexOf(q) !== -1;
+      button.classList.toggle('hidden', !treff);
+      if (treff) { synlige++; }
+    });
+    section.classList.toggle('hidden', synlige === 0);
+  });
+});
+
+// Marker forrige kanal, men start ikke av seg selv: nettlesere krever et
+// trykk for å spille lyd, og bilen skal ikke begynne å lage lyd ved åpning.
+try {
+  var siste = localStorage.getItem('sisteKanal');
+  if (siste) {
+    var button = document.querySelector('.station[data-id="' + siste + '"]');
+    if (button) {
+      nowName.textContent = button.dataset.name;
+      nowMeta.textContent = 'trykk for å spille';
+    }
+  }
+} catch (e) {}
+</script>
