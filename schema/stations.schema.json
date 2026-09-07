@@ -2,9 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Norske radiokanaler",
   "type": "object",
-  "required": ["updated", "stations"],
+  "required": [
+    "updated",
+    "stations"
+  ],
   "properties": {
-    "$schema": { "type": "string" },
+    "$schema": {
+      "type": "string"
+    },
     "updated": {
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
@@ -13,22 +18,38 @@
     "stations": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/station" }
+      "items": {
+        "$ref": "#/$defs/station"
+      }
     }
   },
   "additionalProperties": false,
   "$defs": {
     "station": {
       "type": "object",
-      "required": ["id", "name", "broadcaster", "region", "homepage", "source", "streams"],
+      "required": [
+        "id",
+        "name",
+        "broadcaster",
+        "region",
+        "homepage",
+        "source",
+        "streams"
+      ],
       "properties": {
         "id": {
           "type": "integer",
           "minimum": 1,
           "description": "Fast kanalnummer, brukt som tvg-chno i spillelistene"
         },
-        "name": { "type": "string", "minLength": 1 },
-        "broadcaster": { "type": "string", "minLength": 1 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "broadcaster": {
+          "type": "string",
+          "minLength": 1
+        },
         "region": {
           "description": "\"Riksdekkende\", eller ett av de 15 fylkene",
           "enum": [
@@ -60,23 +81,40 @@
           "minLength": 1,
           "description": "NRK sitt eget distriktsnavn. Brukes av refresh_nrk.py til å slå opp kanal-slugen på lyd.nrk.no, og er ikke alltid et fylke — Hordaland og Sogn og Fjordane ligger begge i Vestland."
         },
-        "homepage": { "type": "string", "format": "uri" },
+        "homepage": {
+          "type": "string",
+          "format": "uri"
+        },
         "source": {
           "type": "string",
           "format": "uri",
           "description": "Siden strøm-URL-ene er hentet fra"
         },
-        "note": { "type": "string" },
+        "note": {
+          "type": "string"
+        },
         "streams": {
           "type": "object",
           "minProperties": 1,
           "additionalProperties": false,
           "properties": {
-            "mp3_high": { "$ref": "#/$defs/streamUrl" },
-            "mp3_low": { "$ref": "#/$defs/streamUrl" },
-            "aac_high": { "$ref": "#/$defs/streamUrl" },
-            "aac_low": { "$ref": "#/$defs/streamUrl" }
+            "mp3_high": {
+              "$ref": "#/$defs/streamUrl"
+            },
+            "mp3_low": {
+              "$ref": "#/$defs/streamUrl"
+            },
+            "aac_high": {
+              "$ref": "#/$defs/streamUrl"
+            },
+            "aac_low": {
+              "$ref": "#/$defs/streamUrl"
+            }
           }
+        },
+        "offair": {
+          "type": "boolean",
+          "description": "true når kanalen er kjent av lufta. Icecast fjerner mount-punktet når kilden kobler fra, så en deltidssendende lokalradio svarer 404 uten å være nedlagt. check_streams.py rapporterer slike for seg og lar dem ikke feile jobben."
         }
       },
       "additionalProperties": false

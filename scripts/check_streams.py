@@ -7,7 +7,10 @@ Bruk:
     python3 scripts/check_streams.py --only NRK     # bare kanaler fra én kringkaster
     python3 scripts/check_streams.py --quiet        # bare vis feil
 
-Avslutningskode 0 = alt OK, 1 = én eller flere døde strømmer.
+Avslutningskode 0 = alt OK, 1 = én eller flere døde strømmer. Kanaler merket
+"offair": true i stations.json teller ikke som døde — de er ventet å ikke svare,
+og rapporteres for seg.
+
 En strøm regnes som levende når den svarer 200/206 med en lyd-relatert
 content-type, eller når serveren sender lyddata uten content-type.
 """
@@ -93,17 +96,33 @@ def main() -> int:
         outcomes = list(pool.map(lambda job: check_url(job[2]), jobs))
 
     results = [(station, quality, url, ok, detail) for (station, quality, url), (ok, detail) in zip(jobs, outcomes)]
-    dead = [row for row in results if not row[3]]
+
+    # En kanal merket offair er ventet å ikke svare — små lokalradioer sender
+    # deltid, og Icecast fjerner mount-punktet så snart kilden kobler fra. De
+    # skal rapporteres, men ikke få jobben til å feile.
+    dead = [row for row in results if not row[3] and not row[0].get("offair")]
+    offair_down = [row for row in results if not row[3] and row[0].get("offair")]
+    offair_up = [row for row in results if row[3] and row[0].get("offair")]
 
     for station, quality, url, ok, detail in results:
-        if ok and args.quiet:
+        if ok and not station.get("offair") and args.quiet:
             continue
-        mark = "OK  " if ok else "DØD "
-        print(f"{mark} {station['id']:>3}  {station['name']} [{QUALITY_LABELS[quality]}]  {detail}")
+        if station.get("offair"):
+            mark = "TILBAKE" if ok else "AV LUFTA"
+        else:
+            mark = "OK" if ok else "DØD"
+        print(f"{mark:<8} {station['id']:>3}  {station['name']} [{QUALITY_LABELS[quality]}]  {detail}")
         if not ok:
             print(f"          {url}")
 
-    print(f"\n{len(results) - len(dead)}/{len(results)} strømmer OK.")
+    live = len(results) - len(dead) - len(offair_down)
+    print(f"\n{live}/{len(results)} strømmer OK.")
+    if offair_down:
+        navn = sorted({row[0]["name"] for row in offair_down})
+        print(f"Av lufta som forventet: {', '.join(navn)}")
+    if offair_up:
+        navn = sorted({row[0]["name"] for row in offair_up})
+        print(f"Sender igjen — fjern offair-flagget i stations.json: {', '.join(navn)}")
     if dead:
         broadcasters = sorted({row[0]["broadcaster"] for row in dead})
         print(f"Døde strømmer hos: {', '.join(broadcasters)}")
@@ -112,26 +131,32 @@ def main() -> int:
         print("Se README.md → «Når en strøm slutter å virke» for framgangsmåte.")
 
     if args.report:
-        write_report(results, dead)
+        write_report(results, live)
         print(f"Skrev {(REPO_ROOT / 'STATUS.md')}")
 
     return 1 if dead else 0
 
 
-def write_report(results, dead) -> None:
+def write_report(results, live: int) -> None:
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         "# Status for strømmene",
         "",
         f"Sist sjekket: {now}",
         "",
-        f"{len(results) - len(dead)} av {len(results)} strømmer svarte.",
+        f"{live} av {len(results)} strømmer svarte.",
+        "",
+        "Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, "
+        "og Icecast fjerner mount-punktet da.",
         "",
         "| Nr. | Kanal | Kvalitet | Status | Detaljer |",
         "| --: | ----- | -------- | ------ | -------- |",
     ]
     for station, quality, _url, ok, detail in results:
-        status = "✅ OK" if ok else "❌ Død"
+        if station.get("offair"):
+            status = "🔁 Sender igjen" if ok else "💤 Av lufta"
+        else:
+            status = "✅ OK" if ok else "❌ Død"
         lines.append(f"| {station['id']} | {station['name']} | {QUALITY_LABELS[quality]} | {status} | {detail} |")
     lines.append("")
     lines.append("Generert av `scripts/check_streams.py --report`.")

@@ -35,8 +35,6 @@ https://lyd1.lokalradio.no/valdres_hq
 https://lyd.radioene.no/osterdal.mp3
 #EXTINF:-1 tvg-chno="182" tvg-name="1FM Jazz (Møre og Romsdal)" group-title="1FM",182. 1FM Jazz (Møre og Romsdal)
 https://lyd.1fm.no/1fmjazz_hq
-#EXTINF:-1 tvg-chno="100" tvg-name="Hjalarhornet (Møre og Romsdal)" group-title="Lokalradio",100. Hjalarhornet (Møre og Romsdal)
-https://lyd1.lokalradio.no/hjalar_hq
 #EXTINF:-1 tvg-chno="102" tvg-name="Ordentlig Radio (Møre og Romsdal)" group-title="Lokalradio",102. Ordentlig Radio (Møre og Romsdal)
 https://lyd1.lokalradio.no/oradio_hq
 #EXTINF:-1 tvg-chno="105" tvg-name="Radio Kos (Møre og Romsdal)" group-title="Lokalradio",105. Radio Kos (Møre og Romsdal)
@@ -52,7 +50,7 @@ https://stream.bardufoss.no/Radio3Bodo
 #EXTINF:-1 tvg-chno="145" tvg-name="Radio Meløy (Nordland)" group-title="Lokalradio",145. Radio Meløy (Nordland)
 https://stream.radiomeloy.no:8003/radiomeloy
 #EXTINF:-1 tvg-chno="147" tvg-name="Radio Værøy (Nordland)" group-title="Lokalradio",147. Radio Værøy (Nordland)
-https://stream.radiolatinamerika.no/varoy_hq
+https://lyd.radiovaroy.no/varoy_hq
 #EXTINF:-1 tvg-chno="164" tvg-name="Radio Nova (Oslo)" group-title="Lokalradio",164. Radio Nova (Oslo)
 http://stream.radionova.no/mp3
 #EXTINF:-1 tvg-chno="163" tvg-name="radiOrakel (Oslo)" group-title="Lokalradio",163. radiOrakel (Oslo)

@@ -146,7 +146,8 @@ console.log('\n== Søk');
 console.log('\n== Uten localStorage (privat modus)');
 {
   const { d } = lag({ lagringVirker: false });
-  sjekk('siden laster', d.querySelectorAll('.row').length, 98);
+  // Antallet endres med kanallista, så testen sjekker at siden har rader i det hele tatt.
+  sjekk('siden laster med kanaler', d.querySelectorAll('.row').length > 50, true);
   d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .fav').click();
   sjekk('stjerneklikk kaster ikke', true, true);
   d.querySelector('.row[data-id="4"] .play').click();

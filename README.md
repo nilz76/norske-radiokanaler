@@ -5,7 +5,7 @@
 Vedlikeholdt liste over direktestrømmer for norske radiokanaler, klar til bruk i
 VLC, Kodi, mpv, Sonos, bilstereo og andre spillere.
 
-**105 kanaler, 271 strøm-URL-er — alle verifisert 2026-08-10.**
+**104 kanaler, 269 strøm-URL-er — verifisert 2026-08-14.**
 
 ## Kom i gang
 
@@ -13,11 +13,11 @@ VLC, Kodi, mpv, Sonos, bilstereo og andre spillere.
 
 | Spilleliste | Innhold |
 | ----------- | ------- |
-| [alle-kanaler.m3u](playlists/alle-kanaler.m3u) | Alt — 105 kanaler |
+| [alle-kanaler.m3u](playlists/alle-kanaler.m3u) | Alt — 104 kanaler |
 | [nrk.m3u](playlists/nrk.m3u) | NRK riksdekkende — 13 kanaler |
 | [nrk-distrikt.m3u](playlists/nrk-distrikt.m3u) | NRK P1 distriktssendinger — 15 kanaler |
 | [kommersielle.m3u](playlists/kommersielle.m3u) | Riksdekkende kommersielle — 31 kanaler |
-| [lokalradio.m3u](playlists/lokalradio.m3u) | Lokalradio — 46 kanaler |
+| [lokalradio.m3u](playlists/lokalradio.m3u) | Lokalradio — 45 kanaler |
 
 I VLC: **Fil → Åpne nettverksstrøm** og lim inn en URL, eller **Fil → Åpne fil**
 og velg en `.m3u`-fil for å laste inn hele lista.
@@ -57,7 +57,7 @@ Siden tar hensyn til to begrensninger i nettleseren i bilen:
 
 - **Bare https-strømmer.** Pages går over https, og Chromium blokkerer
   http-strømmer på en https-side som usikkert innhold. 7 kanaler er derfor
-  utelatt, og listet nederst på siden med begrunnelse — 98 av 105 er med.
+  utelatt, og listet nederst på siden med begrunnelse — 96 av 104 er med.
 - **MP3 framfor AAC.** AAC i Icecast (`audio/aacp`) spilles ikke pålitelig i
   MCU2, så MP3 velges når kanalen har det. AAC brukes bare der det er eneste
   alternativ.
@@ -145,7 +145,7 @@ ikke har en egen distriktskanal.
 | 84 | Metal Express Radio | 91 | The Beat (DinLyd) |
 | | | 92 | Heart Radio (DinLyd) |
 
-### Lokalradio (46)
+### Lokalradio (45)
 
 Sortert på fylke, som er rekkefølgen i [lokalradio.m3u](playlists/lokalradio.m3u).
 Området er kanalens eget dekningsområde der det er smalere enn fylket.
@@ -169,7 +169,6 @@ Området er kanalens eget dekningsområde der det er smalere enn fylket.
 | 107 | Valdres Radio | Innlandet | Valdres |
 | 124 | ØsterdalsRadioen | Innlandet | Østerdalen |
 | 182 | 1FM Jazz | Møre og Romsdal | Molde |
-| 100 | Hjalarhornet | Møre og Romsdal | Volda og Ørsta |
 | 102 | Ordentlig Radio | Møre og Romsdal | Ålesund |
 | 105 | Radio Kos | Møre og Romsdal | Sunnmøre |
 | 110 | Radio Sunnmøre | Møre og Romsdal | Sunnmøre |
@@ -177,7 +176,7 @@ Området er kanalens eget dekningsområde der det er smalere enn fylket.
 | 146 | FM 8000 Bodø | Nordland | Bodø |
 | 140 | Radio 3 Bodø | Nordland | Bodø |
 | 145 | Radio Meløy | Nordland | Meløy |
-| 147 | Radio Værøy | Nordland | Værøy |
+| 147 | Radio Værøy | Nordland | Værøy (av lufta) |
 | 164 | Radio Nova | Oslo | |
 | 163 | radiOrakel | Oslo | |
 | 104 | Radio 102 | Rogaland | Haugesund |
@@ -237,6 +236,7 @@ Hver kanal i `stations.json` ser slik ut:
 | `area` | Kanalens eget dekningsområde når det er smalere enn fylket, f.eks. `Volda og Ørsta` |
 | `district` | Bare NRK: distriktsnavnet NRK selv bruker. `refresh_nrk.py` slår opp kanal-slugen på dette |
 | `source` | Siden URL-en er hentet fra, slik at den kan hentes på nytt når kringkasteren endrer noe |
+| `offair` | `true` når kanalen er kjent av lufta. Sjekken rapporterer den for seg og lar den ikke feile jobben |
 | `streams` | Alle fire kvaliteter er valgfrie — mange lokalradioer tilbyr bare én |
 
 `region` og `district` er atskilt fordi NRK sine distrikter ikke er fylker:
@@ -319,6 +319,23 @@ siden spillerlogikken er den delen som lettest går i stykker ubemerket.
 
 Pushen skjer med `GITHUB_TOKEN`, som med vilje ikke utløser nye arbeidsflyter, så
 automatikken kan ikke gå i løkke.
+
+### Av lufta er ikke det samme som død
+
+Icecast fjerner et mount-punkt så snart kilden kobler fra. En lokalradio som
+sender deltid svarer derfor 404 uten å være nedlagt, og `discover_icecast.py`
+viser den ikke i det hele tatt mens den er borte.
+
+Sett `"offair": true` på slike kanaler. Da rapporteres de som «av lufta» framfor
+«død», de får ikke arbeidsflyten til å feile hver uke, og de holdes utenfor
+nettleserspilleren. Begynner kanalen å sende igjen, sier sjekken det rett ut:
+
+```
+Sender igjen — fjern offair-flagget i stations.json: Radio Værøy
+```
+
+Skille mellom de to før du fjerner en kanal: sjekk om domenet og nettsiden
+fortsatt lever. Er domenet borte, er kanalen det trolig også.
 
 ### Når en strøm slutter å virke
 

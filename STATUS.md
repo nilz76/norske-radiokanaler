@@ -1,8 +1,10 @@
 # Status for strømmene
 
-Sist sjekket: 2026-08-10 12:22 UTC
+Sist sjekket: 2026-09-07 11:37 UTC
 
-271 av 271 strømmer svarte.
+267 av 269 strømmer svarte.
+
+Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
 | Nr. | Kanal | Kvalitet | Status | Detaljer |
 | --: | ----- | -------- | ------ | -------- |
@@ -188,7 +190,6 @@ Sist sjekket: 2026-08-10 12:22 UTC
 | 90 | Radio Rox | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 91 | The Beat | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 92 | Heart Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 100 | Hjalarhornet | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 101 | Nordfjord Nærradio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 101 | Nordfjord Nærradio | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 101 | Nordfjord Nærradio | AAC lav | ✅ OK | HTTP 206 audio/aac |
@@ -247,9 +248,8 @@ Sist sjekket: 2026-08-10 12:22 UTC
 | 144 | Radio Nordkapp | MP3 høy | ✅ OK | HTTP 200 application/ogg |
 | 145 | Radio Meløy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 146 | FM 8000 Bodø | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 147 | Radio Værøy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 147 | Radio Værøy | AAC høy | ✅ OK | HTTP 200 audio/aacp |
-| 147 | Radio Værøy | AAC lav | ✅ OK | HTTP 200 audio/aacp |
+| 147 | Radio Værøy | MP3 høy | 💤 Av lufta | HTTP 404 |
+| 147 | Radio Værøy | AAC lav | 💤 Av lufta | HTTP 404 |
 | 148 | Guovdageainnu Lagasradio | AAC høy | ✅ OK | HTTP 200 audio/aac |
 | 160 | Radio Randsfjord | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 160 | Radio Randsfjord | AAC høy | ✅ OK | HTTP 206 audio/aac |

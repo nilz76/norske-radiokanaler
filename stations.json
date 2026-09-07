@@ -1,6 +1,6 @@
 {
   "$schema": "./schema/stations.schema.json",
-  "updated": "2026-08-10",
+  "updated": "2026-08-14",
   "stations": [
     {
       "id": 1,
@@ -799,19 +799,6 @@
       }
     },
     {
-      "id": 100,
-      "name": "Hjalarhornet",
-      "broadcaster": "Lokalradio",
-      "region": "Møre og Romsdal",
-      "area": "Volda og Ørsta",
-      "homepage": "https://hjalarhornet.no/",
-      "source": "https://lokalradio.no/",
-      "note": "Mount-punktet var borte fra verten 2026-08-14. Icecast fjerner et mount når kilden kobler fra, så kanalen kan være av lufta framfor nedlagt — sjekk med discover_icecast.py før den fjernes.",
-      "streams": {
-        "mp3_high": "https://lyd1.lokalradio.no/hjalar_hq"
-      }
-    },
-    {
       "id": 101,
       "name": "Nordfjord Nærradio",
       "broadcaster": "Lokalradio",
@@ -1194,13 +1181,13 @@
       "broadcaster": "Lokalradio",
       "region": "Nordland",
       "area": "Værøy",
-      "homepage": "https://radiolatinamerika.no/",
-      "source": "https://radiolatinamerika.no/",
-      "note": "Mount-punktet var borte fra verten 2026-08-14. Icecast fjerner et mount når kilden kobler fra, så kanalen kan være av lufta framfor nedlagt — sjekk med discover_icecast.py før den fjernes.",
+      "homepage": "https://radiovaroy.no/",
+      "source": "https://radiovaroy.no/",
+      "note": "Av lufta: kilden er ikke koblet til, så Icecast svarer 404 på mount-punktet. URL-ene er de radiovaroy.no selv oppgir. Fjern offair-flagget når kanalen sender igjen.",
+      "offair": true,
       "streams": {
-        "mp3_high": "https://stream.radiolatinamerika.no/varoy_hq",
-        "aac_high": "https://stream.radiolatinamerika.no/varoy_mq",
-        "aac_low": "https://stream.radiolatinamerika.no/varoy_lq"
+        "mp3_high": "https://lyd.radiovaroy.no/varoy_hq",
+        "aac_low": "https://lyd.radiovaroy.no/varoy_lq"
       }
     },
     {

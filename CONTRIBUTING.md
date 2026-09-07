@@ -52,6 +52,19 @@ verifiser før du legger dem inn.
   lista, siden CDN-verten kan byttes ut.
 - `check_streams.py` må gi OK for URL-en.
 
+## Kanaler som er av lufta
+
+Icecast fjerner mount-punktet når kilden kobler fra, så en deltidssendende
+lokalradio svarer 404 uten å være nedlagt. Sett `"offair": true` på kanalen
+framfor å fjerne den — da rapporteres den for seg og feller ikke arbeidsflyten.
+
+Før du fjerner en kanal helt: sjekk om domenet og nettsiden lever. Hjalarhornet
+ble fjernet fordi `hjalarhornet.no` ikke lenger finnes i DNS, mens Radio Værøy
+er beholdt fordi radiovaroy.no er aktiv og oppgir strøm-URL-ene sine.
+
+Kanalnummeret til en fjernet kanal skal stå ubrukt, slik at nummereringen til de
+andre ikke forskyver seg.
+
 ## Kanaler som mangler
 
 **DinLyd (tidligere Radio Metro)** har rundt femten kanaler på

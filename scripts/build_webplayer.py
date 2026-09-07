@@ -358,7 +358,11 @@ def main() -> int:
     groups: dict[str, list[tuple[dict, str, str]]] = {}
     skipped: list[dict] = []
 
+    offair: list[dict] = []
     for station in data["stations"]:
+        if station.get("offair"):
+            offair.append(station)
+            continue
         url, quality = playable_url(station)
         if not url:
             skipped.append(station)
@@ -411,6 +415,13 @@ def main() -> int:
         for station in skipped:
             parts.append(f"<li>{station['id']}. {html.escape(display_name(station))}</li>")
         parts.append("</ul>")
+    if offair:
+        parts.append(
+            "<p>Disse er av lufta nå — kilden sender ikke, så strømmen svarer ikke:</p><ul>"
+        )
+        for station in offair:
+            parts.append(f"<li>{station['id']}. {html.escape(display_name(station))}</li>")
+        parts.append("</ul>")
     parts.append(
         "<p>Favoritter og volum lagres bare i denne nettleseren, ikke på nett.</p>"
     )
@@ -424,7 +435,10 @@ def main() -> int:
 
     OUTPUT.parent.mkdir(exist_ok=True)
     OUTPUT.write_text("\n".join(parts) + "\n", encoding="utf-8")
-    print(f"{OUTPUT.relative_to(REPO_ROOT)}: {playable} spillbare kanaler, {len(skipped)} utelatt")
+    print(f"{OUTPUT.relative_to(REPO_ROOT)}: {playable} spillbare kanaler, "
+          f"{len(skipped)} utelatt, {len(offair)} av lufta")
+    for station in offair:
+        print(f"  av lufta: {station['id']} {station['name']}")
     for station in skipped:
         print(f"  utelatt (kun http): {station['id']} {station['name']}")
     return 0

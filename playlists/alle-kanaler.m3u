@@ -119,8 +119,6 @@ https://live-nors.sharp-stream.com/nors13.mp3
 https://live-nors.sharp-stream.com/nors17.mp3
 #EXTINF:-1 tvg-chno="92" tvg-name="Heart Radio (Oslo)" group-title="DinLyd",92. Heart Radio (Oslo)
 https://live-nors.sharp-stream.com/nors15.mp3
-#EXTINF:-1 tvg-chno="100" tvg-name="Hjalarhornet (Møre og Romsdal)" group-title="Lokalradio",100. Hjalarhornet (Møre og Romsdal)
-https://lyd1.lokalradio.no/hjalar_hq
 #EXTINF:-1 tvg-chno="101" tvg-name="Nordfjord Nærradio (Vestland)" group-title="Lokalradio",101. Nordfjord Nærradio (Vestland)
 https://lyd1.lokalradio.no/nnr_hq
 #EXTINF:-1 tvg-chno="102" tvg-name="Ordentlig Radio (Møre og Romsdal)" group-title="Lokalradio",102. Ordentlig Radio (Møre og Romsdal)
@@ -180,7 +178,7 @@ https://stream.radiomeloy.no:8003/radiomeloy
 #EXTINF:-1 tvg-chno="146" tvg-name="FM 8000 Bodø (Nordland)" group-title="Lokalradio",146. FM 8000 Bodø (Nordland)
 https://stream.radiomeloy.no:8003/8000bodo
 #EXTINF:-1 tvg-chno="147" tvg-name="Radio Værøy (Nordland)" group-title="Lokalradio",147. Radio Værøy (Nordland)
-https://stream.radiolatinamerika.no/varoy_hq
+https://lyd.radiovaroy.no/varoy_hq
 #EXTINF:-1 tvg-chno="148" tvg-name="Guovdageainnu Lagasradio (Finnmark)" group-title="Lokalradio",148. Guovdageainnu Lagasradio (Finnmark)
 https://streaming.radio.co/s5b773f8d3/listen
 #EXTINF:-1 tvg-chno="160" tvg-name="Radio Randsfjord (Innlandet)" group-title="Lokalradio",160. Radio Randsfjord (Innlandet)
