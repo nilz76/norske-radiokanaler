@@ -41,7 +41,19 @@ i bilens nettleser og legg den inn som bokmerke, så er den ett trykk unna.
 
 (Den serveres av GitHub Pages fra `/docs` på `main`.)
 
-Siden tar hensyn til to begrensninger i den nettleseren:
+**Favoritter:** trykk stjernen ved en kanal, og den legger seg i en egen seksjon
+øverst på siden. Rekkefølgen er den du la dem inn i.
+
+**Volum:** et volumfelt vises bare der nettleseren faktisk lar lydstyrken settes.
+I Tesla styrer bilen volumet, og på iOS er `audio.volume` skrivebeskyttet — der
+ville feltet ikke gjort noe, så det skjules. Siden feature-detekterer dette
+framfor å bare se på nettleserstrengen.
+
+Begge lagres i `localStorage`, altså bare i den nettleseren — ingenting sendes
+noe sted. Klikkene håndteres med hendelsesdelegering, slik at favorittradene
+virker selv om de er kloner av radene lenger ned.
+
+Siden tar hensyn til to begrensninger i nettleseren i bilen:
 
 - **Bare https-strømmer.** Pages går over https, og Chromium blokkerer
   http-strømmer på en https-side som usikkert innhold. 7 kanaler er derfor
@@ -196,6 +208,7 @@ docs/index.html        Nettleserspiller, generert av scripts/build_webplayer.py
 STATUS.md              Generert av scripts/check_streams.py --report
 schema/                JSON Schema for stations.json
 scripts/               Vedlikeholdsverktøy (Python 3.9+, ingen avhengigheter)
+tests/player.test.js   Tester spillerlogikken (krever jsdom)
 ```
 
 Hver kanal i `stations.json` ser slik ut:
@@ -276,6 +289,9 @@ python3 scripts/build_playlists.py --quality aac_high
 
 # Bygg nettleserspilleren i docs/ på nytt
 python3 scripts/build_webplayer.py
+
+# Test logikken i spilleren (favoritter, volum, søk)
+npm install jsdom && node tests/player.test.js
 ```
 
 `check_streams.py` åpner hver strøm, leser de første par kilobytene og godtar den
@@ -298,7 +314,8 @@ hver mandag, og gjør dette i rekkefølge:
 
 Push og pull request kjører aldri skrivestegene. Der er jobben å fange at noen
 har endret `stations.json` uten å bygge de genererte filene — da feiler den med
-beskjed om hvilke skript som må kjøres.
+beskjed om hvilke skript som må kjøres. De kjører også `tests/player.test.js`,
+siden spillerlogikken er den delen som lettest går i stykker ubemerket.
 
 Pushen skjer med `GITHUB_TOKEN`, som med vilje ikke utløser nye arbeidsflyter, så
 automatikken kan ikke gå i løkke.

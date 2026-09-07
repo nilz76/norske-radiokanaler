@@ -21,7 +21,6 @@ Bruk:
 from __future__ import annotations
 
 import html
-import json
 import sys
 
 from common import REPO_ROOT, display_name, load_stations
@@ -30,6 +29,8 @@ OUTPUT = REPO_ROOT / "docs" / "index.html"
 
 # Rekkefølgen kilder velges i for MCU2: MP3 først, AAC bare som siste utvei.
 MCU2_QUALITIES = ["mp3_high", "mp3_low", "aac_high", "aac_low"]
+
+QUALITY_LABELS = {"mp3_high": "MP3 høy", "mp3_low": "MP3", "aac_high": "AAC", "aac_low": "AAC lav"}
 
 
 def playable_url(station: dict) -> tuple[str | None, str | None]:
@@ -53,8 +54,10 @@ CSS = """
 :root {
   --bg: #12141a; --panel: #1c1f27; --panel-hi: #262a35; --line: #333846;
   --text: #f2f4f8; --dim: #9aa3b4; --accent: #4da3ff; --accent-ink: #06121f;
+  --star: #ffc94d;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -69,18 +72,35 @@ h1 { margin: 0 0 4px; font-size: 20px; }
 #now {
   display: flex; align-items: center; gap: 14px; margin-top: 12px;
   background: var(--panel-hi); border: 1px solid var(--line); border-radius: 12px;
-  padding: 12px 14px; min-height: 62px;
+  padding: 12px 14px; min-height: 62px; flex-wrap: wrap;
 }
-#now-name { flex: 1; font-size: 18px; font-weight: 600; }
+#now-text { flex: 1 1 190px; min-width: 0; }
+#now-name { font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
 #now-meta { color: var(--dim); font-size: 13px; font-weight: 400; }
 button {
   font: inherit; color: var(--text); background: var(--panel-hi);
   border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
 }
-#stop {
-  min-width: 104px; min-height: 52px; font-weight: 600;
-}
+#stop { min-width: 104px; min-height: 52px; font-weight: 600; }
 #stop:disabled { opacity: .4; }
+
+/* Volumfeltet vises bare der nettleseren faktisk lar lydstyrken settes.
+   I Tesla styres volumet av bilen, og på iOS er audio.volume skrivebeskyttet. */
+#vol-wrap { display: flex; align-items: center; gap: 10px; flex: 1 1 180px; min-width: 160px; }
+#vol-icon { color: var(--dim); font-size: 18px; }
+#vol {
+  flex: 1; min-width: 110px; height: 40px; margin: 0;
+  background: transparent; -webkit-appearance: none; appearance: none;
+}
+#vol::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: var(--line); }
+#vol::-moz-range-track { height: 8px; border-radius: 4px; background: var(--line); }
+#vol::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 30px; height: 30px; margin-top: -11px;
+  border: none; border-radius: 50%; background: var(--accent);
+}
+#vol::-moz-range-thumb { width: 30px; height: 30px; border: none; border-radius: 50%; background: var(--accent); }
+#vol-val { color: var(--dim); font-size: 13px; min-width: 40px; text-align: right; font-variant-numeric: tabular-nums; }
+
 #filter {
   width: 100%; margin-top: 10px; padding: 14px; font: inherit;
   color: var(--text); background: var(--panel-hi);
@@ -91,25 +111,34 @@ h2 {
   font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
   color: var(--dim); margin: 26px 0 10px;
 }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
-.station {
-  display: flex; align-items: center; gap: 10px; text-align: left;
-  min-height: 64px; padding: 10px 14px;
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+
+/* Én rad = spilleknapp + stjerne. Stjernen kan ikke ligge inne i spilleknappen;
+   en knapp inne i en knapp er ugyldig markup og oppfører seg uforutsigbart. */
+.row { display: flex; gap: 6px; }
+.play {
+  flex: 1; display: flex; align-items: center; gap: 10px; text-align: left;
+  min-height: 64px; padding: 10px 14px; min-width: 0;
 }
-.station:active { background: var(--accent); color: var(--accent-ink); }
-.station[aria-current="true"] {
+.play:active { background: var(--accent); color: var(--accent-ink); }
+.row[aria-current="true"] .play {
   background: var(--accent); color: var(--accent-ink); border-color: var(--accent);
 }
 .num {
   flex: 0 0 auto; min-width: 34px; font-variant-numeric: tabular-nums;
   color: var(--dim); font-size: 14px;
 }
-.station[aria-current="true"] .num { color: var(--accent-ink); }
-.nm { flex: 1; font-weight: 600; }
+.row[aria-current="true"] .num { color: var(--accent-ink); }
+.nm { flex: 1; font-weight: 600; overflow-wrap: anywhere; }
+.fav {
+  flex: 0 0 auto; width: 56px; min-height: 64px; font-size: 22px; line-height: 1;
+  color: var(--dim);
+}
+.fav[aria-pressed="true"] { color: var(--star); }
 footer { color: var(--dim); font-size: 13px; padding: 0 18px 40px; }
 footer ul { padding-left: 20px; }
 a { color: var(--accent); }
-.hidden { display: none !important; }
+#fav-empty { color: var(--dim); font-size: 14px; }
 """
 
 JS = """
@@ -118,30 +147,96 @@ audio.preload = 'none';
 var nowName = document.getElementById('now-name');
 var nowMeta = document.getElementById('now-meta');
 var stopBtn = document.getElementById('stop');
-var current = null;
+var favSection = document.getElementById('favoritter');
+var favGrid = document.getElementById('fav-grid');
+var favEmpty = document.getElementById('fav-empty');
+var currentId = null;
 
-function play(button) {
-  if (current) { current.setAttribute('aria-current', 'false'); }
-  current = button;
-  button.setAttribute('aria-current', 'true');
-  nowName.textContent = button.dataset.name;
+/* ---------------------------------------------------------------- lagring */
+/* localStorage kan kaste i privat modus og der nettleseren blokkerer lagring,
+   så alle kall er innkapslet. Siden skal virke uten at noe lagres. */
+function lagre(nokkel, verdi) {
+  try { localStorage.setItem(nokkel, verdi); } catch (e) {}
+}
+function hent(nokkel) {
+  try { return localStorage.getItem(nokkel); } catch (e) { return null; }
+}
+
+function favoritter() {
+  try {
+    var raw = hent('favoritter');
+    var liste = raw ? JSON.parse(raw) : [];
+    return Array.isArray(liste) ? liste.map(String) : [];
+  } catch (e) { return []; }
+}
+function settFavoritter(liste) { lagre('favoritter', JSON.stringify(liste)); }
+
+/* ------------------------------------------------------------- favoritter */
+/* Favorittradene er kloner av radene i kanallistene. Klikk håndteres med
+   delegering på document, så klonene virker uten at noe bindes på nytt. */
+function tegnFavoritter() {
+  var liste = favoritter();
+  favGrid.textContent = '';
+  liste.forEach(function (id) {
+    var kilde = document.querySelector('main > section:not(#favoritter) .row[data-id="' + id + '"]');
+    if (kilde) { favGrid.appendChild(kilde.cloneNode(true)); }
+  });
+  favEmpty.hidden = liste.length > 0;
+  favSection.hidden = false;
+  oppdaterStjerner();
+  merkSpillende();
+}
+
+function oppdaterStjerner() {
+  var liste = favoritter();
+  document.querySelectorAll('.row').forEach(function (rad) {
+    var er = liste.indexOf(rad.dataset.id) !== -1;
+    var stjerne = rad.querySelector('.fav');
+    stjerne.setAttribute('aria-pressed', er ? 'true' : 'false');
+    stjerne.title = er ? 'Fjern fra favoritter' : 'Legg til favoritter';
+  });
+}
+
+function vekslFavoritt(id) {
+  var liste = favoritter();
+  var i = liste.indexOf(id);
+  if (i === -1) { liste.push(id); } else { liste.splice(i, 1); }
+  settFavoritter(liste);
+  tegnFavoritter();
+  filtrer();
+}
+
+/* ----------------------------------------------------------------- spiller */
+/* En kanal kan finnes to steder samtidig — i favorittene og i sin egen gruppe —
+   så markeringen settes på alle radene med samme id. */
+function merkSpillende() {
+  document.querySelectorAll('.row').forEach(function (rad) {
+    rad.setAttribute('aria-current', rad.dataset.id === currentId ? 'true' : 'false');
+  });
+}
+
+function spill(rad) {
+  currentId = rad.dataset.id;
+  merkSpillende();
+  nowName.textContent = rad.dataset.name;
   nowMeta.textContent = 'kobler til …';
   stopBtn.disabled = false;
   // Ny src på samme element: unngår at flere strømmer lastes samtidig.
-  audio.src = button.dataset.url;
+  audio.src = rad.dataset.url;
   audio.play().then(function () {
-    nowMeta.textContent = button.dataset.quality;
+    nowMeta.textContent = rad.dataset.quality;
   }).catch(function (err) {
     nowMeta.textContent = 'kunne ikke spille: ' + err.message;
   });
-  try { localStorage.setItem('sisteKanal', button.dataset.id); } catch (e) {}
+  lagre('sisteKanal', currentId);
 }
 
-function stop() {
+function stopp() {
   audio.pause();
   audio.removeAttribute('src');
   audio.load();
-  if (current) { current.setAttribute('aria-current', 'false'); current = null; }
+  currentId = null;
+  merkSpillende();
   nowName.textContent = 'Ingen kanal';
   nowMeta.textContent = '';
   stopBtn.disabled = true;
@@ -149,42 +244,113 @@ function stop() {
 
 audio.addEventListener('stalled', function () { nowMeta.textContent = 'strømmen stopper opp …'; });
 audio.addEventListener('playing', function () {
-  if (current) { nowMeta.textContent = current.dataset.quality; }
+  var rad = document.querySelector('.row[data-id="' + currentId + '"]');
+  if (rad) { nowMeta.textContent = rad.dataset.quality; }
 });
 
-document.querySelectorAll('.station').forEach(function (button) {
-  button.addEventListener('click', function () { play(button); });
+document.addEventListener('click', function (event) {
+  var stjerne = event.target.closest('.fav');
+  if (stjerne) { vekslFavoritt(stjerne.closest('.row').dataset.id); return; }
+  var play = event.target.closest('.play');
+  if (play) { spill(play.closest('.row')); }
 });
-stopBtn.addEventListener('click', stop);
+stopBtn.addEventListener('click', stopp);
 
-// Søkefeltet skjuler både kanaler og grupper som blir tomme.
+/* ------------------------------------------------------------------ volum */
+/* Feature-deteksjon framfor bare UA-sniffing: i Tesla styrer bilen volumet, og
+   på iOS er audio.volume skrivebeskyttet og blir stående på 1. Da er et
+   volumfelt bare villedende, og skjules. */
+function volumKanSettes() {
+  try {
+    var probe = new Audio();
+    probe.volume = 0.42;
+    return Math.abs(probe.volume - 0.42) < 0.01;
+  } catch (e) { return false; }
+}
+
+var volWrap = document.getElementById('vol-wrap');
+var vol = document.getElementById('vol');
+var volVal = document.getElementById('vol-val');
+var erTesla = /Tesla/i.test(navigator.userAgent);
+
+function settVolum(prosent) {
+  audio.volume = Math.min(100, Math.max(0, prosent)) / 100;
+  volVal.textContent = Math.round(prosent) + ' %';
+}
+
+var lagretVolum = parseInt(hent('volum'), 10);
+if (isNaN(lagretVolum)) { lagretVolum = 100; }
+
+if (!erTesla && volumKanSettes()) {
+  vol.value = lagretVolum;
+  settVolum(lagretVolum);
+  volWrap.hidden = false;
+  vol.addEventListener('input', function () {
+    settVolum(parseInt(vol.value, 10));
+  });
+  vol.addEventListener('change', function () { lagre('volum', vol.value); });
+}
+
+/* ------------------------------------------------------------------- søk */
 var filter = document.getElementById('filter');
-filter.addEventListener('input', function () {
+function filtrer() {
   var q = filter.value.trim().toLowerCase();
-  document.querySelectorAll('section').forEach(function (section) {
+  document.querySelectorAll('main > section').forEach(function (section) {
     var synlige = 0;
-    section.querySelectorAll('.station').forEach(function (button) {
-      var treff = !q || button.dataset.search.indexOf(q) !== -1;
-      button.classList.toggle('hidden', !treff);
+    section.querySelectorAll('.row').forEach(function (rad) {
+      var treff = !q || rad.dataset.search.indexOf(q) !== -1;
+      rad.hidden = !treff;
       if (treff) { synlige++; }
     });
-    section.classList.toggle('hidden', synlige === 0);
-  });
-});
-
-// Marker forrige kanal, men start ikke av seg selv: nettlesere krever et
-// trykk for å spille lyd, og bilen skal ikke begynne å lage lyd ved åpning.
-try {
-  var siste = localStorage.getItem('sisteKanal');
-  if (siste) {
-    var button = document.querySelector('.station[data-id="' + siste + '"]');
-    if (button) {
-      nowName.textContent = button.dataset.name;
-      nowMeta.textContent = 'trykk for å spille';
+    // Favorittseksjonen beholdes ved tomt søk, slik at tomteksten kan vises.
+    if (section.id === 'favoritter') {
+      section.hidden = q !== '' && synlige === 0;
+      favEmpty.hidden = q !== '' || favoritter().length > 0;
+    } else {
+      section.hidden = synlige === 0;
     }
+  });
+}
+filter.addEventListener('input', filtrer);
+
+/* ------------------------------------------------------------- oppstart */
+tegnFavoritter();
+
+// Marker forrige kanal, men start ikke av seg selv: nettlesere krever et trykk
+// for å spille lyd, og bilen skal ikke begynne å lage lyd ved åpning.
+var siste = hent('sisteKanal');
+if (siste) {
+  var rad = document.querySelector('.row[data-id="' + siste + '"]');
+  if (rad) {
+    nowName.textContent = rad.dataset.name;
+    nowMeta.textContent = 'trykk for å spille';
   }
-} catch (e) {}
+}
 """
+
+
+def row_html(station: dict, url: str, quality: str) -> str:
+    shown = display_name(station)
+    haystack = " ".join(
+        bit for bit in [shown, station["broadcaster"], station["region"], station.get("area", "")] if bit
+    ).lower()
+    return (
+        "<div class='row'"
+        f' data-id="{station["id"]}"'
+        f' data-url="{html.escape(url, quote=True)}"'
+        f' data-name="{html.escape(shown, quote=True)}"'
+        f' data-quality="{QUALITY_LABELS[quality]}"'
+        f' data-search="{html.escape(haystack, quote=True)}"'
+        " aria-current='false'>"
+        "<button class='play' type='button'>"
+        f"<span class='num'>{station['id']}</span>"
+        f"<span class='nm'>{html.escape(shown)}</span>"
+        "</button>"
+        "<button class='fav' type='button' aria-pressed='false'"
+        f' aria-label="Favoritt: {html.escape(shown, quote=True)}"'
+        " title='Legg til favoritter'>★</button>"
+        "</div>"
+    )
 
 
 def main() -> int:
@@ -210,33 +376,28 @@ def main() -> int:
         f"<style>{CSS}</style>",
         "<header>",
         "<h1>Norsk radio</h1>",
-        f'<div class="sub">{playable} kanaler — trykk for å spille</div>',
-        '<div id="now"><div id="now-name">Ingen kanal<div id="now-meta"></div></div>',
-        '<button id="stop" disabled>Stopp</button></div>',
+        f'<div class="sub">{playable} kanaler — trykk for å spille, stjerne for favoritt</div>',
+        '<div id="now">',
+        '<div id="now-text"><div id="now-name">Ingen kanal</div><div id="now-meta"></div></div>',
+        '<div id="vol-wrap" hidden>',
+        '<span id="vol-icon" aria-hidden="true">\U0001f50a</span>',
+        '<input id="vol" type="range" min="0" max="100" step="1" value="100" aria-label="Volum">',
+        '<span id="vol-val">100 %</span>',
+        "</div>",
+        '<button id="stop" type="button" disabled>Stopp</button>',
+        "</div>",
         '<input id="filter" type="search" placeholder="Søk på kanal eller fylke" autocomplete="off">',
         "</header>",
         "<main>",
+        "<section id='favoritter' hidden><h2>Favoritter</h2>",
+        "<p id='fav-empty'>Trykk stjernen ved en kanal for å legge den her.</p>",
+        "<div class='grid' id='fav-grid'></div></section>",
     ]
 
-    labels = {"mp3_high": "MP3 høy", "mp3_low": "MP3", "aac_high": "AAC", "aac_low": "AAC lav"}
     for group in order:
         parts.append(f"<section><h2>{html.escape(group)}</h2><div class='grid'>")
         for station, url, quality in sorted(groups[group], key=lambda row: row[0]["id"]):
-            shown = display_name(station)
-            haystack = " ".join(filter(None, [
-                shown, station["broadcaster"], station["region"], station.get("area", "")
-            ])).lower()
-            parts.append(
-                "<button class='station'"
-                f' data-id="{station["id"]}"'
-                f' data-url="{html.escape(url, quote=True)}"'
-                f' data-name="{html.escape(shown, quote=True)}"'
-                f' data-quality="{labels[quality]}"'
-                f' data-search="{html.escape(haystack, quote=True)}">'
-                f"<span class='num'>{station['id']}</span>"
-                f"<span class='nm'>{html.escape(shown)}</span>"
-                "</button>"
-            )
+            parts.append(row_html(station, url, quality))
         parts.append("</div></section>")
     parts.append("</main>")
 
@@ -250,6 +411,9 @@ def main() -> int:
         for station in skipped:
             parts.append(f"<li>{station['id']}. {html.escape(display_name(station))}</li>")
         parts.append("</ul>")
+    parts.append(
+        "<p>Favoritter og volum lagres bare i denne nettleseren, ikke på nett.</p>"
+    )
     parts.append(
         "<p>Generert av <code>scripts/build_webplayer.py</code> fra "
         '<a href="https://github.com/nilz76/norske-radiokanaler">norske-radiokanaler</a>. '

@@ -806,6 +806,7 @@
       "area": "Volda og Ørsta",
       "homepage": "https://hjalarhornet.no/",
       "source": "https://lokalradio.no/",
+      "note": "Mount-punktet var borte fra verten 2026-08-14. Icecast fjerner et mount når kilden kobler fra, så kanalen kan være av lufta framfor nedlagt — sjekk med discover_icecast.py før den fjernes.",
       "streams": {
         "mp3_high": "https://lyd1.lokalradio.no/hjalar_hq"
       }
@@ -1195,6 +1196,7 @@
       "area": "Værøy",
       "homepage": "https://radiolatinamerika.no/",
       "source": "https://radiolatinamerika.no/",
+      "note": "Mount-punktet var borte fra verten 2026-08-14. Icecast fjerner et mount når kilden kobler fra, så kanalen kan være av lufta framfor nedlagt — sjekk med discover_icecast.py før den fjernes.",
       "streams": {
         "mp3_high": "https://stream.radiolatinamerika.no/varoy_hq",
         "aac_high": "https://stream.radiolatinamerika.no/varoy_mq",
