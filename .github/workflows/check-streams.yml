@@ -10,10 +10,20 @@ on:
       - "stations.json"
       - "scripts/**"
       - ".github/workflows/check-streams.yml"
+  pull_request:
+    paths:
+      - "stations.json"
+      - "scripts/**"
 
 permissions:
-  contents: read
+  contents: write
   issues: write
+
+# Bare én kjøring av gangen: to samtidige kjøringer kunne begge prøvd å
+# committe genererte filer, og kollidert på push.
+concurrency:
+  group: check-streams
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -25,70 +35,120 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Sjekk at spillelistene er i takt med stations.json
+      # På push og pull request skal ingenting skrives. Der er poenget å fange at
+      # noen har endret stations.json uten å bygge de genererte filene.
+      - name: Sjekk at genererte filer er i takt med stations.json
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: |
           python3 scripts/build_playlists.py
-          git diff --exit-code -- playlists/ || {
-            echo "::error::playlists/ er ikke oppdatert. Kjør: python3 scripts/build_playlists.py"
+          python3 scripts/build_webplayer.py
+          git diff --exit-code -- playlists/ docs/ || {
+            echo "::error::playlists/ eller docs/ er ikke oppdatert. Kjør:"
+            echo "::error::  python3 scripts/build_playlists.py && python3 scripts/build_webplayer.py"
             exit 1
           }
 
       - name: Sjekk alle strøm-URL-er
         id: check
+        run: python3 scripts/check_streams.py --report | tee check.log
+        continue-on-error: true
+
+      # Døde NRK-strømmer skyldes nesten alltid at NRK har byttet token eller
+      # flyttet en distriktskanal. Da kan URL-ene hentes på nytt automatisk.
+      - name: Hent NRK-URL-ene på nytt
+        id: refresh
+        if: steps.check.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+        run: python3 scripts/refresh_nrk.py --write | tee -a check.log
+        continue-on-error: true
+
+      # Bygges alltid på planlagte kjøringer, ikke bare etter en reparasjon:
+      # STATUS.md skal holdes fersk, og docs/ må følge stations.json.
+      - name: Bygg genererte filer på nytt
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: |
-          python3 scripts/check_streams.py --report | tee check.log
+          python3 scripts/build_playlists.py
+          python3 scripts/build_webplayer.py
+          python3 scripts/check_streams.py --report > /dev/null || true
+
+      - name: Se om noe faktisk endret seg
+        id: diff
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- stations.json playlists/ docs/ STATUS.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Ingen endringer å committe."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- stations.json playlists/ docs/ STATUS.md
+          fi
+
+      - name: Commit de oppdaterte filene
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stations.json playlists/ docs/ STATUS.md
+          git commit \
+            -m "Oppdater strøm-URL-er og genererte filer automatisk" \
+            -m "Kjørt av arbeidsflyten «Sjekk strømmer». ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # Push med GITHUB_TOKEN utløser ikke nye arbeidsflyter, så dette kan
+          # ikke gå i løkke.
+          git push
+
+      # Sjekk på nytt etter en eventuell reparasjon, så en issue bare opprettes
+      # for strømmer som fortsatt er døde.
+      - name: Sjekk strømmene på nytt
+        id: recheck
+        if: steps.check.outcome == 'failure' && github.event_name != 'pull_request'
+        run: python3 scripts/check_streams.py --quiet | tee recheck.log
         continue-on-error: true
 
-      - name: Se om NRK har endret URL-ene sine
-        if: steps.check.outcome == 'failure'
-        run: python3 scripts/refresh_nrk.py | tee -a check.log
-        continue-on-error: true
-
-      - name: Opprett issue hvis noe er dødt
-        if: steps.check.outcome == 'failure'
+      - name: Opprett issue for strømmer som fortsatt er døde
+        if: steps.recheck.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const log = fs.readFileSync('check.log', 'utf8').split('\n')
-              .filter(line => !line.startsWith('OK '))
-              .join('\n')
-              .slice(0, 60000);
-            const title = 'Døde strømmer oppdaget';
-            const { data: open } = await github.rest.issues.listForRepo({
+            const log = fs.readFileSync('recheck.log', 'utf8').slice(0, 60000);
+            const reparert = '${{ steps.diff.outputs.changed }}' === 'true';
+            const { data: apne } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
               labels: 'dead-stream',
             });
             const body = [
-              `Den ukentlige sjekken fant strømmer som ikke svarer.`,
-              ``,
+              'Sjekken fant strømmer som ikke svarer.',
+              '',
+              reparert
+                ? 'NRK-URL-ene ble hentet på nytt og committet, men disse står fortsatt:'
+                : 'Automatisk reparasjon hjalp ikke på disse:',
+              '',
               '```',
               log,
               '```',
-              ``,
-              `Se README.md → «Når en strøm slutter å virke».`,
-              ``,
+              '',
+              'Se README.md → «Når en strøm slutter å virke».',
+              '',
               `[Kjøringen](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`,
             ].join('\n');
-            if (open.length) {
+            if (apne.length) {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: open[0].number,
+                issue_number: apne[0].number,
                 body,
               });
             } else {
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title,
+                title: 'Døde strømmer oppdaget',
                 body,
                 labels: ['dead-stream'],
               });
             }
 
       - name: Marker jobben som feilet
-        if: steps.check.outcome == 'failure'
+        if: steps.recheck.outcome == 'failure' || (steps.check.outcome == 'failure' && github.event_name == 'pull_request')
         run: exit 1

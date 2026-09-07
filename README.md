@@ -36,9 +36,10 @@ dem, og USB-inngangen spiller bare lokale filer, ikke strømmer. Veien inn er
 nettleseren, og [docs/index.html](docs/index.html) er en side laget for det —
 store trykkflater, søkefelt og ett `<audio>`-element som bytter kilde.
 
-Slå på GitHub Pages for repoet (**Settings → Pages → Deploy from a branch →
-`main` → `/docs`**), så ligger spilleren på
-`https://<brukernavn>.github.io/<repo>/`. Legg den inn som bokmerke i bilen.
+**Spilleren ligger på <https://nilz76.github.io/norske-radiokanaler/>.** Åpne den
+i bilens nettleser og legg den inn som bokmerke, så er den ett trykk unna.
+
+(Den serveres av GitHub Pages fra `/docs` på `main`.)
 
 Siden tar hensyn til to begrensninger i den nettleseren:
 
@@ -49,7 +50,9 @@ Siden tar hensyn til to begrensninger i den nettleseren:
   MCU2, så MP3 velges når kanalen har det. AAC brukes bare der det er eneste
   alternativ.
 
-Bygg siden på nytt etter endringer i `stations.json`:
+Siden bygges automatisk av den ukentlige arbeidsflyten, så bilsiden følger
+endringer i strøm-URL-ene av seg selv. Etter en manuell endring i
+`stations.json` bygger du den slik:
 
 ```sh
 python3 scripts/build_webplayer.py
@@ -278,8 +281,27 @@ python3 scripts/build_webplayer.py
 `check_streams.py` åpner hver strøm, leser de første par kilobytene og godtar den
 bare når serveren svarer 200/206 med en lyd-content-type.
 
+### Automatikken
+
 [.github/workflows/check-streams.yml](.github/workflows/check-streams.yml) kjører
-sjekken hver mandag og oppretter en issue hvis noe har sluttet å virke.
+hver mandag, og gjør dette i rekkefølge:
+
+1. Sjekker alle strøm-URL-ene.
+2. Er noe dødt, kjøres `refresh_nrk.py --write` — det reparerer de vanligste
+   feilene av seg selv, siden NRK bytter token og flytter distriktskanaler.
+3. Bygger `playlists/`, `docs/index.html` og `STATUS.md` på nytt.
+4. Committer og pusher hvis noe faktisk endret seg. Bilsiden på GitHub Pages
+   oppdaterer seg dermed selv når en URL endres.
+5. Sjekker på nytt, og oppretter en issue bare for strømmer som fortsatt er
+   døde. Er en issue åpen fra før, kommenteres den i stedet for at det lages en
+   ny hver uke.
+
+Push og pull request kjører aldri skrivestegene. Der er jobben å fange at noen
+har endret `stations.json` uten å bygge de genererte filene — da feiler den med
+beskjed om hvilke skript som må kjøres.
+
+Pushen skjer med `GITHUB_TOKEN`, som med vilje ikke utløser nye arbeidsflyter, så
+automatikken kan ikke gå i løkke.
 
 ### Når en strøm slutter å virke
 
