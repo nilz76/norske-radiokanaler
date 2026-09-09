@@ -139,6 +139,11 @@ footer { color: var(--dim); font-size: 13px; padding: 0 18px 40px; }
 footer ul { padding-left: 20px; }
 a { color: var(--accent); }
 #fav-empty { color: var(--dim); font-size: 14px; }
+#vol-toggle {
+  margin-top: 10px; min-height: 44px; padding: 8px 14px;
+  font-size: 14px; color: var(--dim);
+}
+#ua { word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
 """
 
 JS = """
@@ -257,9 +262,16 @@ document.addEventListener('click', function (event) {
 stopBtn.addEventListener('click', stopp);
 
 /* ------------------------------------------------------------------ volum */
-/* Feature-deteksjon framfor bare UA-sniffing: i Tesla styrer bilen volumet, og
-   på iOS er audio.volume skrivebeskyttet og blir stående på 1. Da er et
-   volumfelt bare villedende, og skjules. */
+/* Volumfeltet er meningsløst der bilen eller systemet styrer lydstyrken, så det
+   skjules der. Automatikken kan ikke gjøres helt sikker:
+
+   - I Chromium kan audio.volume ALLTID settes, også i Tesla. Prøven under
+     fanger derfor bare iOS, der volume er skrivebeskyttet og blir stående på 1.
+   - Tesla-nettleseren oppgir ikke alltid «Tesla» i nettleserstrengen.
+
+   Derfor er automatikken bare et utgangspunkt, og brukerens valg overstyrer den
+   alltid og huskes. Nettleserstrengen vises nederst på siden, slik at
+   deteksjonen kan gjøres treffsikker for en skjerm som gjetter feil. */
 function volumKanSettes() {
   try {
     var probe = new Audio();
@@ -268,10 +280,20 @@ function volumKanSettes() {
   } catch (e) { return false; }
 }
 
+function ventetBilskjerm() {
+  var ua = navigator.userAgent;
+  if (/Tesla|QtCarBrowser/i.test(ua)) { return true; }
+  // Linux med berøringsskjerm og uten Android er nesten alltid en bilskjerm.
+  // Skulle det treffe en Linux-maskin med touch, slår brukeren det på igjen.
+  var linux = /Linux|X11/i.test(ua) && !/Android/i.test(ua);
+  var touch = (navigator.maxTouchPoints || 0) > 0;
+  return linux && touch;
+}
+
 var volWrap = document.getElementById('vol-wrap');
 var vol = document.getElementById('vol');
 var volVal = document.getElementById('vol-val');
-var erTesla = /Tesla/i.test(navigator.userAgent);
+var volToggle = document.getElementById('vol-toggle');
 
 function settVolum(prosent) {
   audio.volume = Math.min(100, Math.max(0, prosent)) / 100;
@@ -281,15 +303,33 @@ function settVolum(prosent) {
 var lagretVolum = parseInt(hent('volum'), 10);
 if (isNaN(lagretVolum)) { lagretVolum = 100; }
 
-if (!erTesla && volumKanSettes()) {
+// Kan lydstyrken ikke settes i det hele tatt (iOS), er det ingenting å velge.
+var kanSettes = volumKanSettes();
+var valg = hent('visVolum');
+var visVolum = kanSettes && (valg === 'ja' || (valg !== 'nei' && !ventetBilskjerm()));
+
+function tegnVolum() {
+  volWrap.hidden = !visVolum;
+  volToggle.hidden = !kanSettes;
+  volToggle.textContent = visVolum ? 'Skjul volumkontroll' : 'Vis volumkontroll';
+  volToggle.setAttribute('aria-pressed', visVolum ? 'true' : 'false');
+}
+
+if (kanSettes) {
   vol.value = lagretVolum;
   settVolum(lagretVolum);
-  volWrap.hidden = false;
-  vol.addEventListener('input', function () {
-    settVolum(parseInt(vol.value, 10));
-  });
+  vol.addEventListener('input', function () { settVolum(parseInt(vol.value, 10)); });
   vol.addEventListener('change', function () { lagre('volum', vol.value); });
+  volToggle.addEventListener('click', function () {
+    visVolum = !visVolum;
+    lagre('visVolum', visVolum ? 'ja' : 'nei');
+    tegnVolum();
+  });
 }
+tegnVolum();
+
+var uaLinje = document.getElementById('ua');
+if (uaLinje) { uaLinje.textContent = navigator.userAgent; }
 
 /* ------------------------------------------------------------------- søk */
 var filter = document.getElementById('filter');
@@ -391,6 +431,7 @@ def main() -> int:
         '<button id="stop" type="button" disabled>Stopp</button>',
         "</div>",
         '<input id="filter" type="search" placeholder="Søk på kanal eller fylke" autocomplete="off">',
+        '<button id="vol-toggle" type="button" aria-pressed="false" hidden>Vis volumkontroll</button>',
         "</header>",
         "<main>",
         "<section id='favoritter' hidden><h2>Favoritter</h2>",
@@ -423,8 +464,10 @@ def main() -> int:
             parts.append(f"<li>{station['id']}. {html.escape(display_name(station))}</li>")
         parts.append("</ul>")
     parts.append(
-        "<p>Favoritter og volum lagres bare i denne nettleseren, ikke på nett.</p>"
+        "<p>Favoritter, volum og valget over lagres bare i denne nettleseren, "
+        "ikke på nett.</p>"
     )
+    parts.append('<p>Nettleseren din melder seg som:<br><span id="ua"></span></p>')
     parts.append(
         "<p>Generert av <code>scripts/build_webplayer.py</code> fra "
         '<a href="https://github.com/nilz76/norske-radiokanaler">norske-radiokanaler</a>. '

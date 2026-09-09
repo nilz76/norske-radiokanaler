@@ -17,7 +17,7 @@ const { JSDOM } = require('jsdom');
 const path = require('path');
 const html = fs.readFileSync(path.join(__dirname, '..', 'docs', 'index.html'), 'utf8');
 
-function lag({ ua, volumSettbar = true, lagringVirker = true }) {
+function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret = {} }) {
   const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, {
     runScripts: 'outside-only', pretendToBeVisual: true,
   });
@@ -26,7 +26,8 @@ function lag({ ua, volumSettbar = true, lagringVirker = true }) {
   Object.defineProperty(w.navigator, 'userAgent', {
     value: ua || 'Mozilla/5.0 (Macintosh) Chrome/140', configurable: true,
   });
-  const butikk = {};
+  Object.defineProperty(w.navigator, 'maxTouchPoints', { value: touch, configurable: true });
+  const butikk = Object.assign({}, lagret);
   Object.defineProperty(w, 'localStorage', { value: {
     getItem: k => (lagringVirker ? (k in butikk ? butikk[k] : null) : (() => { throw new Error('blokkert'); })()),
     setItem: (k, v) => { if (!lagringVirker) throw new Error('blokkert'); butikk[k] = String(v); },
@@ -96,29 +97,78 @@ console.log('\n== Spilling og markering');
 }
 
 console.log('\n== Volum');
+// Nettleserstrenger observert i praksis. MCU2 oppgir ikke alltid «Tesla».
+const UA_MAC = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/140 Safari/537.36';
+const UA_TESLA_MERKET = 'Mozilla/5.0 (X11; GNU/Linux) Chromium/79.0.3945.130 Safari/537.36 Tesla/2020.48.35';
+const UA_TESLA_UMERKET = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
+const UA_IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari/604.1';
+
 {
-  const { d } = lag({ ua: 'Mozilla/5.0 (Macintosh) Chrome/140' });
-  sjekk('vises i vanlig nettleser', d.getElementById('vol-wrap').hidden, false);
+  const { d } = lag({ ua: UA_MAC });
+  sjekk('vises på Mac', d.getElementById('vol-wrap').hidden, false);
+  sjekk('bryter tilgjengelig', d.getElementById('vol-toggle').hidden, false);
   const vol = d.getElementById('vol');
   vol.value = '35';
   vol.dispatchEvent(new d.defaultView.Event('input'));
   sjekk('viser prosent', d.getElementById('vol-val').textContent, '35 %');
 }
 {
-  const ua = 'Mozilla/5.0 (X11; GNU/Linux) Chromium/79.0.3945.130 Safari/537.36 Tesla/2020.48.35';
-  const { d } = lag({ ua });
-  sjekk('skjult i Tesla', d.getElementById('vol-wrap').hidden, true);
+  const { d } = lag({ ua: UA_TESLA_MERKET, touch: 10 });
+  sjekk('skjult i Tesla (merket UA)', d.getElementById('vol-wrap').hidden, true);
 }
 {
-  const { d } = lag({ ua: 'Mozilla/5.0 (iPhone) Safari', volumSettbar: false });
-  sjekk('skjult der volume er skrivebeskyttet (iOS)', d.getElementById('vol-wrap').hidden, true);
+  // Dette er tilfellet som feilet i bilen: ingen «Tesla» i strengen.
+  const { d } = lag({ ua: UA_TESLA_UMERKET, touch: 10 });
+  sjekk('skjult i Tesla (umerket UA, Linux + touch)', d.getElementById('vol-wrap').hidden, true);
 }
 {
-  const { d, butikk } = lag({});
+  const { d } = lag({ ua: UA_TESLA_UMERKET, touch: 0 });
+  sjekk('Linux uten touch regnes som skrivebord', d.getElementById('vol-wrap').hidden, false);
+}
+{
+  const { d } = lag({ ua: UA_IPHONE, volumSettbar: false, touch: 5 });
+  sjekk('skjult på iOS', d.getElementById('vol-wrap').hidden, true);
+  sjekk('bryter skjult når volum ikke kan settes', d.getElementById('vol-toggle').hidden, true);
+}
+
+console.log('\n== Volum: brukerens valg overstyrer');
+{
+  // Bilen gjetter feil -> ett trykk skal skjule det, og huskes.
+  const { d, butikk } = lag({ ua: UA_MAC });
+  sjekk('synlig i utgangspunktet', d.getElementById('vol-wrap').hidden, false);
+  d.getElementById('vol-toggle').click();
+  sjekk('skjult etter trykk', d.getElementById('vol-wrap').hidden, true);
+  sjekk('valget lagret', butikk.visVolum, 'nei');
+  sjekk('bryterteksten oppdatert', d.getElementById('vol-toggle').textContent, 'Vis volumkontroll');
+}
+{
+  const { d } = lag({ ua: UA_MAC, lagret: { visVolum: 'nei' } });
+  sjekk('valget huskes ved ny åpning', d.getElementById('vol-wrap').hidden, true);
+}
+{
+  // Motsatt vei: vil man ha det i bilen likevel, skal det være mulig.
+  const { d, butikk } = lag({ ua: UA_TESLA_UMERKET, touch: 10 });
+  sjekk('skjult som standard i bil', d.getElementById('vol-wrap').hidden, true);
+  d.getElementById('vol-toggle').click();
+  sjekk('kan slås på i bil', d.getElementById('vol-wrap').hidden, false);
+  sjekk('valget lagret', butikk.visVolum, 'ja');
+}
+{
+  const { d } = lag({ ua: UA_TESLA_UMERKET, touch: 10, lagret: { visVolum: 'ja' } });
+  sjekk('påslått valg huskes i bil', d.getElementById('vol-wrap').hidden, false);
+}
+{
+  const { d, butikk } = lag({ ua: UA_MAC });
   const vol = d.getElementById('vol');
   vol.value = '60';
   vol.dispatchEvent(new d.defaultView.Event('change'));
-  sjekk('volum lagres ved change', butikk.volum, '60');
+  sjekk('volumnivå lagres', butikk.volum, '60');
+}
+
+console.log('\n== Nettleserstreng vises');
+{
+  const { d } = lag({ ua: UA_TESLA_UMERKET, touch: 10 });
+  sjekk('UA skrevet ut på siden', d.getElementById('ua').textContent, UA_TESLA_UMERKET);
 }
 
 console.log('\n== Søk');
