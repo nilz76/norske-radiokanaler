@@ -17,7 +17,8 @@ const { JSDOM } = require('jsdom');
 const path = require('path');
 const html = fs.readFileSync(path.join(__dirname, '..', 'docs', 'index.html'), 'utf8');
 
-function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret = {} }) {
+function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret = {},
+              mediaSession = false, playAvvises = null }) {
   const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, {
     runScripts: 'outside-only', pretendToBeVisual: true,
   });
@@ -32,17 +33,43 @@ function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret 
     getItem: k => (lagringVirker ? (k in butikk ? butikk[k] : null) : (() => { throw new Error('blokkert'); })()),
     setItem: (k, v) => { if (!lagringVirker) throw new Error('blokkert'); butikk[k] = String(v); },
   }});
-  // Minimal Audio-stubb. volume speiler ekte nettlesere: skrivebeskyttet på iOS.
-  w.Audio = class {
-    constructor() { this._v = 1; this.src = ''; }
+  // Audio-stubb som ekte EventTarget, slik at sidens hendelseslyttere fyres.
+  // volume speiler nettlesere: skrivebeskyttet på iOS.
+  w.__lyd = [];
+  w.Audio = class extends w.EventTarget {
+    constructor() {
+      super();
+      this._v = 1; this._src = ''; this.paused = true; this.srcLogg = [];
+      w.__lyd.push(this);
+    }
     get volume() { return this._v; }
     set volume(v) { if (volumSettbar) this._v = v; }
-    play() { return Promise.resolve(); }
-    pause() {} load() {} removeAttribute() {} addEventListener() {}
+    get src() { return this._src; }
+    set src(v) { this._src = v; this.srcLogg.push(v); }
+    play() {
+      if (playAvvises) { return Promise.reject(playAvvises); }
+      this.paused = false;
+      const p = Promise.resolve();
+      p.then(() => this.dispatchEvent(new w.Event('playing')));
+      return p;
+    }
+    pause() { this.paused = true; }
+    load() {}
+    removeAttribute() { this._src = ''; }
   };
+  // Media Session-stubb. Registreres før skriptet kjøres, slik at siden ser den.
+  const handlinger = {};
+  if (mediaSession) {
+    w.navigator.mediaSession = {
+      metadata: null, playbackState: '',
+      setActionHandler: (n, f) => { handlinger[n] = f; },
+    };
+    w.MediaMetadata = class { constructor(o) { Object.assign(this, o); } };
+  }
   const js = html.match(/<script>([\s\S]*)<\/script>/)[1];
   w.eval(js);
-  return { w, d: w.document, butikk };
+  // Første Audio-instans er spillerens; den andre er volumprøven.
+  return { w, d: w.document, butikk, lyd: w.__lyd[0], handlinger };
 }
 
 let feil = 0;
@@ -163,6 +190,133 @@ console.log('\n== Nettleserstreng vises');
   sjekk('UA skrevet ut på siden', d.getElementById('ua').textContent, UA_TESLA_UMERKET);
 }
 
+const sov = ms => new Promise(r => setTimeout(r, ms));
+
+async function testGjenoppkobling() {
+  console.log('\n== Gjenoppkobling ved brudd');
+  {
+    const { d, lyd } = lag({});
+    const spill = id => d.querySelector(`main > section:not(#favoritter) .row[data-id="${id}"] .play`).click();
+    spill('4');
+    await sov(10);
+    sjekk('koblet til én gang', lyd.srcLogg.length, 1);
+
+    lyd.dispatchEvent(new d.defaultView.Event('error'));
+    sjekk('varsler om brudd og nytt forsøk',
+      /prøver igjen om \d+ s/.test(d.getElementById('now-meta').textContent), true);
+
+    await sov(1300);
+    sjekk('koblet til på nytt av seg selv', lyd.srcLogg.length, 2);
+    sjekk('samme kanal', lyd.srcLogg[1], lyd.srcLogg[0]);
+  }
+  {
+    // Pausen skal øke når forsøkene fortsetter å feile, slik at vi ikke hamrer
+    // på en server som er nede.
+    const { d, lyd } = lag({ playAvvises: new Error('nede') });
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(20);
+    const forste = d.getElementById('now-meta').textContent;
+    await sov(1300);
+    const andre = d.getElementById('now-meta').textContent;
+    sjekk('pausen dobles ved gjentatt feil',
+      [forste.includes('1 s'), andre.includes('2 s'), lyd.srcLogg.length], [true, true, 2]);
+  }
+  {
+    // Lykkes gjenoppkoblingen, skal pausen nullstilles.
+    const { d, lyd } = lag({});
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(10);
+    lyd.dispatchEvent(new d.defaultView.Event('error'));
+    await sov(1300);
+    lyd.dispatchEvent(new d.defaultView.Event('error'));
+    sjekk('pausen nullstilles etter et vellykket forsøk',
+      d.getElementById('now-meta').textContent.includes('1 s'), true);
+  }
+  {
+    // Brukeren stopper: da skal ingen gjenoppkobling skje.
+    const { d, lyd } = lag({});
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(10);
+    d.getElementById('stop').click();
+    const etterStopp = lyd.srcLogg.length;
+    lyd.dispatchEvent(new d.defaultView.Event('error'));
+    await sov(1300);
+    sjekk('ingen gjenoppkobling etter at brukeren stoppet', lyd.srcLogg.length, etterStopp);
+  }
+  {
+    // Nettet tilbake: prøv straks, ikke vent ut pausen.
+    const { w, d, lyd } = lag({});
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(10);
+    lyd.paused = true;
+    w.dispatchEvent(new w.Event('offline'));
+    sjekk('melder om manglende nettverk', d.getElementById('now-meta').textContent, 'ingen nettverk');
+    w.dispatchEvent(new w.Event('online'));
+    sjekk('kobler til straks nettet er tilbake', lyd.srcLogg.length, 2);
+  }
+  {
+    // Manglende brukertrykk kan ikke løses med nye forsøk.
+    const feil = new Error('blokkert'); feil.name = 'NotAllowedError';
+    const { d, lyd } = lag({ playAvvises: feil });
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(1300);
+    sjekk('NotAllowedError gir ikke nye forsøk', lyd.srcLogg.length, 1);
+    sjekk('ber brukeren trykke', d.getElementById('now-meta').textContent, 'trykk for å spille');
+  }
+  {
+    const { d, lyd } = lag({});
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    await sov(10);
+    lyd.dispatchEvent(new d.defaultView.Event('stalled'));
+    sjekk('stalled vises uten å rive ned straks',
+      d.getElementById('now-meta').textContent, 'strømmen stopper opp …');
+  }
+}
+
+function testMediaSession() {
+  console.log('\n== Media Session');
+  {
+    const { d, handlinger } = lag({ mediaSession: true });
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    const ms = d.defaultView.navigator.mediaSession;
+    sjekk('kanalnavn til systemet', ms.metadata.title, 'NRK P3');
+    sjekk('kringkaster som artist', ms.metadata.artist, 'NRK');
+    sjekk('tilstand satt', ms.playbackState, 'playing');
+    sjekk('handlinger registrert', Object.keys(handlinger).sort(),
+      ['nexttrack', 'pause', 'play', 'previoustrack', 'stop']);
+
+    handlinger.nexttrack();
+    sjekk('neste kanal', d.getElementById('now-name').textContent, 'NRK P3 Musikk');
+    handlinger.previoustrack();
+    sjekk('forrige kanal', d.getElementById('now-name').textContent, 'NRK P3');
+    handlinger.pause();
+    sjekk('pause stopper', d.getElementById('now-name').textContent, 'Ingen kanal');
+    sjekk('tilstand nullstilt', ms.playbackState, 'none');
+  }
+  {
+    // Uten Media Session skal siden virke som før.
+    const { d } = lag({ mediaSession: false });
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    sjekk('spiller uten Media Session', d.getElementById('now-name').textContent, 'NRK P3');
+  }
+}
+
+function testSortering() {
+  console.log('\n== Rekkefølge i gruppene');
+  const { d } = lag({});
+  const navni = h2 => {
+    const sek = [...d.querySelectorAll('main > section')].find(s => s.querySelector('h2') && s.querySelector('h2').textContent === h2);
+    return [...sek.querySelectorAll('.row')].map(r => r.dataset.name);
+  };
+  const nrk = navni('NRK');
+  sjekk('NRK beholder P1/P1+/P2-rekkefølgen', nrk.slice(0, 4),
+    ['NRK P1', 'NRK P1+', 'NRK P2', 'NRK P3']);
+  const innl = navni('Innlandet');
+  sjekk('fylke er alfabetisk', innl, [...innl].sort((a, b) => a.toLowerCase() < b.toLowerCase() ? -1 : 1));
+  const p4 = navni('P4-gruppen');
+  sjekk('P4-gruppen beholder nummerrekkefølgen', p4.slice(0, 3), ['P4', 'P5 Hits', 'P5 Nonstop Hits']);
+}
+
 console.log('\n== Søk');
 {
   const { d } = lag({});
@@ -196,5 +350,10 @@ console.log('\n== Uten localStorage (privat modus)');
   sjekk('spilling virker fortsatt', d.getElementById('now-name').textContent, 'NRK P3');
 }
 
-console.log(feil ? `\n${feil} FEIL` : '\nAlle tester bestått');
-process.exit(feil ? 1 : 0);
+(async () => {
+  await testGjenoppkobling();
+  testMediaSession();
+  testSortering();
+  console.log(feil ? `\n${feil} FEIL` : '\nAlle tester bestått');
+  process.exit(feil ? 1 : 0);
+})();

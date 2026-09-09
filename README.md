@@ -44,6 +44,12 @@ i bilens nettleser og legg den inn som bokmerke, så er den ett trykk unna.
 **Favoritter:** trykk stjernen ved en kanal, og den legger seg i en egen seksjon
 øverst på siden. Rekkefølgen er den du la dem inn i.
 
+**Rekkefølge og tetthet.** NRK, Bauer og P4-gruppen står i kanalnummer-rekkefølge,
+siden nummereringen der er meningsfull (P1, P1+, P2, P3 …). Inne i et fylke er
+nummeret tilfeldig — det følger hvilken Icecast-vert kanalen ble funnet på — så
+der sorteres det alfabetisk. Rutenettet gir tre til fire kolonner framfor sju, som
+er lettere å skanne med et kjapt blikk.
+
 **Volum:** et volumfelt for bruk utenfor bilen. Det skjules ved
 `Tesla`/`QtCarBrowser` i nettleserstrengen, eller ved Linux med berøringsskjerm
 og uten Android — som nesten alltid er en bilskjerm.
@@ -57,6 +63,18 @@ Deteksjonen kan ikke gjøres helt sikker, og det er verdt å vite hvorfor:
 Gjetter den feil, blir feltet stående synlig, og det koster ingen høyde: alt i
 toppen ligger på samme rad. Nettleserstrengen står nederst på siden, slik at
 deteksjonen kan gjøres treffsikker for en skjerm som oppfører seg annerledes.
+
+**Gjenoppkobling.** En bil mister dekning i tunneler, og en Icecast-strøm kan
+falle uten videre. Siden prøver derfor igjen av seg selv med økende pause
+(1 s, 2 s, 4 s … opp til 30 s), viser hvor lenge det er til neste forsøk, og
+kobler til straks nettet er tilbake framfor å vente ut pausen. Pausen nullstilles
+når det lykkes. Stopper du selv, prøver den ikke igjen — og et avvist
+`play()` fra manglende brukertrykk gir ikke nye forsøk, siden bare et trykk
+løser det.
+
+**Systemets mediekontroller.** Via Media Session får du kanalnavn på låseskjermen
+og kan styre avspillingen med systemets egne knapper — inkludert forrige/neste
+kanal, som på noen biler ligger på rattet.
 
 **Kompakt topp.** Toppen er festet, så hver piksel der spises av kanallista
 resten av tiden. Alt — kanalnavn, volum, søk og stoppknapp — ligger derfor på én

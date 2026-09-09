@@ -111,12 +111,14 @@ button {
   color: var(--text); background: var(--panel-hi);
   border: 1px solid var(--line); border-radius: 10px;
 }
-main { padding: 4px 12px 60px; }
+main { padding: 4px 12px 60px; max-width: 1400px; margin: 0 auto; }
 h2 {
   font-size: 13px; text-transform: uppercase; letter-spacing: .08em;
   color: var(--dim); margin: 18px 0 8px;
 }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+/* 250px ga sju kolonner på en 1920px bilskjerm, som tvinger øyet til å skanne i
+   to retninger. Bredere kort og et tak på main gir tre-fire kolonner. */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
 
 /* Én rad = spilleknapp + stjerne. Stjernen kan ikke ligge inne i spilleknappen;
    en knapp inne i en knapp er ugyldig markup og oppfører seg uforutsigbart. */
@@ -221,23 +223,73 @@ function merkSpillende() {
   });
 }
 
+/* ------------------------------------------------- gjenoppkobling ved brudd */
+/* En bil mister dekning i tunneler og utkanter, og en Icecast-strøm kan falle
+   uten videre. Uten dette blir det bare stille, mens toppen fortsatt viser
+   kanalnavnet som om alt er i orden. Vi prøver derfor igjen av oss selv, med
+   økende pause slik at vi ikke hamrer på en server som er nede. */
+var FORSTE_PAUSE = 1000;
+var MAKS_PAUSE = 30000;
+var pause = FORSTE_PAUSE;
+var gjenopptaTimer = null;
+var vaktTimer = null;
+var vilSpille = false;   // brukerens intensjon, ikke elementets tilstand
+
+function aktivRad() {
+  return currentId && document.querySelector('.row[data-id="' + currentId + '"]');
+}
+
+function avbrytTimere() {
+  if (gjenopptaTimer) { clearTimeout(gjenopptaTimer); gjenopptaTimer = null; }
+  if (vaktTimer) { clearTimeout(vaktTimer); vaktTimer = null; }
+}
+
+function planleggGjenopptak(grunn) {
+  if (!vilSpille || gjenopptaTimer) { return; }
+  nowMeta.textContent = grunn + ' — prøver igjen om ' + Math.round(pause / 1000) + ' s';
+  gjenopptaTimer = setTimeout(function () {
+    gjenopptaTimer = null;
+    pause = Math.min(pause * 2, MAKS_PAUSE);
+    kobleTil();
+  }, pause);
+}
+
+function kobleTil() {
+  var rad = aktivRad();
+  if (!rad || !vilSpille) { return; }
+  nowMeta.textContent = 'kobler til …';
+  // Ny src på samme element: unngår at flere strømmer lastes samtidig.
+  audio.src = rad.dataset.url;
+  var forsok = audio.play();
+  if (forsok && forsok.catch) {
+    forsok.catch(function (err) {
+      // NotAllowedError betyr manglende brukertrykk — da hjelper ikke nye forsøk.
+      if (err && err.name === 'NotAllowedError') {
+        vilSpille = false;
+        nowMeta.textContent = 'trykk for å spille';
+        return;
+      }
+      planleggGjenopptak('ingen forbindelse');
+    });
+  }
+}
+
 function spill(rad) {
+  avbrytTimere();
+  pause = FORSTE_PAUSE;
+  vilSpille = true;
   currentId = rad.dataset.id;
   merkSpillende();
   nowName.textContent = rad.dataset.name;
-  nowMeta.textContent = 'kobler til …';
   stopBtn.disabled = false;
-  // Ny src på samme element: unngår at flere strømmer lastes samtidig.
-  audio.src = rad.dataset.url;
-  audio.play().then(function () {
-    nowMeta.textContent = rad.dataset.quality;
-  }).catch(function (err) {
-    nowMeta.textContent = 'kunne ikke spille: ' + err.message;
-  });
+  kobleTil();
   lagre('sisteKanal', currentId);
+  oppdaterMediaSession(rad);
 }
 
 function stopp() {
+  vilSpille = false;
+  avbrytTimere();
   audio.pause();
   audio.removeAttribute('src');
   audio.load();
@@ -246,13 +298,96 @@ function stopp() {
   nowName.textContent = 'Ingen kanal';
   nowMeta.textContent = '';
   stopBtn.disabled = true;
+  if ('mediaSession' in navigator) {
+    try { navigator.mediaSession.playbackState = 'none'; } catch (e) {}
+  }
 }
 
-audio.addEventListener('stalled', function () { nowMeta.textContent = 'strømmen stopper opp …'; });
 audio.addEventListener('playing', function () {
-  var rad = document.querySelector('.row[data-id="' + currentId + '"]');
+  avbrytTimere();
+  pause = FORSTE_PAUSE;
+  var rad = aktivRad();
   if (rad) { nowMeta.textContent = rad.dataset.quality; }
+  if ('mediaSession' in navigator) {
+    try { navigator.mediaSession.playbackState = 'playing'; } catch (e) {}
+  }
 });
+
+audio.addEventListener('error', function () { planleggGjenopptak('strømmen falt'); });
+
+// En direktestrøm skal aldri ta slutt; skjer det, har den blitt brutt.
+audio.addEventListener('ended', function () { planleggGjenopptak('strømmen ble brutt'); });
+
+// stalled/waiting kan gå over av seg selv, så vi venter litt før vi river ned
+// og kobler på nytt — men ikke i det uendelige.
+function settVakt(tekst) {
+  if (!vilSpille || vaktTimer) { return; }
+  nowMeta.textContent = tekst;
+  vaktTimer = setTimeout(function () {
+    vaktTimer = null;
+    if (vilSpille && audio.paused) { planleggGjenopptak('strømmen stoppet'); }
+  }, 8000);
+}
+audio.addEventListener('stalled', function () { settVakt('strømmen stopper opp …'); });
+audio.addEventListener('waiting', function () { settVakt('venter på data …'); });
+
+window.addEventListener('offline', function () {
+  if (vilSpille) { nowMeta.textContent = 'ingen nettverk'; }
+});
+window.addEventListener('online', function () {
+  // Nettet er tilbake: prøv straks, uten å vente ut pausen.
+  if (vilSpille && audio.paused) {
+    avbrytTimere();
+    pause = FORSTE_PAUSE;
+    kobleTil();
+  }
+});
+
+/* ------------------------------------------------------------ Media Session */
+/* Gir kanalnavn på låseskjermen og lar systemets egne knapper — og på noen
+   biler rattknappene — styre avspillingen. */
+function synligeRader() {
+  return [].slice.call(document.querySelectorAll('main > section:not(#favoritter) .row'));
+}
+
+function bytteKanal(steg) {
+  var rader = synligeRader();
+  var i = -1;
+  for (var n = 0; n < rader.length; n++) {
+    if (rader[n].dataset.id === currentId) { i = n; break; }
+  }
+  if (i === -1) { return; }
+  var neste = rader[(i + steg + rader.length) % rader.length];
+  if (neste) { spill(neste); }
+}
+
+function oppdaterMediaSession(rad) {
+  if (!('mediaSession' in navigator)) { return; }
+  try {
+    if (typeof MediaMetadata !== 'undefined') {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: rad.dataset.name,
+        artist: rad.dataset.broadcaster || 'Norsk radio',
+        album: 'Norsk radio',
+      });
+    }
+    navigator.mediaSession.playbackState = 'playing';
+  } catch (e) {}
+}
+
+if ('mediaSession' in navigator) {
+  var handlinger = {
+    play: function () { var rad = aktivRad(); if (rad) { spill(rad); } },
+    pause: stopp,
+    stop: stopp,
+    nexttrack: function () { bytteKanal(1); },
+    previoustrack: function () { bytteKanal(-1); },
+  };
+  Object.keys(handlinger).forEach(function (navn) {
+    // Ikke alle handlinger støttes overalt; en ustøttet gir TypeError.
+    try { navigator.mediaSession.setActionHandler(navn, handlinger[navn]); } catch (e) {}
+  });
+}
 
 document.addEventListener('click', function (event) {
   var stjerne = event.target.closest('.fav');
@@ -366,6 +501,7 @@ def row_html(station: dict, url: str, quality: str) -> str:
         f' data-url="{html.escape(url, quote=True)}"'
         f' data-name="{html.escape(shown, quote=True)}"'
         f' data-quality="{QUALITY_LABELS[quality]}"'
+        f' data-broadcaster="{html.escape(station["broadcaster"], quote=True)}"'
         f' data-search="{html.escape(haystack, quote=True)}"'
         " aria-current='false'>"
         "<button class='play' type='button'>"
@@ -422,7 +558,13 @@ def main() -> int:
 
     for group in order:
         parts.append(f"<section><h2>{html.escape(group)}</h2><div class='grid'>")
-        for station, url, quality in sorted(groups[group], key=lambda row: row[0]["id"]):
+        # NRK, Bauer og P4 har meningsfull nummerering (P1, P1+, P2, P3 …), så
+        # der beholdes kanalnummer-rekkefølgen. Inne i et fylke er nummeret
+        # tilfeldig — det følger hvilken Icecast-vert kanalen ble funnet på — og
+        # da er alfabetisk det man forventer når man leter etter et navn.
+        etter_navn = all(row[0]["id"] >= 100 for row in groups[group])
+        nøkkel = (lambda row: display_name(row[0]).lower()) if etter_navn else (lambda row: row[0]["id"])
+        for station, url, quality in sorted(groups[group], key=nøkkel):
             parts.append(row_html(station, url, quality))
         parts.append("</div></section>")
     parts.append("</main>")
