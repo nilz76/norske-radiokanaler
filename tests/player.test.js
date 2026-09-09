@@ -106,7 +106,6 @@ const UA_IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari
 {
   const { d } = lag({ ua: UA_MAC });
   sjekk('vises på Mac', d.getElementById('vol-wrap').hidden, false);
-  sjekk('bryter tilgjengelig', d.getElementById('vol-toggle').hidden, false);
   const vol = d.getElementById('vol');
   vol.value = '35';
   vol.dispatchEvent(new d.defaultView.Event('input'));
@@ -128,41 +127,34 @@ const UA_IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Safari
 {
   const { d } = lag({ ua: UA_IPHONE, volumSettbar: false, touch: 5 });
   sjekk('skjult på iOS', d.getElementById('vol-wrap').hidden, true);
-  sjekk('bryter skjult når volum ikke kan settes', d.getElementById('vol-toggle').hidden, true);
 }
 
-console.log('\n== Volum: brukerens valg overstyrer');
-{
-  // Bilen gjetter feil -> ett trykk skal skjule det, og huskes.
-  const { d, butikk } = lag({ ua: UA_MAC });
-  sjekk('synlig i utgangspunktet', d.getElementById('vol-wrap').hidden, false);
-  d.getElementById('vol-toggle').click();
-  sjekk('skjult etter trykk', d.getElementById('vol-wrap').hidden, true);
-  sjekk('valget lagret', butikk.visVolum, 'nei');
-  sjekk('bryterteksten oppdatert', d.getElementById('vol-toggle').textContent, 'Vis volumkontroll');
-}
-{
-  const { d } = lag({ ua: UA_MAC, lagret: { visVolum: 'nei' } });
-  sjekk('valget huskes ved ny åpning', d.getElementById('vol-wrap').hidden, true);
-}
-{
-  // Motsatt vei: vil man ha det i bilen likevel, skal det være mulig.
-  const { d, butikk } = lag({ ua: UA_TESLA_UMERKET, touch: 10 });
-  sjekk('skjult som standard i bil', d.getElementById('vol-wrap').hidden, true);
-  d.getElementById('vol-toggle').click();
-  sjekk('kan slås på i bil', d.getElementById('vol-wrap').hidden, false);
-  sjekk('valget lagret', butikk.visVolum, 'ja');
-}
-{
-  const { d } = lag({ ua: UA_TESLA_UMERKET, touch: 10, lagret: { visVolum: 'ja' } });
-  sjekk('påslått valg huskes i bil', d.getElementById('vol-wrap').hidden, false);
-}
+console.log('\n== Volum: nivået huskes');
 {
   const { d, butikk } = lag({ ua: UA_MAC });
   const vol = d.getElementById('vol');
   vol.value = '60';
   vol.dispatchEvent(new d.defaultView.Event('change'));
   sjekk('volumnivå lagres', butikk.volum, '60');
+}
+{
+  const { d } = lag({ ua: UA_MAC, lagret: { volum: '45' } });
+  sjekk('lagret nivå brukes ved åpning', d.getElementById('vol-val').textContent, '45 %');
+}
+
+console.log('\n== Kompakt topp');
+{
+  const { d } = lag({ ua: UA_MAC });
+  const header = d.querySelector('header');
+  sjekk('ingen h1 i toppen', header.querySelector('h1'), null);
+  sjekk('ingen undertekst', header.querySelector('.sub'), null);
+  sjekk('ingen volumbryter', d.getElementById('vol-toggle'), null);
+  // Direkte barn av header = antall elementer som kan bli egne rader.
+  sjekk('fire elementer i toppen', header.children.length, 4);
+  sjekk('kanaltallet flyttet til søkefeltet',
+    /Søk blant \d+ kanaler/.test(d.getElementById('filter').placeholder), true);
+  sjekk('navnet kuttes ikke over flere linjer',
+    /#now-name[^}]*white-space:\s*nowrap/.test(d.querySelector('style').textContent), true);
 }
 
 console.log('\n== Nettleserstreng vises');

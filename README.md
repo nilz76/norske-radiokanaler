@@ -44,24 +44,30 @@ i bilens nettleser og legg den inn som bokmerke, så er den ett trykk unna.
 **Favoritter:** trykk stjernen ved en kanal, og den legger seg i en egen seksjon
 øverst på siden. Rekkefølgen er den du la dem inn i.
 
-**Volum:** et volumfelt for bruk utenfor bilen, med en bryter under søkefeltet
-som alltid overstyrer automatikken og huskes.
+**Volum:** et volumfelt for bruk utenfor bilen. Det skjules ved
+`Tesla`/`QtCarBrowser` i nettleserstrengen, eller ved Linux med berøringsskjerm
+og uten Android — som nesten alltid er en bilskjerm.
 
-Automatikken kan ikke gjøres helt sikker, og det er verdt å vite hvorfor:
+Deteksjonen kan ikke gjøres helt sikker, og det er verdt å vite hvorfor:
 
 - I Chromium kan `audio.volume` **alltid** settes, også i Tesla. Å prøve å sette
   den og lese tilbake fanger derfor bare iOS, der den er skrivebeskyttet.
-- Tesla-nettleseren oppgir ikke alltid `Tesla` i nettleserstrengen, så
-  UA-sjekken alene er ikke nok.
+- Tesla-nettleseren oppgir ikke alltid `Tesla` i nettleserstrengen.
 
-Utgangspunktet er derfor: skjult ved `Tesla`/`QtCarBrowser` i strengen, eller ved
-Linux med berøringsskjerm og uten Android — som nesten alltid er en bilskjerm.
-Gjetter den feil, fikser bryteren det med ett trykk. Nettleserstrengen står
-nederst på siden, slik at deteksjonen kan gjøres treffsikker for en skjerm som
-oppfører seg annerledes.
+Gjetter den feil, blir feltet stående synlig, og det koster ingen høyde: alt i
+toppen ligger på samme rad. Nettleserstrengen står nederst på siden, slik at
+deteksjonen kan gjøres treffsikker for en skjerm som oppfører seg annerledes.
 
-Favoritter, volumnivå og volumbryteren lagres i `localStorage`, altså bare i den
-nettleseren — ingenting sendes noe sted. Klikkene håndteres med hendelsesdelegering, slik at favorittradene
+**Kompakt topp.** Toppen er festet, så hver piksel der spises av kanallista
+resten av tiden. Alt — kanalnavn, volum, søk og stoppknapp — ligger derfor på én
+rad som bare brytes når bredden krever det. Kanaltallet står i søkefeltets
+plassholder framfor på en egen linje, og kanalnavnet kuttes med ellipse framfor å
+brekke. Beregnet fra CSS-en er den festede toppen **62 px** på en bilskjerm og
+116 px på en smal telefon, mot 272 px da tittel, undertekst og hver kontroll
+hadde sin egen rad.
+
+Favoritter og volumnivå lagres i `localStorage`, altså bare i den nettleseren —
+ingenting sendes noe sted. Klikkene håndteres med hendelsesdelegering, slik at favorittradene
 virker selv om de er kloner av radene lenger ned.
 
 Siden tar hensyn til to begrensninger i nettleseren i bilen:

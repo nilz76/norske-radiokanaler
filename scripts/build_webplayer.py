@@ -63,53 +63,58 @@ body {
   font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
+/* Toppen er festet, så hver piksel her spises av visningsflaten resten av
+   tiden. Alt ligger derfor på én rad som bare brytes når bredden krever det —
+   på en bilskjerm blir det én linje. */
 header {
   position: sticky; top: 0; z-index: 10; background: var(--panel);
-  border-bottom: 1px solid var(--line); padding: 14px 18px;
+  border-bottom: 1px solid var(--line); padding: 8px 12px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
 }
-h1 { margin: 0 0 4px; font-size: 20px; }
-.sub { color: var(--dim); font-size: 14px; }
-#now {
-  display: flex; align-items: center; gap: 14px; margin-top: 12px;
-  background: var(--panel-hi); border: 1px solid var(--line); border-radius: 12px;
-  padding: 12px 14px; min-height: 62px; flex-wrap: wrap;
+#now-text {
+  flex: 1 1 170px; min-width: 0; display: flex; align-items: center; gap: 8px;
+  background: var(--panel-hi); border: 1px solid var(--line); border-radius: 10px;
+  padding: 0 12px; height: 46px;
 }
-#now-text { flex: 1 1 190px; min-width: 0; }
-#now-name { font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
-#now-meta { color: var(--dim); font-size: 13px; font-weight: 400; }
+/* Navnet kuttes med ellipse framfor å brekke til en ny linje og øke høyden. */
+#now-name {
+  font-size: 16px; font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#now-meta { color: var(--dim); font-size: 12px; white-space: nowrap; flex: 0 0 auto; }
 button {
   font: inherit; color: var(--text); background: var(--panel-hi);
-  border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 10px; cursor: pointer;
 }
-#stop { min-width: 104px; min-height: 52px; font-weight: 600; }
+#stop { flex: 0 0 auto; min-width: 84px; height: 46px; font-weight: 600; }
 #stop:disabled { opacity: .4; }
 
 /* Volumfeltet vises bare der nettleseren faktisk lar lydstyrken settes.
    I Tesla styres volumet av bilen, og på iOS er audio.volume skrivebeskyttet. */
-#vol-wrap { display: flex; align-items: center; gap: 10px; flex: 1 1 180px; min-width: 160px; }
-#vol-icon { color: var(--dim); font-size: 18px; }
+#vol-wrap { display: flex; align-items: center; gap: 8px; flex: 0 1 150px; min-width: 120px; height: 46px; }
+#vol-icon { color: var(--dim); font-size: 16px; flex: 0 0 auto; }
 #vol {
-  flex: 1; min-width: 110px; height: 40px; margin: 0;
+  flex: 1; min-width: 70px; height: 46px; margin: 0;
   background: transparent; -webkit-appearance: none; appearance: none;
 }
 #vol::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: var(--line); }
 #vol::-moz-range-track { height: 8px; border-radius: 4px; background: var(--line); }
 #vol::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none; width: 30px; height: 30px; margin-top: -11px;
+  -webkit-appearance: none; appearance: none; width: 26px; height: 26px; margin-top: -9px;
   border: none; border-radius: 50%; background: var(--accent);
 }
-#vol::-moz-range-thumb { width: 30px; height: 30px; border: none; border-radius: 50%; background: var(--accent); }
-#vol-val { color: var(--dim); font-size: 13px; min-width: 40px; text-align: right; font-variant-numeric: tabular-nums; }
+#vol::-moz-range-thumb { width: 26px; height: 26px; border: none; border-radius: 50%; background: var(--accent); }
+#vol-val { color: var(--dim); font-size: 12px; min-width: 34px; text-align: right; font-variant-numeric: tabular-nums; flex: 0 0 auto; }
 
 #filter {
-  width: 100%; margin-top: 10px; padding: 14px; font: inherit;
+  flex: 1 1 190px; min-width: 140px; height: 46px; padding: 0 12px; font: inherit;
   color: var(--text); background: var(--panel-hi);
-  border: 1px solid var(--line); border-radius: 12px;
+  border: 1px solid var(--line); border-radius: 10px;
 }
-main { padding: 8px 18px 60px; }
+main { padding: 4px 12px 60px; }
 h2 {
-  font-size: 14px; text-transform: uppercase; letter-spacing: .08em;
-  color: var(--dim); margin: 26px 0 10px;
+  font-size: 13px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--dim); margin: 18px 0 8px;
 }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
 
@@ -135,14 +140,10 @@ h2 {
   color: var(--dim);
 }
 .fav[aria-pressed="true"] { color: var(--star); }
-footer { color: var(--dim); font-size: 13px; padding: 0 18px 40px; }
+footer { color: var(--dim); font-size: 13px; padding: 0 12px 40px; }
 footer ul { padding-left: 20px; }
 a { color: var(--accent); }
 #fav-empty { color: var(--dim); font-size: 14px; }
-#vol-toggle {
-  margin-top: 10px; min-height: 44px; padding: 8px 14px;
-  font-size: 14px; color: var(--dim);
-}
 #ua { word-break: break-all; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
 """
 
@@ -269,9 +270,10 @@ stopBtn.addEventListener('click', stopp);
      fanger derfor bare iOS, der volume er skrivebeskyttet og blir stående på 1.
    - Tesla-nettleseren oppgir ikke alltid «Tesla» i nettleserstrengen.
 
-   Derfor er automatikken bare et utgangspunkt, og brukerens valg overstyrer den
-   alltid og huskes. Nettleserstrengen vises nederst på siden, slik at
-   deteksjonen kan gjøres treffsikker for en skjerm som gjetter feil. */
+   Gjetter den feil, blir volumfeltet stående synlig. Det koster ingen høyde:
+   feltet ligger på samme rad som resten av toppen. Nettleserstrengen vises
+   nederst på siden, slik at deteksjonen kan gjøres treffsikker for en skjerm
+   som oppfører seg annerledes. */
 function volumKanSettes() {
   try {
     var probe = new Audio();
@@ -293,7 +295,6 @@ function ventetBilskjerm() {
 var volWrap = document.getElementById('vol-wrap');
 var vol = document.getElementById('vol');
 var volVal = document.getElementById('vol-val');
-var volToggle = document.getElementById('vol-toggle');
 
 function settVolum(prosent) {
   audio.volume = Math.min(100, Math.max(0, prosent)) / 100;
@@ -303,30 +304,15 @@ function settVolum(prosent) {
 var lagretVolum = parseInt(hent('volum'), 10);
 if (isNaN(lagretVolum)) { lagretVolum = 100; }
 
-// Kan lydstyrken ikke settes i det hele tatt (iOS), er det ingenting å velge.
-var kanSettes = volumKanSettes();
-var valg = hent('visVolum');
-var visVolum = kanSettes && (valg === 'ja' || (valg !== 'nei' && !ventetBilskjerm()));
+var visVolum = volumKanSettes() && !ventetBilskjerm();
+volWrap.hidden = !visVolum;
 
-function tegnVolum() {
-  volWrap.hidden = !visVolum;
-  volToggle.hidden = !kanSettes;
-  volToggle.textContent = visVolum ? 'Skjul volumkontroll' : 'Vis volumkontroll';
-  volToggle.setAttribute('aria-pressed', visVolum ? 'true' : 'false');
-}
-
-if (kanSettes) {
+if (visVolum) {
   vol.value = lagretVolum;
   settVolum(lagretVolum);
   vol.addEventListener('input', function () { settVolum(parseInt(vol.value, 10)); });
   vol.addEventListener('change', function () { lagre('volum', vol.value); });
-  volToggle.addEventListener('click', function () {
-    visVolum = !visVolum;
-    lagre('visVolum', visVolum ? 'ja' : 'nei');
-    tegnVolum();
-  });
 }
-tegnVolum();
 
 var uaLinje = document.getElementById('ua');
 if (uaLinje) { uaLinje.textContent = navigator.userAgent; }
@@ -419,19 +405,14 @@ def main() -> int:
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         f"<style>{CSS}</style>",
         "<header>",
-        "<h1>Norsk radio</h1>",
-        f'<div class="sub">{playable} kanaler — trykk for å spille, stjerne for favoritt</div>',
-        '<div id="now">',
-        '<div id="now-text"><div id="now-name">Ingen kanal</div><div id="now-meta"></div></div>',
+        '<div id="now-text"><span id="now-name">Ingen kanal</span><span id="now-meta"></span></div>',
         '<div id="vol-wrap" hidden>',
         '<span id="vol-icon" aria-hidden="true">\U0001f50a</span>',
         '<input id="vol" type="range" min="0" max="100" step="1" value="100" aria-label="Volum">',
         '<span id="vol-val">100 %</span>',
         "</div>",
+        f'<input id="filter" type="search" placeholder="Søk blant {playable} kanaler" autocomplete="off">',
         '<button id="stop" type="button" disabled>Stopp</button>',
-        "</div>",
-        '<input id="filter" type="search" placeholder="Søk på kanal eller fylke" autocomplete="off">',
-        '<button id="vol-toggle" type="button" aria-pressed="false" hidden>Vis volumkontroll</button>',
         "</header>",
         "<main>",
         "<section id='favoritter' hidden><h2>Favoritter</h2>",
