@@ -74,7 +74,14 @@ løser det.
 
 **Systemets mediekontroller.** Via Media Session får du kanalnavn på låseskjermen
 og kan styre avspillingen med systemets egne knapper — inkludert forrige/neste
-kanal, som på noen biler ligger på rattet.
+kanal. Dette er **slått av på bilskjerm**: i Tesla fikk det bilens
+mediebehandling til å tolke avspillingen som video, og video sperres under
+kjøring, så lyden stoppet. Nytten er uansett størst på telefon.
+
+Av samme grunn ligger spilleren i et ekte `<audio>`-element i dokumentet, med
+`preload="none"` og `playsinline`, framfor et løsrevet `new Audio()`. En innebygd
+nettleser klassifiserer avspilling ut fra elementet, og et objekt uten markup kan
+havne i videokategorien.
 
 **Kompakt topp.** Toppen er festet, så hver piksel der spises av kanallista
 resten av tiden. Alt — kanalnavn, volum, søk og stoppknapp — ligger derfor på én

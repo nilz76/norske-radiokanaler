@@ -150,8 +150,23 @@ a { color: var(--accent); }
 """
 
 JS = """
-var audio = new Audio();
-audio.preload = 'none';
+/* Et ekte <audio>-element i dokumentet, ikke et løsrevet new Audio(). En
+   innebygd nettleser — som Teslas — klassifiserer avspilling ut fra elementet,
+   og et løsrevet objekt uten markup kan havne i videokategorien. Da slår bilens
+   sperre mot video under kjøring inn, og lyden stopper. */
+var audio = document.getElementById('lyd');
+
+/* Er dette en bilskjerm? Brukes to steder: volumfeltet skjules, og Media
+   Session slås av — se begrunnelsen der den registreres. */
+function ventetBilskjerm() {
+  var ua = navigator.userAgent;
+  if (/Tesla|QtCarBrowser/i.test(ua)) { return true; }
+  // Linux med berøringsskjerm og uten Android er nesten alltid en bilskjerm.
+  var linux = /Linux|X11/i.test(ua) && !/Android/i.test(ua);
+  var touch = (navigator.maxTouchPoints || 0) > 0;
+  return linux && touch;
+}
+var erBilskjerm = ventetBilskjerm();
 var nowName = document.getElementById('now-name');
 var nowMeta = document.getElementById('now-meta');
 var stopBtn = document.getElementById('stop');
@@ -298,7 +313,7 @@ function stopp() {
   nowName.textContent = 'Ingen kanal';
   nowMeta.textContent = '';
   stopBtn.disabled = true;
-  if ('mediaSession' in navigator) {
+  if (brukMediaSession) {
     try { navigator.mediaSession.playbackState = 'none'; } catch (e) {}
   }
 }
@@ -308,7 +323,7 @@ audio.addEventListener('playing', function () {
   pause = FORSTE_PAUSE;
   var rad = aktivRad();
   if (rad) { nowMeta.textContent = rad.dataset.quality; }
-  if ('mediaSession' in navigator) {
+  if (brukMediaSession) {
     try { navigator.mediaSession.playbackState = 'playing'; } catch (e) {}
   }
 });
@@ -344,8 +359,12 @@ window.addEventListener('online', function () {
 });
 
 /* ------------------------------------------------------------ Media Session */
-/* Gir kanalnavn på låseskjermen og lar systemets egne knapper — og på noen
-   biler rattknappene — styre avspillingen. */
+/* Gir kanalnavn på låseskjermen og lar systemets egne knapper styre
+   avspillingen. Slås AV på bilskjerm: i Tesla fikk avspillingen bilens
+   mediebehandling til å tro at det var video, og da stanser bilen den under
+   kjøring. Nytten er uansett størst på telefon, der låseskjermen viser
+   kanalnavnet. */
+var brukMediaSession = !erBilskjerm && ('mediaSession' in navigator);
 function synligeRader() {
   return [].slice.call(document.querySelectorAll('main > section:not(#favoritter) .row'));
 }
@@ -362,7 +381,7 @@ function bytteKanal(steg) {
 }
 
 function oppdaterMediaSession(rad) {
-  if (!('mediaSession' in navigator)) { return; }
+  if (!brukMediaSession) { return; }
   try {
     if (typeof MediaMetadata !== 'undefined') {
       navigator.mediaSession.metadata = new MediaMetadata({
@@ -375,7 +394,7 @@ function oppdaterMediaSession(rad) {
   } catch (e) {}
 }
 
-if ('mediaSession' in navigator) {
+if (brukMediaSession) {
   var handlinger = {
     play: function () { var rad = aktivRad(); if (rad) { spill(rad); } },
     pause: stopp,
@@ -415,16 +434,6 @@ function volumKanSettes() {
     probe.volume = 0.42;
     return Math.abs(probe.volume - 0.42) < 0.01;
   } catch (e) { return false; }
-}
-
-function ventetBilskjerm() {
-  var ua = navigator.userAgent;
-  if (/Tesla|QtCarBrowser/i.test(ua)) { return true; }
-  // Linux med berøringsskjerm og uten Android er nesten alltid en bilskjerm.
-  // Skulle det treffe en Linux-maskin med touch, slår brukeren det på igjen.
-  var linux = /Linux|X11/i.test(ua) && !/Android/i.test(ua);
-  var touch = (navigator.maxTouchPoints || 0) > 0;
-  return linux && touch;
 }
 
 var volWrap = document.getElementById('vol-wrap');
@@ -540,6 +549,9 @@ def main() -> int:
         "<title>Norsk radio</title>",
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
         f"<style>{CSS}</style>",
+        # playsinline hindrer at innebygde nettlesere tar over med egen
+        # fullskjermspiller; preload=none sparer data til brukeren trykker.
+        '<audio id="lyd" preload="none" playsinline></audio>',
         "<header>",
         '<div id="now-text"><span id="now-name">Ingen kanal</span><span id="now-meta"></span></div>',
         '<div id="vol-wrap" hidden>',

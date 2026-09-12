@@ -33,30 +33,37 @@ function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret 
     getItem: k => (lagringVirker ? (k in butikk ? butikk[k] : null) : (() => { throw new Error('blokkert'); })()),
     setItem: (k, v) => { if (!lagringVirker) throw new Error('blokkert'); butikk[k] = String(v); },
   }});
-  // Audio-stubb som ekte EventTarget, slik at sidens hendelseslyttere fyres.
-  // volume speiler nettlesere: skrivebeskyttet på iOS.
-  w.__lyd = [];
+  // new Audio() brukes nå bare til volumprøven; spilleren er <audio id="lyd">
+  // i dokumentet. Prøven speiler nettlesere: volume er skrivebeskyttet på iOS.
   w.Audio = class extends w.EventTarget {
-    constructor() {
-      super();
-      this._v = 1; this._src = ''; this.paused = true; this.srcLogg = [];
-      w.__lyd.push(this);
-    }
+    constructor() { super(); this._v = 1; }
     get volume() { return this._v; }
     set volume(v) { if (volumSettbar) this._v = v; }
-    get src() { return this._src; }
-    set src(v) { this._src = v; this.srcLogg.push(v); }
-    play() {
-      if (playAvvises) { return Promise.reject(playAvvises); }
-      this.paused = false;
-      const p = Promise.resolve();
-      p.then(() => this.dispatchEvent(new w.Event('playing')));
-      return p;
-    }
-    pause() { this.paused = true; }
-    load() {}
-    removeAttribute() { this._src = ''; }
   };
+  // jsdom implementerer ikke avspilling, så det ekte elementet lappes — før
+  // skriptet kjøres, siden siden henter det ved oppstart. Elementet er allerede
+  // en EventTarget, så sidens hendelseslyttere fyres som de skal.
+  const lyd = w.document.getElementById('lyd');
+  lyd.srcLogg = [];
+  let _src = '', _paused = true;
+  Object.defineProperty(lyd, 'src', {
+    get: () => _src,
+    set: v => { _src = v; lyd.srcLogg.push(v); },
+    configurable: true,
+  });
+  Object.defineProperty(lyd, 'paused', {
+    get: () => _paused, set: v => { _paused = v; }, configurable: true,
+  });
+  lyd.play = () => {
+    if (playAvvises) { return Promise.reject(playAvvises); }
+    _paused = false;
+    const p = Promise.resolve();
+    p.then(() => lyd.dispatchEvent(new w.Event('playing')));
+    return p;
+  };
+  lyd.pause = () => { _paused = true; };
+  lyd.load = () => {};
+  lyd.removeAttribute = () => { _src = ''; };
   // Media Session-stubb. Registreres før skriptet kjøres, slik at siden ser den.
   const handlinger = {};
   if (mediaSession) {
@@ -68,8 +75,7 @@ function lag({ ua, volumSettbar = true, lagringVirker = true, touch = 0, lagret 
   }
   const js = html.match(/<script>([\s\S]*)<\/script>/)[1];
   w.eval(js);
-  // Første Audio-instans er spillerens; den andre er volumprøven.
-  return { w, d: w.document, butikk, lyd: w.__lyd[0], handlinger };
+  return { w, d: w.document, butikk, lyd, handlinger };
 }
 
 let feil = 0;
@@ -273,8 +279,27 @@ async function testGjenoppkobling() {
   }
 }
 
+function testLydelement() {
+  console.log('\n== Lydelementet er lyd, ikke video');
+  const { d } = lag({});
+  const el = d.getElementById('lyd');
+  sjekk('<audio> finnes i dokumentet', el !== null && el.tagName, 'AUDIO');
+  sjekk('preload=none', el.getAttribute('preload'), 'none');
+  sjekk('playsinline satt', el.hasAttribute('playsinline'), true);
+  sjekk('ingen <video> på siden', d.querySelector('video'), null);
+}
+
 function testMediaSession() {
   console.log('\n== Media Session');
+  {
+    // Slås av på bilskjerm: Tesla tolket avspillingen som video og stanset den
+    // under kjøring.
+    const { d, handlinger } = lag({ ua: UA_TESLA_UMERKET, touch: 10, mediaSession: true });
+    d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
+    sjekk('ingen handlere registrert i bil', Object.keys(handlinger).length, 0);
+    sjekk('ingen metadata satt i bil', d.defaultView.navigator.mediaSession.metadata, null);
+    sjekk('avspilling virker likevel', d.getElementById('now-name').textContent, 'NRK P3');
+  }
   {
     const { d, handlinger } = lag({ mediaSession: true });
     d.querySelector('main > section:not(#favoritter) .row[data-id="4"] .play').click();
@@ -352,6 +377,7 @@ console.log('\n== Uten localStorage (privat modus)');
 
 (async () => {
   await testGjenoppkobling();
+  testLydelement();
   testMediaSession();
   testSortering();
   console.log(feil ? `\n${feil} FEIL` : '\nAlle tester bestått');
