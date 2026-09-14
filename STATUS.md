@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-09-07 11:37 UTC
+Sist sjekket: 2026-09-14 11:12 UTC
 
-267 av 269 strømmer svarte.
+262 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -182,9 +182,9 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 82 | Radio 3.16 | AAC høy | ✅ OK | HTTP 200 audio/aac |
 | 83 | Norsk Country Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 84 | Metal Express Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 85 | Radio Latin-Amerika | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 85 | Radio Latin-Amerika | AAC høy | ✅ OK | HTTP 200 audio/aac |
-| 85 | Radio Latin-Amerika | AAC lav | ✅ OK | HTTP 200 audio/aac |
+| 85 | Radio Latin-Amerika | MP3 høy | ❌ Død | tidsavbrudd |
+| 85 | Radio Latin-Amerika | AAC høy | ❌ Død | tidsavbrudd |
+| 85 | Radio Latin-Amerika | AAC lav | ❌ Død | tidsavbrudd |
 | 86 | historyradio.org | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 87 | Radio Northern Star | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 90 | Radio Rox | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
@@ -201,7 +201,7 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 103 | P5 Fosen | AAC lav | ✅ OK | HTTP 206 audio/aac |
 | 104 | Radio 102 | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 104 | Radio 102 | AAC høy | ✅ OK | HTTP 206 audio/aac |
-| 104 | Radio 102 | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 104 | Radio 102 | AAC lav | ❌ Død | nettverksfeil: timed out |
 | 105 | Radio Kos | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 105 | Radio Kos | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 105 | Radio Kos | AAC lav | ✅ OK | HTTP 206 audio/aac |
@@ -222,7 +222,7 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 110 | Radio Sunnmøre | AAC lav | ✅ OK | HTTP 206 audio/aac |
 | 111 | Radio Folgefonn | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 112 | Sørlandsradioen | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
-| 112 | Sørlandsradioen | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 112 | Sørlandsradioen | AAC lav | ❌ Død | nettverksfeil: timed out |
 | 120 | ElverumsRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 121 | GudbrandsdalsRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 122 | HamarRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
@@ -248,8 +248,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 144 | Radio Nordkapp | MP3 høy | ✅ OK | HTTP 200 application/ogg |
 | 145 | Radio Meløy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 146 | FM 8000 Bodø | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 147 | Radio Værøy | MP3 høy | 💤 Av lufta | HTTP 404 |
-| 147 | Radio Værøy | AAC lav | 💤 Av lufta | HTTP 404 |
+| 147 | Radio Værøy | MP3 høy | 💤 Av lufta | tidsavbrudd |
+| 147 | Radio Værøy | AAC lav | 💤 Av lufta | tidsavbrudd |
 | 148 | Guovdageainnu Lagasradio | AAC høy | ✅ OK | HTTP 200 audio/aac |
 | 160 | Radio Randsfjord | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 160 | Radio Randsfjord | AAC høy | ✅ OK | HTTP 206 audio/aac |
