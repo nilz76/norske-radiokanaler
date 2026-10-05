@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-09-28 12:18 UTC
+Sist sjekket: 2026-10-05 12:57 UTC
 
-260 av 269 strømmer svarte.
+264 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -246,8 +246,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 143 | Radio Tromsø Hits | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 143 | Radio Tromsø Hits | AAC lav | ✅ OK | HTTP 206 audio/aac |
 | 144 | Radio Nordkapp | MP3 høy | ✅ OK | HTTP 200 application/ogg |
-| 145 | Radio Meløy | MP3 høy | ❌ Død | nettverksfeil: timed out |
-| 146 | FM 8000 Bodø | MP3 høy | ❌ Død | nettverksfeil: timed out |
+| 145 | Radio Meløy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 146 | FM 8000 Bodø | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 147 | Radio Værøy | MP3 høy | 💤 Av lufta | HTTP 404 |
 | 147 | Radio Værøy | AAC lav | 💤 Av lufta | HTTP 404 |
 | 148 | Guovdageainnu Lagasradio | AAC høy | ✅ OK | HTTP 200 audio/aac |
@@ -257,8 +257,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 161 | Radio Øst | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 161 | Radio Øst | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 161 | Radio Øst | AAC lav | ✅ OK | HTTP 206 audio/aac |
-| 162 | Radio Skjeberg | MP3 høy | ❌ Død | HTTP 404 |
-| 162 | Radio Skjeberg | AAC høy | ❌ Død | HTTP 404 |
+| 162 | Radio Skjeberg | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
+| 162 | Radio Skjeberg | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 163 | radiOrakel | MP3 høy | ❌ Død | nettverksfeil: timed out |
 | 163 | radiOrakel | AAC høy | ❌ Død | nettverksfeil: timed out |
 | 163 | radiOrakel | MP3 lav | ❌ Død | nettverksfeil: timed out |
