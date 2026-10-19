@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-10-12 13:49 UTC
+Sist sjekket: 2026-10-19 11:30 UTC
 
-266 av 269 strømmer svarte.
+256 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -126,8 +126,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 51 | Radio Rock | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 52 | Kiss | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 52 | Kiss | AAC høy | ✅ OK | HTTP 200 audio/aacp |
-| 53 | Radio 1 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 53 | Radio 1 | AAC høy | ✅ OK | HTTP 200 audio/aacp |
+| 53 | Radio 1 | MP3 høy | ❌ Død | HTTP 502 |
+| 53 | Radio 1 | AAC høy | ❌ Død | HTTP 502 |
 | 54 | Norsk Pop | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 54 | Norsk Pop | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 55 | Radio Vinyl | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
@@ -190,15 +190,15 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 90 | Radio Rox | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 91 | The Beat | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 92 | Heart Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 101 | Nordfjord Nærradio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
-| 101 | Nordfjord Nærradio | AAC høy | ✅ OK | HTTP 206 audio/aac |
-| 101 | Nordfjord Nærradio | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 101 | Nordfjord Nærradio | MP3 høy | ❌ Død | HTTP 403 |
+| 101 | Nordfjord Nærradio | AAC høy | ❌ Død | HTTP 403 |
+| 101 | Nordfjord Nærradio | AAC lav | ❌ Død | HTTP 403 |
 | 102 | Ordentlig Radio | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 102 | Ordentlig Radio | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 102 | Ordentlig Radio | AAC lav | ✅ OK | HTTP 206 audio/aac |
-| 103 | P5 Fosen | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
-| 103 | P5 Fosen | AAC høy | ✅ OK | HTTP 206 audio/aac |
-| 103 | P5 Fosen | AAC lav | ✅ OK | HTTP 206 audio/aac |
+| 103 | P5 Fosen | MP3 høy | ❌ Død | HTTP 404 |
+| 103 | P5 Fosen | AAC høy | ❌ Død | HTTP 404 |
+| 103 | P5 Fosen | AAC lav | ❌ Død | HTTP 404 |
 | 104 | Radio 102 | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 104 | Radio 102 | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 104 | Radio 102 | AAC lav | ✅ OK | HTTP 206 audio/aac |
@@ -270,8 +270,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 180 | Radio Sotra | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 181 | Radio Ålesund | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 181 | Radio Ålesund | AAC høy | ✅ OK | HTTP 206 audio/aac |
-| 182 | 1FM Jazz | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
-| 182 | 1FM Jazz | MP3 lav | ✅ OK | HTTP 206 audio/mpeg |
+| 182 | 1FM Jazz | MP3 høy | ❌ Død | HTTP 404 |
+| 182 | 1FM Jazz | MP3 lav | ❌ Død | HTTP 404 |
 | 183 | Radio Haugaland | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 184 | Radio Trøndelag | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 185 | Nea Radio | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
