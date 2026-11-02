@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-10-26 11:49 UTC
+Sist sjekket: 2026-11-02 14:07 UTC
 
-256 av 269 strømmer svarte.
+257 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -126,8 +126,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 51 | Radio Rock | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 52 | Kiss | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 52 | Kiss | AAC høy | ✅ OK | HTTP 200 audio/aacp |
-| 53 | Radio 1 | MP3 høy | ❌ Død | HTTP 502 |
-| 53 | Radio 1 | AAC høy | ❌ Død | HTTP 502 |
+| 53 | Radio 1 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
+| 53 | Radio 1 | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 54 | Norsk Pop | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 54 | Norsk Pop | AAC høy | ✅ OK | HTTP 200 audio/aacp |
 | 55 | Radio Vinyl | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
@@ -232,7 +232,7 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 126 | SolørRadioen+ | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 127 | TrysilRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 128 | Totenradioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
-| 129 | Radio Sentrum | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 129 | Radio Sentrum | MP3 lav | ❌ Død | HTTP 404 |
 | 140 | Radio 3 Bodø | MP3 høy | ✅ OK | HTTP 206 application/mpeg |
 | 140 | Radio 3 Bodø | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 140 | Radio 3 Bodø | AAC lav | ✅ OK | HTTP 206 audio/aac |
