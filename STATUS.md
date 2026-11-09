@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-11-02 14:07 UTC
+Sist sjekket: 2026-11-09 14:39 UTC
 
-257 av 269 strømmer svarte.
+258 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -232,7 +232,7 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 126 | SolørRadioen+ | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 127 | TrysilRadioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 128 | Totenradioen | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
-| 129 | Radio Sentrum | MP3 lav | ❌ Død | HTTP 404 |
+| 129 | Radio Sentrum | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
 | 140 | Radio 3 Bodø | MP3 høy | ✅ OK | HTTP 206 application/mpeg |
 | 140 | Radio 3 Bodø | AAC høy | ✅ OK | HTTP 206 audio/aac |
 | 140 | Radio 3 Bodø | AAC lav | ✅ OK | HTTP 206 audio/aac |
