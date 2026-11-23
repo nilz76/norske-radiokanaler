@@ -1,8 +1,8 @@
 # Status for strømmene
 
-Sist sjekket: 2026-11-16 14:15 UTC
+Sist sjekket: 2026-11-23 16:46 UTC
 
-261 av 269 strømmer svarte.
+255 av 269 strømmer svarte.
 
 Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, og Icecast fjerner mount-punktet da.
 
@@ -14,7 +14,7 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 1 | NRK P1 | AAC lav | ✅ OK | HTTP 200 audio/aacp |
 | 2 | NRK P1+ | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 2 | NRK P1+ | AAC høy | ✅ OK | HTTP 200 audio/aacp |
-| 2 | NRK P1+ | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 2 | NRK P1+ | MP3 lav | ❌ Død | nettverksfeil: [SSL: UNEXPECTED_MESSAGE] unexpected message (_ssl.c:1011) |
 | 2 | NRK P1+ | AAC lav | ✅ OK | HTTP 200 audio/aacp |
 | 3 | NRK P2 | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 3 | NRK P2 | AAC høy | ✅ OK | HTTP 200 audio/aacp |
@@ -248,8 +248,8 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 144 | Radio Nordkapp | MP3 høy | ✅ OK | HTTP 200 application/ogg |
 | 145 | Radio Meløy | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 146 | FM 8000 Bodø | MP3 høy | ❌ Død | HTTP 404 |
-| 147 | Radio Værøy | MP3 høy | 🔁 Sender igjen | HTTP 206 audio/mpeg |
-| 147 | Radio Værøy | AAC lav | 🔁 Sender igjen | HTTP 206 audio/aac |
+| 147 | Radio Værøy | MP3 høy | 💤 Av lufta | HTTP 404 |
+| 147 | Radio Værøy | AAC lav | 💤 Av lufta | HTTP 404 |
 | 148 | Guovdageainnu Lagasradio | AAC høy | ✅ OK | HTTP 200 audio/mpeg |
 | 160 | Radio Randsfjord | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 160 | Radio Randsfjord | AAC høy | ✅ OK | HTTP 206 audio/aac |
@@ -259,9 +259,9 @@ Kanaler merket «av lufta» er ventet å ikke svare: kilden er ikke koblet til, 
 | 161 | Radio Øst | AAC lav | ✅ OK | HTTP 206 audio/aac |
 | 162 | Radio Skjeberg | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 162 | Radio Skjeberg | AAC høy | ✅ OK | HTTP 206 audio/aac |
-| 163 | radiOrakel | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
-| 163 | radiOrakel | AAC høy | ✅ OK | HTTP 200 audio/aacp |
-| 163 | radiOrakel | MP3 lav | ✅ OK | HTTP 200 audio/mpeg |
+| 163 | radiOrakel | MP3 høy | ❌ Død | nettverksfeil: timed out |
+| 163 | radiOrakel | AAC høy | ❌ Død | nettverksfeil: timed out |
+| 163 | radiOrakel | MP3 lav | ❌ Død | nettverksfeil: timed out |
 | 164 | Radio Nova | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
 | 165 | Radio Tønsberg | MP3 høy | ✅ OK | HTTP 206 audio/mpeg |
 | 166 | Radio Lyngdal | MP3 høy | ✅ OK | HTTP 200 audio/mpeg |
